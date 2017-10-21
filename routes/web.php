@@ -33,6 +33,13 @@ Route::get('/dashboard', 'DashboardsController@index');
 
 // CVs 
 Route::get('/cv', 'CvsController@index');
+// /cv/personaldetails
+// /cv/education
+// /cv/experience
+// /cv/vocation
+// /cv/engagement
+// /cv/interests
+// /cv/endorsements
 
 // Contact Us
 Route::get('/contact', function(){
