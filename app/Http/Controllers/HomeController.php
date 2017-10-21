@@ -26,9 +26,11 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        if($user->role === 'student'){
+        if($user->role === 'student') 
+        {
             return view('student.dashboard', $user);
-        }else if($user->role === 'endorser')
+        }
+        else if($user->role === 'endorser') 
         { 
             return view('endorser.dashboard');
         }
@@ -37,9 +39,11 @@ class HomeController extends Controller
     public function cv()
     {
         $user = Auth::user();
-        if($user->role === 'student'){
+        if($user->role === 'student') 
+        {
             return view('student.cv', $user);
-        }else if($user->role === 'endorser')
+        }
+        else if($user->role === 'endorser') 
         { 
             return view('endorser.cv');
         }
@@ -48,13 +52,14 @@ class HomeController extends Controller
     public function profile($id)
     {
         $user = Auth::user();
-        if($user->role === 'student'){
+        if($user->role === 'student') 
+        {
             $student = DB::table('students')->where('user_id',$id)->first();
             return view('student.profile')->with('student',$student);
-        }else if($user->role === 'endorser')
+        }
+        else if($user->role === 'endorser') 
         { 
             return view('endorser.profile');
         }
-       
     }
 }
