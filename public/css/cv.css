@@ -1,0 +1,23 @@
+.content {
+  border: 2px solid blue;
+  /*Safari 6.1, Chrome 21, Opera 15*/
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /*Edge, Firefox 22, Safari 9, Chrome 29, IE 11, Opera 12.1*/
+  -ms-flex-flow: row wrap;
+  /*IE 10*/
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-flow: row wrap;
+  /*Edge, Firefox 28, Safari 9, Chrome 29, IE 11, Opera 12.1*/
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  /*Edge, Firefox 22, Safari 9, Chrome 29, IE 11, Opera 12.1*/
+}
+
+.box {
+  border: 2px solid blue;
+  width: 40%;
+}
+

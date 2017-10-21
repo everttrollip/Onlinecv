@@ -1,0 +1,19 @@
+@mixin flexbox-container($flow-direction: row, $wrap: wrap, $justify-content: space-around) {
+    display: -webkit-flex; /*Safari 6.1, Chrome 21, Opera 15*/
+    display: flex; /*Edge, Firefox 22, Safari 9, Chrome 29, IE 11, Opera 12.1*/
+  
+    -ms-flex-flow: $flow-direction $wrap; /*IE 10*/
+    flex-flow: $flow-direction $wrap; /*Edge, Firefox 28, Safari 9, Chrome 29, IE 11, Opera 12.1*/
+  
+    justify-content: $justify-content; /*Edge, Firefox 22, Safari 9, Chrome 29, IE 11, Opera 12.1*/
+  }
+  
+@mixin flexbox-container-inline($flow-direction: row, $wrap: wrap, $justify-content: space-around) {
+    display: -webkit-inline-flex; /*Safari 6.1, Chrome 21, Opera 15*/
+    display: inline-flex; /*Edge, Firefox 22, Safari 9, Chrome 29, IE 11, Opera 12.1*/
+  
+    -ms-flex-flow: $flow-direction $wrap; /*IE 10*/
+    flex-flow: $flow-direction $wrap; /*Edge, Firefox 28, Safari 9, Chrome 29, IE 11, Opera 12.1*/
+  
+    justify-content: $justify-content; /*Edge, Firefox 22, Safari 9, Chrome 29, IE 11, Opera 12.1*/
+}

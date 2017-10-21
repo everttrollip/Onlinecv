@@ -10,7 +10,6 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-       
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <link href="adminlte/dist/css/adminlte.css" rel="stylesheet" type="text/css">
@@ -26,7 +25,9 @@
         <!-- AdminLTE Skins. Choose a skin from the css/skins
             folder instead of downloading all of them to reduce the load. -->
         <link rel="stylesheet" href="adminlte/dist/css/skins/_all-skins.min.css">
-       
+
+        <!-- Styles -->
+        <link href="{{ asset('css/cv.css') }}" rel="stylesheet">       
     </head>
 <body class="hold-transition skin-blue-light fixed sidebar-mini">
   <div class="wrapper">
@@ -46,9 +47,26 @@
         </ol>
       </section>
 
-      <!-- Where I live -->
+      
       <section class="content">
-        <div class="box">
+        <!-- CV Header -->
+
+        <!-- Basic Personal Info -->
+
+        <!-- Short I am -->
+        <div class="box where-student-lives">
+          <div class="box-header with-border">
+            <h3 class="box-title">I am</h3>
+
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <i class="fa fa-minus"></i></button>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Where I live -->
+        <div class="box where-student-lives">
           <div class="box-header with-border">
             <i class="fa fa-map-marker"></i>
             <h3 class="box-title">Where I live</h3>
@@ -63,10 +81,13 @@
             
           </div>
         </div>
+
+        <!-- Experience -->
+
+        <!-- Education -->
+
+        <!-- Vocation -->
       </section>
-
-
-      
     </div>
 
   @include('student.includes.footer')
