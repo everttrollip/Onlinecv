@@ -27,7 +27,8 @@ Route::get('/student', function () {
     return view('student.dashboard');
 });
 
-Route::get('/dashboard', 'HomeController@index');
+// Create seperate controllers here
+Route::get('/dashboard', 'DashboardsController@index');
 Route::get('/cv', 'HomeController@cv');
 Route::get('/profile/{id}', 'HomeController@profile');
 
