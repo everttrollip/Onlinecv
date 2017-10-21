@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class CvsController extends Controller
 {
     public function __construct()
     {
@@ -18,11 +17,11 @@ class HomeController extends Controller
         $user = Auth::user();
         if($user->role === 'student') 
         {
-            return view('student.dashboard', $user);
+            return view('student.cv', $user);
         }
         else if($user->role === 'endorser') 
         { 
-            return view('endorser.dashboard');
+            return view('endorser.cv');
         }
     }
 }

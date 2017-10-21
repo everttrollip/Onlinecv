@@ -1,28 +1,28 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use DB;
 
-
-class HomeController extends Controller
+class ProfilesController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index($id) 
     {
         $user = Auth::user();
         if($user->role === 'student') 
         {
-            return view('student.dashboard', $user);
+            $student = DB::table('students')->where('user_id', $id)->first();
+            return view('student.profile')->with('student', $student);
         }
         else if($user->role === 'endorser') 
         { 
-            return view('endorser.dashboard');
+            return view('endorser.profile');
         }
     }
 }
