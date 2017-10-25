@@ -50,35 +50,76 @@
       
       <section class="content">
         <!-- CV Header -->
+        <div class="cv-row">
+          <div class="box cv-col-10">
+            <div class="box-body">
+              <div class="student-image">
+                <img class="thumbnail" src="{{ asset('images/students/thumbnail_evert.png') }}">
+              </div>
 
-        <!-- Basic Personal Info -->
+              <div class="student-name">
+                <span class="firstname">Evert</span>
+                <span class="surname">Trollip</span>
+              </div>
 
-        <!-- Short I am -->
-        <div class="box where-student-lives">
-          <div class="box-header with-border">
-            <h3 class="box-title">I am</h3>
+              <div class="student-contact-details">
+                <div class="info-box email">
+                  <span class="info-box-icon bg-aqua"><i class="fa fa-envelope-o"></i></span>
 
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                <i class="fa fa-minus"></i></button>
+                  <div class="info-box-content">
+                    <span class="info-box-text">trollip.evert@gmail.com</span>
+                  </div>
+                </div>
+
+                <div class="info-box phone">
+                  <span class="info-box-icon bg-aqua"><i class="fa fa-phone"></i></span>
+
+                  <div class="info-box-content">
+                    <span class="info-box-text">+27 (72) 997 5230</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="cv-row">
+          <!-- Basic Personal Info -->
+          <div class="box cv-col-5">
+            <div class="box-body">
+              Test
+            </div>
+          </div>
+       
+
+          <!-- Short I am -->
+          <div class="box cv-col-4">
+            <div class="box-header with-border">
+              <h3 class="box-title">I am</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                  <i class="fa fa-minus"></i></button>
+              </div>
             </div>
           </div>
         </div>
       
-        <!-- Where I live -->
-        <div class="box where-student-lives">
-          <div class="box-header with-border">
-            <i class="fa fa-map-marker"></i>
-            <h3 class="box-title">Where I live</h3>
+        <div class="cv-row">
+          <!-- Where I live -->
+          <div class="box where-student-lives">
+            <div class="box-header with-border">
+              <i class="fa fa-map-marker"></i>
+              <h3 class="box-title">Where I live</h3>
 
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                <i class="fa fa-minus"></i></button>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                  <i class="fa fa-minus"></i></button>
+              </div>
             </div>
-          </div>
 
-          <div class="box-body">
-            
+            <div class="box-body">
+              
+            </div>
           </div>
         </div>
 
