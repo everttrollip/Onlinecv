@@ -28,18 +28,11 @@ Route::get('/logout', 'UserController@logout');
 Route::get('/profile/{id}', 'ProfilesController@index');
 
 // Dashboards
-Route::get('/home', 'DashboardsController@index'); 
+Route::get('/home', 'DashboardsController@index');
 Route::get('/dashboard', 'DashboardsController@index');
 
-// CVs 
+// CVs
 Route::get('/cv', 'CvsController@index');
-// /cv/personaldetails
-// /cv/education
-// /cv/experience
-// /cv/vocation
-// /cv/engagement
-// /cv/interests
-// /cv/endorsements
 
 // Contact Us
 Route::get('/contact', function(){
@@ -47,12 +40,20 @@ Route::get('/contact', function(){
 });
 
 // Student Routes
-Route::get('/student', function () {
-    return view('student.dashboard');
-});
-Route::post('student/profile/update', 'StudentController@updateprofile');
-Route::post('/register/student', 'StudentController@updateprofile');
-Route::get('/get-student', 'StudentController@getStudent');
+Route::get('/student', 'StudentsController@index');
+Route::get('/student/dashboard', 'StudentsController@index');
+Route::get('/student/cv', 'CvsController@index');
+// /cv/personaldetails
+// /cv/education
+// /cv/experience
+// /cv/vocation
+// /cv/engagement
+// /cv/interests
+// /cv/endorsements
+Route::get('/get-student', 'StudentsController@getStudent');
+
+Route::post('student/profile/update', 'StudentsController@updateprofile');
+Route::post('/register/student', 'StudentsController@updateprofile');
 Route::get('/register/student', function() {
     return view('shared.register')->with('role','student');
 });

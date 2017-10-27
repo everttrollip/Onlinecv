@@ -28,12 +28,12 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
          <li>
-          <a href="/dashboard">
+          <a href="/student/dashboard">
             <i class="fa fa-dashboard"></i> <span> Dashboard</span>
           </a>
         </li>
          <li>
-          <a href="/cv">
+          <a href="/student/cv">
             <i class="fa fa-user"></i> <span> Visual CV</span>
           </a>
         </li>
@@ -81,7 +81,7 @@
             <i class="fa fa-phone-square"></i> <span> Contact Us</span>
           </a>
         </li>
-       
+
       </ul>
     </section>
     <!-- /.sidebar -->

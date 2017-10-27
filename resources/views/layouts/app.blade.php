@@ -15,19 +15,19 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-        <link href="../adminlte/dist/css/adminlte.css" rel="stylesheet" type="text/css">
-        <link href="../adminlte/dist/css/adminlte.min.css" rel="stylesheet" type="text/css">
-        
-        <link rel="stylesheet" href="../adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link href="{{ asset('adminlte/dist/css/adminlte.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('adminlte/dist/css/adminlte.min.css') }}" rel="stylesheet" type="text/css">
+
+        <link rel="stylesheet" href="{{ asset('adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="../adminlte/bower_components/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ asset('adminlte/bower_components/font-awesome/css/font-awesome.min.css') }}">
         <!-- Ionicons -->
-        <link rel="stylesheet" href="../adminlte/bower_components/Ionicons/css/ionicons.min.css">
+        <link rel="stylesheet" href="{{ asset('adminlte/bower_components/Ionicons/css/ionicons.min.css') }}">
         <!-- Theme style -->
-        <link rel="stylesheet" href="../adminlte/dist/css/AdminLTE.min.css">
+        <link rel="stylesheet" href="{{ asset('adminlte/dist/css/AdminLTE.min.css') }}">
         <!-- AdminLTE Skins. Choose a skin from the css/skins
             folder instead of downloading all of them to reduce the load. -->
-        <link rel="stylesheet" href="../adminlte/dist/css/skins/_all-skins.min.css">
+        <link rel="stylesheet" href="{{ asset('adminlte/dist/css/skins/_all-skins.min.css') }}">
 </head>
 <body class="hold-transition skin-red">
     <div id="app">

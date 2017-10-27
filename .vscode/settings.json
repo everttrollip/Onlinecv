@@ -1,2 +1,37 @@
 {
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/node_modules": true,
+        "**/release": true
+      },
+    
+      // The number of spaces a tab is equal to.
+      "editor.tabSize": 4,
+    
+      // Insert spaces when pressing Tab.
+      "editor.insertSpaces": true,
+    
+      // When opening a file, `editor.tabSize` and `editor.insertSpaces` will be detected based on the file contents.
+      "editor.detectIndentation": false,
+    
+      // Controls auto save of dirty files. Accepted values:  "off", "afterDelay", "onFocusChange". If set to "afterDelay" you can configure the delay in "files.autoSaveDelay".
+      "files.autoSave": "off",
+    
+      // Controls whether the editor should render whitespace characters
+      "editor.renderWhitespace": "boundary",
+    
+      // Controls the indentation of wrapped lines. Can be one of 'none', 'same' or 'indent'.
+      "editor.wrappingIndent": "indent",
+    
+      // When enabled, will trim trailing whitespace when you save a file.
+      "files.trimTrailingWhitespace": true,
+    
+      // Controls if suggestions should be accepted on 'Enter' - in addition to 'Tab'. Helps to avoid ambiguity between inserting new lines or accepting suggestions.
+      "editor.acceptSuggestionOnEnter": "on",
+    
+      // Controls if the minimap is shown
+      "editor.minimap.enabled": true
 }
