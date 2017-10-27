@@ -81,36 +81,19 @@
                             </div>
                         </div>
 
-                    <div class="cv-row">
-                        <!-- Basic Personal Info -->
-                        <div class="box cv-col-5">
-                            <div class="box-body">
-                            </div>
-                        </div>
-
-                        <!-- Short I am -->
-                        <div class="box cv-col-4">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">I am</h3>
-
-                                <div class="box-tools pull-right">
-                                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                                    <i class="fa fa-minus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @include('student.includes.cv.basic-details')
 
                     <div class="cv-row">
                     <!-- Where I live -->
                         <div class="box where-student-lives">
                             <div class="box-header with-border">
                                 <i class="fa fa-map-marker"></i>
-                                <h3 class="box-title">Where I live</h3>
+                                <h1 class="box-title large-font">Where I live</h1>
 
                                 <div class="box-tools pull-right">
                                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                                     <i class="fa fa-minus"></i></button>
+                                    <i class="fa fa-pencil-square-o"></i>
                                 </div>
                             </div>
 
