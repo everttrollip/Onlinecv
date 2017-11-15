@@ -25,12 +25,13 @@
         <!-- AdminLTE Skins. Choose a skin from the css/skins
             folder instead of downloading all of them to reduce the load. -->
         <link rel="stylesheet" href="{{ asset('adminlte/dist/css/skins/_all-skins.min.css') }}">
-
+        <!-- jvectormap -->
+        <link rel="stylesheet" href="{{ asset('adminlte/bower_components/jvectormap/jquery-jvectormap.css') }}">
         <!-- Styles -->
         <link href="{{ asset('css/cv.css') }}" rel="stylesheet">
     </head>
     <body class="hold-transition skin-blue-light fixed sidebar-mini">
-        <div class="wrapper">
+        <div id="cv" class="wrapper">
 
             @include('student.includes.header')
             @include('student.includes.sidebar-left')
@@ -46,72 +47,30 @@
                 </section>
 
                 <section class="content">
-                    <!-- CV Header -->
-                    <div class="cv-row">
-                        <div class="box cv-col-10">
-                            <div class="box-body">
-                                <div class="student-image">
-                                    <img class="thumbnail" src="{{ asset('images/students/thumbnail_evert.png') }}">
-                                </div>
-
-                                <div class="student-name">
-                                    <span class="firstname">Evert</span>
-                                    <span class="surname">Trollip</span>
-                                </div>
-
-                                <div class="student-contact-details">
-                                    <div class="info-box email">
-                                        <span class="info-box-icon bg-aqua"><i class="fa fa-envelope-o"></i>
-                                        </span>
-
-                                        <div class="info-box-content">
-                                            <span class="info-box-text">trollip.evert@gmail.com</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="info-box phone">
-                                        <span class="info-box-icon bg-aqua"><i class="fa fa-phone"></i>
-                                        </span>
-
-                                        <div class="info-box-content">
-                                            <span class="info-box-text">+27 (72) 997 5230</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <notification></notification>
 
                     @include('student.includes.cv.basic-details')
-
-                    <div class="cv-row">
-                    <!-- Where I live -->
-                        <div class="box where-student-lives">
-                            <div class="box-header with-border">
-                                <i class="fa fa-map-marker"></i>
-                                <h1 class="box-title large-font">Where I live</h1>
-
-                                <div class="box-tools pull-right">
-                                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                                    <i class="fa fa-minus"></i></button>
-                                    <i class="fa fa-pencil-square-o"></i>
-                                </div>
-                            </div>
-
-                            <div class="box-body">
-                            </div>
-                        </div>
-                    </div>
+                    @include('student.includes.cv.where-i-live')
 
                     <!-- Experience -->
 
                     <!-- Education -->
 
                     <!-- Vocation -->
+
+                    {{--  <div id="app">
+                        @yield('content')
+                    </div>  --}}
+
+
                 </section>
             </div>
 
             @include('student.includes.footer')
         </div>
+
+        <!-- Scripts -->
+        <script src="{{ asset('js/cv.js') }}"></script>
 
         <!-- jQuery 3 -->
         <script src="{{ asset('adminlte/bower_components/jquery/dist/jquery.min.js') }}"></script>
@@ -121,5 +80,51 @@
         <script src="{{ asset('adminlte/bower_components/fastclick/lib/fastclick.js') }}"></script>
         <!-- AdminLTE App -->
         <script src="{{ asset('adminlte/dist/js/adminlte.min.js') }}"></script>
+        <!-- jvectormap  -->
+        <script src="{{ asset('adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
+        <script src="{{ asset('adminlte/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+
+        <script>
+                $(function(){
+                    $('#world-map').vectorMap({
+                        map              : 'world_mill_en',
+                        normalizeFunction: 'polynomial',
+                        hoverOpacity     : 0.7,
+                        hoverColor       : false,
+                        backgroundColor  : 'transparent',
+                        regionStyle      : {
+                        initial      : {
+                            fill            : 'rgba(210, 214, 222, 1)',
+                            'fill-opacity'  : 1,
+                            stroke          : 'none',
+                            'stroke-width'  : 0,
+                            'stroke-opacity': 1
+                        },
+                        hover        : {
+                            'fill-opacity': 0.7,
+                            cursor        : 'pointer'
+                        },
+                        selected     : {
+                            fill: 'yellow'
+                        },
+                        selectedHover: {}
+                        },
+                        onRegionTipShow: function(event, label, code) {
+                            label.html(
+                                '<b>'+label.html()+'</b>'
+                            );
+                        },
+                        markerStyle      : {
+                        initial: {
+                            fill  : '#00a65a',
+                            stroke: '#111'
+                        }
+                        },
+                        markers          : [
+                        { latLng: [-33.93, 18.42], name: 'Cape Town' },
+                        ]
+                    });
+                });
+            </script>
     </body>
 </html>

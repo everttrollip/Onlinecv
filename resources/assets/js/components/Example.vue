@@ -7,7 +7,6 @@
 
                     <div class="panel-body">
                         I'm an example component!
-                        {{message}}
                     </div>
                 </div>
             </div>

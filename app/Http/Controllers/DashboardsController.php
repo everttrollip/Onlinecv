@@ -15,12 +15,12 @@ class DashboardsController extends Controller
     public function index()
     {
         $user = Auth::user();
-        if($user->role === 'student') 
+        if($user->role === 'student')
         {
             return view('student.dashboard', $user);
         }
         else if($user->role === 'endorser') // change to administrator
-        { 
+        {
             return view('endorser.dashboard');
         }
     }

@@ -7,6 +7,7 @@
 
 require('./bootstrap');
 import vueResource from 'vue-resource';
+import Notification from './components/Notification.vue'
 
 window.Vue = require('vue');
 
@@ -23,7 +24,9 @@ Vue.component('register', require('./components/Register.vue'));
 Vue.component('studentprofile', require('./components/StudentProfile.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+
+    components: { Notification }
 });
 
 

@@ -14,8 +14,9 @@ let mix = require('laravel-mix');
 mix.browserSync('onlinecv.dev');
 
 mix.js('resources/assets/js/app.js', 'public/js')
-   
+    .js('resources/assets/js/cv.js', 'public/js')
+
    .sass('resources/assets/sass/app.scss', 'public/css')
    .sass('resources/assets/sass/_mixins.scss', 'public/css')
 
-   .sass('resources/assets/sass/cv.scss', 'public/css'); 
+   .sass('resources/assets/sass/cv.scss', 'public/css');

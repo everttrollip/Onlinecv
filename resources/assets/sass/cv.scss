@@ -1,101 +1,101 @@
-@import 'mixins';
-@import 'variables';
+// @import 'mixins';
+// @import 'variables';
 
-.content {
-    border: 2px solid blue;
-    @include flexbox-container(row, wrap, space-around);
-}
+// .content {
+//     border: 2px solid blue;
+//     @include flexbox-container(row, wrap, space-around);
+// }
 
-.cv-row {
-    // border: 2px solid red;
-    @include flexbox-container(row, wrap, space-between);
-    width: 100%;
+// .cv-row {
+//     // border: 2px solid red;
+//     @include flexbox-container(row, wrap, space-between);
+//     width: 100%;
 
-    .box {
-        border: 2px solid green;
-        .box-title {
-            font-weight: bold;
-        }
-        .box-body {
-            @include flexbox-container(row, wrap, space-between);
-            border: 2px solid orange;
-        }
-    }
-}
+//     .box {
+//         border: 2px solid green;
+//         .box-title {
+//             font-weight: bold;
+//         }
+//         .box-body {
+//             @include flexbox-container(row, wrap, space-between);
+//             border: 2px solid orange;
+//         }
+//     }
+// }
 
-.flex-container-column {
-    @include flexbox-container(column, wrap, space-around);
-}
+// .flex-container-column {
+//     @include flexbox-container(column, wrap, space-around);
+// }
 
-.large-font {
-    font-size: 32px !important;
-}
+// .large-font {
+//     font-size: 32px !important;
+// }
 
-label > i {
-    margin-left: 10px;
-}
+// label > i {
+//     margin-left: 10px;
+// }
 
-.student-image {
-    border: 2px solid blue;
-    margin-right: 10px;
-    .thumbnail {
-        align-self: center;
-        display: inline-block;
-        max-height: 120px;
-        margin-bottom: 0px;
-    }
-}
+// .student-image {
+//     border: 2px solid blue;
+//     margin-right: 10px;
+//     .thumbnail {
+//         align-self: center;
+//         display: inline-block;
+//         max-height: 120px;
+//         margin-bottom: 0px;
+//     }
+// }
 
-.student-name {
-    border: 2px solid blue;
-    @include flexbox-container(column, wrap, flex-start);
+// .student-name {
+//     border: 2px solid blue;
+//     @include flexbox-container(column, wrap, flex-start);
 
-    .firstname {
-        font: {
-            size: 3em;
-            weight: bold;
-        }
-        color: $brand-primary;
-    }
+//     .firstname {
+//         font: {
+//             size: 3em;
+//             weight: bold;
+//         }
+//         color: $brand-primary;
+//     }
 
-    .surname {
-        font: {
-            size: 3em;
-            weight: bold;
-        }
-        color: $brand-info-dark;
-    }
-}
+//     .surname {
+//         font: {
+//             size: 3em;
+//             weight: bold;
+//         }
+//         color: $brand-info-dark;
+//     }
+// }
 
-.student-contact-details {
-    border: 2px solid blue;
-    margin-left: auto;
+// .student-contact-details {
+//     border: 2px solid blue;
+//     margin-left: auto;
 
-    .info-box {
-        @include flexbox-container(row, wrap, space-between);
-        min-height: 60px;
-        .info-box-icon {
-            line-height: 60px;
-            width: 60px;
-            height: 60px;
-        }
-    }
-}
+//     .info-box {
+//         @include flexbox-container(row, wrap, space-between);
+//         min-height: 60px;
+//         .info-box-icon {
+//             line-height: 60px;
+//             width: 60px;
+//             height: 60px;
+//         }
+//     }
+// }
 
 
 
-.cv-col-10 {
-    width: 100%;
-}
+// .cv-col-10 {
+//     width: 100%;
+// }
 
-.cv-col-55 {
-    width: 55%;
-}
+// .cv-col-55 {
+//     width: 55%;
+// }
 
-.cv-col-5 {
-    width: 50%;
-}
+// .cv-col-5 {
+//     width: 50%;
+// }
 
-.cv-col-4 {
-    width: 40%;
-}
+// .cv-col-4 {
+//     width: 40%;
+// }
