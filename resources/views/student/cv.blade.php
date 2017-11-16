@@ -28,6 +28,7 @@
         <!-- jvectormap -->
         <link rel="stylesheet" href="{{ asset('adminlte/bower_components/jvectormap/jquery-jvectormap.css') }}">
         <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/cv.css') }}" rel="stylesheet">
     </head>
     <body class="hold-transition skin-blue-light fixed sidebar-mini">
@@ -47,22 +48,9 @@
                 </section>
 
                 <section class="content">
-                    <notification></notification>
-
-                    @include('student.includes.cv.basic-details')
-                    @include('student.includes.cv.where-i-live')
-
-                    <!-- Experience -->
-
-                    <!-- Education -->
-
-                    <!-- Vocation -->
-
-                    {{--  <div id="app">
-                        @yield('content')
-                    </div>  --}}
-
-
+                    <cv-header></cv-header>
+                    <cv-basic-details></cv-basic-details>
+                    <cv-location></cv-location>
                 </section>
             </div>
 
@@ -85,46 +73,46 @@
         <script src="{{ asset('adminlte/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
 
         <script>
-                $(function(){
-                    $('#world-map').vectorMap({
-                        map              : 'world_mill_en',
-                        normalizeFunction: 'polynomial',
-                        hoverOpacity     : 0.7,
-                        hoverColor       : false,
-                        backgroundColor  : 'transparent',
-                        regionStyle      : {
-                        initial      : {
-                            fill            : 'rgba(210, 214, 222, 1)',
-                            'fill-opacity'  : 1,
-                            stroke          : 'none',
-                            'stroke-width'  : 0,
-                            'stroke-opacity': 1
-                        },
-                        hover        : {
-                            'fill-opacity': 0.7,
-                            cursor        : 'pointer'
-                        },
-                        selected     : {
-                            fill: 'yellow'
-                        },
-                        selectedHover: {}
-                        },
-                        onRegionTipShow: function(event, label, code) {
-                            label.html(
-                                '<b>'+label.html()+'</b>'
-                            );
-                        },
-                        markerStyle      : {
-                        initial: {
-                            fill  : '#00a65a',
-                            stroke: '#111'
-                        }
-                        },
-                        markers          : [
-                        { latLng: [-33.93, 18.42], name: 'Cape Town' },
-                        ]
-                    });
+            $(function(){
+                $('#world-map').vectorMap({
+                    map              : 'world_mill_en',
+                    normalizeFunction: 'polynomial',
+                    hoverOpacity     : 0.7,
+                    hoverColor       : false,
+                    backgroundColor  : 'transparent',
+                    regionStyle      : {
+                    initial      : {
+                        fill            : 'rgba(210, 214, 222, 1)',
+                        'fill-opacity'  : 1,
+                        stroke          : 'none',
+                        'stroke-width'  : 0,
+                        'stroke-opacity': 1
+                    },
+                    hover        : {
+                        'fill-opacity': 0.7,
+                        cursor        : 'pointer'
+                    },
+                    selected     : {
+                        fill: 'yellow'
+                    },
+                    selectedHover: {}
+                    },
+                    onRegionTipShow: function(event, label, code) {
+                        label.html(
+                            '<b>'+label.html()+'</b>'
+                        );
+                    },
+                    markerStyle      : {
+                    initial: {
+                        fill  : '#00a65a',
+                        stroke: '#111'
+                    }
+                    },
+                    markers          : [
+                    { latLng: [-33.93, 18.42], name: 'Cape Town' },
+                    ]
                 });
-            </script>
+            });
+        </script>
     </body>
 </html>

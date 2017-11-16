@@ -38,8 +38,8 @@
 </template>
 
 <script>
-    // import image from './thumbnail_evert.png'
-    import image from 'app/public/images/students/thumbnail_evert.png'
+    import image from './thumbnail_evert.png'
+    // import image from 'app/public/images/students/thumbnail_evert.png'
     export default {
         data() {
             return {
