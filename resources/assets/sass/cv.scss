@@ -2,17 +2,19 @@
 @import 'variables';
 
 .content {
-    border: 2px solid blue;
+    // border: 2px solid blue;
     @include flexbox-container(row, wrap, space-around);
 }
 
 .cv-row {
     // border: 2px solid red;
-    @include flexbox-container(row, wrap, space-between);
+    @include flexbox-container(row, wrap, space-around);
     width: 100%;
 
     .box {
         // border: 2px solid green;
+        align-self: flex-start;
+
         .box-header{
             > i.fa {
                 font-size: 30px;
@@ -29,6 +31,7 @@
 }
 
 .flex-container-column {
+    // border: 2px solid blue;
     @include flexbox-container(column, wrap, space-around);
 }
 
@@ -38,4 +41,17 @@
 
 label > i {
     margin-left: 10px;
+}
+
+.introduction {
+    // border: 2px solid blue;
+    @include flexbox-container(row, wrap, space-around);
+    width: 100%;
+
+    .cv-left-column,
+    .cv-right-column {
+        // border: 2px solid red;
+        width: 50%;
+        padding: 10px;
+    }
 }

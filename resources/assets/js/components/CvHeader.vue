@@ -52,7 +52,7 @@
     @import '../../sass/mixins';
     @import '../../sass/variables';
     .student-image {
-        border: 2px solid blue;
+        // border: 2px solid blue;
         margin-right: 10px;
         .thumbnail {
             align-self: center;
@@ -63,7 +63,7 @@
     }
 
     .student-name {
-        border: 2px solid blue;
+        // border: 2px solid blue;
         @include flexbox-container(column, wrap, flex-start);
 
         .firstname {
@@ -84,23 +84,23 @@
     }
 
     .student-contact-details {
-        border: 2px solid blue;
+        // border: 2px solid blue;
         margin-left: auto;
         width: 40%;
 
         .info-box {
-            border: 2px solid red;
+            // border: 2px solid red;
             @include flexbox-container(row, wrap, space-between);
             min-height: 60px;
             .info-box-icon {
-                border: 2px solid green;
+                // border: 2px solid green;
                 line-height: 80px;
                 width: 80px;
                 height: 80px;
             }
 
             .info-box-content {
-                border: 2px solid green;
+                // border: 2px solid green;
                 width: 80%;
                 margin-left: 0;
                 .info-box-text {

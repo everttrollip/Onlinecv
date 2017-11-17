@@ -50,7 +50,19 @@
                 <section class="content">
                     <cv-header></cv-header>
                     <cv-basic-details></cv-basic-details>
-                    <cv-location></cv-location>
+                    <div class="introduction">
+                        <div class="cv-left-column">
+                            <cv-location></cv-location>
+                        </div>
+                        <div class="cv-right-column">
+                            <cv-experience></cv-experience>
+                        </div>
+                    </div>
+
+                    <div class="achievements">
+                        <h1>Achievements</h1>
+                        <p>Coming soon!</p>
+                    </div>
                 </section>
             </div>
 

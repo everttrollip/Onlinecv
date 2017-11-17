@@ -1,6 +1,6 @@
 <template>
     <div class="cv-row">
-        <div class="box col-md-7">
+        <div class="box">
             <div class="box-header with-border">
                 <i class="fa fa-map-marker"></i>
                 <h1 class="box-title large-font">Where I Live</h1>
