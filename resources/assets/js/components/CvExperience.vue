@@ -1,5 +1,5 @@
 <template>
-    <div class="cv-row">
+    <!-- <div class="cv-row">
         <div class="box">
             <div class="box-header with-border">
                 <i class="fa fa-lightbulb-o"></i>
@@ -17,24 +17,47 @@
                                 change-event-name="onDistanceChange"></slider>
             </div>
         </div>
+    </div> -->
+    <div class="test">
+        <div class="block">
+            <span class="demonstration">Default</span>
+            <el-rate v-model="value1"></el-rate>
+        </div>
+        <div class="block">
+            <span class="demonstration">Color for different levels</span>
+            <el-rate
+                v-model="value2"
+                :colors="['#99A9BF', '#F7BA2A', '#FF9900']">
+            </el-rate>
+        </div>
     </div>
+
 </template>
 
 <script>
+    // export default {
+    //     data() {
+    //         return {
+    //             distance: {
+    //                 ticks: [0, 1, 2, 3],
+    //                 ticks_labels: ['2 km', '5 km', '10 km', '25 km'],
+    //                 value: 1
+    //             },
+    //             events: {
+    //             'onDistanceChange': function (value) {
+    //                         console.log(value);
+    //                     }
+    //             }
+
+    //         }
+    //     }
+    // }
+
     export default {
         data() {
             return {
-                distance: {
-                    ticks: [0, 1, 2, 3],
-                    ticks_labels: ['2 km', '5 km', '10 km', '25 km'],
-                    value: 1
-                },
-                events: {
-                'onDistanceChange': function (value) {
-                            console.log(value);
-                        }
-                }
-
+                value1: null,
+                value2: null
             }
         }
     }
