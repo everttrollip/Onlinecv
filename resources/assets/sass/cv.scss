@@ -6,28 +6,26 @@
     @include flexbox-container(row, wrap, space-around);
 }
 
-.cv-row {
+.box {
     // border: 2px solid red;
-    @include flexbox-container(row, wrap, space-around);
-    width: 100%;
-
-    .box {
-        // border: 2px solid green;
-        align-self: flex-start;
-
-        .box-header{
-            > i.fa {
-                font-size: 30px;
-            }
-        }
-        .box-title {
-            font-weight: bold;
-        }
-        .box-body {
-            @include flexbox-container(row, wrap, space-between);
-            // border: 2px solid orange;
+    .box-header {
+        > i.fa {
+            font-size: 30px;
         }
     }
+
+    .box-title {
+        font-weight: bold;
+    }
+
+    .box-body {
+        // border: 2px solid orange;
+        @include flexbox-container(row, wrap, space-between);
+    }
+}
+
+.flex-container-row {
+    @include flexbox-container(row, wrap, space-between);
 }
 
 .flex-container-column {
@@ -35,8 +33,16 @@
     @include flexbox-container(column, wrap, space-around);
 }
 
+.full-width {
+    width: 100%;
+}
+
 .large-font {
     font-size: 32px !important;
+}
+
+.primary-text-color {
+    color: $brand-primary;
 }
 
 label > i {
@@ -51,7 +57,14 @@ label > i {
     .cv-left-column,
     .cv-right-column {
         // border: 2px solid red;
-        width: 50%;
         padding: 10px;
+    }
+
+    .cv-left-column {
+        width: 60%;
+    }
+
+    .cv-right-column {
+        width: 40%;
     }
 }

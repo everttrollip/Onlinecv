@@ -15,7 +15,15 @@
   /*Edge, Firefox 22, Safari 9, Chrome 29, IE 11, Opera 12.1*/
 }
 
-.cv-row {
+.box .box-header > i.fa {
+  font-size: 30px;
+}
+
+.box .box-title {
+  font-weight: bold;
+}
+
+.box .box-body {
   /*Safari 6.1, Chrome 21, Opera 15*/
   display: -webkit-box;
   display: -ms-flexbox;
@@ -27,26 +35,13 @@
   -webkit-box-direction: normal;
           flex-flow: row wrap;
   /*Edge, Firefox 28, Safari 9, Chrome 29, IE 11, Opera 12.1*/
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   /*Edge, Firefox 22, Safari 9, Chrome 29, IE 11, Opera 12.1*/
-  width: 100%;
 }
 
-.cv-row .box {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
-}
-
-.cv-row .box .box-header > i.fa {
-  font-size: 30px;
-}
-
-.cv-row .box .box-title {
-  font-weight: bold;
-}
-
-.cv-row .box .box-body {
+.flex-container-row {
   /*Safari 6.1, Chrome 21, Opera 15*/
   display: -webkit-box;
   display: -ms-flexbox;
@@ -81,8 +76,16 @@
   /*Edge, Firefox 22, Safari 9, Chrome 29, IE 11, Opera 12.1*/
 }
 
+.full-width {
+  width: 100%;
+}
+
 .large-font {
   font-size: 32px !important;
+}
+
+.primary-text-color {
+  color: #3097D1;
 }
 
 label > i {
@@ -109,7 +112,14 @@ label > i {
 
 .introduction .cv-left-column,
 .introduction .cv-right-column {
-  width: 50%;
   padding: 10px;
+}
+
+.introduction .cv-left-column {
+  width: 60%;
+}
+
+.introduction .cv-right-column {
+  width: 40%;
 }
 

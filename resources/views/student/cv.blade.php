@@ -49,13 +49,16 @@
 
                 <section class="content">
                     <cv-header></cv-header>
-                    <cv-basic-details></cv-basic-details>
+
                     <div class="introduction">
                         <div class="cv-left-column">
+                            <cv-basic-details></cv-basic-details>
                             <cv-location></cv-location>
                         </div>
                         <div class="cv-right-column">
+                            <cv-summary></cv-summary>
                             <cv-experience></cv-experience>
+                            <cv-vocation></cv-vocation>
                         </div>
                     </div>
 
