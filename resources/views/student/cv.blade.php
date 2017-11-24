@@ -54,11 +54,15 @@
                         <div class="cv-left-column">
                             <cv-basic-details></cv-basic-details>
                             <cv-location></cv-location>
+                            <cv-engagement></cv-engagement>
+                            <cv-interests></cv-interests>
                         </div>
                         <div class="cv-right-column">
                             <cv-summary></cv-summary>
                             <cv-experience></cv-experience>
                             <cv-vocation></cv-vocation>
+                            <cv-post-school></cv-post-school>
+                            <cv-career-interests></cv-career-interests>
                         </div>
                     </div>
 
