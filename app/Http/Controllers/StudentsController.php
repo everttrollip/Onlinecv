@@ -66,6 +66,7 @@ class StudentsController extends Controller
     }
 
     public function getStudent(){
+
         $user = Auth::User();
         if($user->role === 'student'){
             $user_id = $user->id;
@@ -76,3 +77,4 @@ class StudentsController extends Controller
 
 }
 
+?>

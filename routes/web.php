@@ -43,13 +43,7 @@ Route::get('/contact', function(){
 Route::get('/student', 'StudentsController@index');
 Route::get('/student/dashboard', 'StudentsController@index');
 Route::get('/student/cv', 'CvsController@index');
-// /cv/personaldetails
-// /cv/education
-// /cv/experience
-// /cv/vocation
-// /cv/engagement
-// /cv/interests
-// /cv/endorsements
+
 Route::get('/get-student', 'StudentsController@getStudent');
 
 Route::post('student/profile/update', 'StudentsController@updateprofile');

@@ -11,12 +11,11 @@
         <title> Online CV | Student Profile</title>
 
         <!-- Fonts -->
-       
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <link href="../adminlte/dist/css/adminlte.css" rel="stylesheet" type="text/css">
         <link href="../adminlte/dist/css/adminlte.min.css" rel="stylesheet" type="text/css">
-        
+
         <link rel="stylesheet" href="../adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="../adminlte/bower_components/font-awesome/css/font-awesome.min.css">
@@ -28,7 +27,9 @@
             folder instead of downloading all of them to reduce the load. -->
         <link rel="stylesheet" href="../adminlte/dist/css/skins/_all-skins.min.css">
         <!-- Select2 -->
-  <link rel="stylesheet" href="../adminlte/bower_components/select2/dist/css/select2.min.css">
+        <link rel="stylesheet" href="../adminlte/bower_components/select2/dist/css/select2.min.css">
+
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <style>
 .control-label{
     font-weight:normal;
@@ -71,7 +72,7 @@
                     <studentprofile role="student">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     </studentprofile>
-                </div>  
+                </div>
             </div>
         </section>
     </div>

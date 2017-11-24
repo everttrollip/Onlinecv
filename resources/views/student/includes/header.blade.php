@@ -31,8 +31,8 @@
                 <ul class="menu">
                   <li><!-- start message -->
                     <a href="#">
-                      <div class="pull-left">   
-                       <img src="/adminlte/dist/img/{{Auth::User()->avatar}}" class="img-circle" alt="User Image">    
+                      <div class="pull-left">
+                       <img src="/adminlte/dist/img/{{Auth::User()->avatar}}" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Support Team
@@ -134,7 +134,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="profile/{{Auth::User()->id}}" class="btn btn-default btn-flat">Profile</a>
+                  <a href="/profile/{{Auth::User()->id}}" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
                   <a href="logout" class="btn btn-default btn-flat">Sign out</a>

@@ -1,0 +1,446 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Bind	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^from booleano.parser import Grammar, EvaluableParseManager, SymbolTable, Bind$/;"	kind:namespace	line:13
+Bind	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^from booleano.parser import Grammar, EvaluableParseManager, SymbolTable, Bind$/;"	kind:namespace	line:13
+CDLL	../vendor/psy/psysh/test/tools/vis.py	/^from ctypes import CDLL, c_char_p, c_int$/;"	kind:namespace	line:40
+CUSTOM_FIXTURES	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^CUSTOM_FIXTURES = [$/;"	kind:variable	line:16
+Converter	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^class Converter:$/;"	kind:class	line:34
+Converter	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^class Converter:$/;"	kind:class	line:34
+Converter	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^class Converter:$/;"	kind:class	line:34
+Converter	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^class Converter:$/;"	kind:class	line:34
+DataSource	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^class DataSource:$/;"	kind:class	line:228
+DataSource	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^class DataSource:$/;"	kind:class	line:228
+EvaluableParseManager	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^from booleano.parser import Grammar, EvaluableParseManager, SymbolTable, Bind$/;"	kind:namespace	line:13
+EvaluableParseManager	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^from booleano.parser import Grammar, EvaluableParseManager, SymbolTable, Bind$/;"	kind:namespace	line:13
+Geometry	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^class Geometry:$/;"	kind:class	line:203
+Geometry	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^class Geometry:$/;"	kind:class	line:203
+GeometryProperty	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^class GeometryProperty(Variable):$/;"	kind:class	line:209
+GeometryProperty	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^class GeometryProperty(Variable):$/;"	kind:class	line:209
+Grammar	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^from booleano.parser import Grammar, EvaluableParseManager, SymbolTable, Bind$/;"	kind:namespace	line:13
+Grammar	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^from booleano.parser import Grammar, EvaluableParseManager, SymbolTable, Bind$/;"	kind:namespace	line:13
+Map	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^class Map:$/;"	kind:class	line:17
+Map	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^class Map:$/;"	kind:class	line:17
+Map	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^class Map:$/;"	kind:class	line:17
+Map	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^class Map:$/;"	kind:class	line:17
+OUTPUT_FILE	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^        OUTPUT_FILE = abspath(expanduser(args.output_file))$/;"	kind:variable	line:70
+OUTPUT_FILE	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^OUTPUT_FILE = join(__dir__, '..', 'fixtures', 'unvis_fixtures.json')$/;"	kind:variable	line:13
+PolygonSimplifier	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^class PolygonSimplifier:$/;"	kind:class	line:346
+PolygonSimplifier	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^class PolygonSimplifier:$/;"	kind:class	line:346
+Processor	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^class Processor:$/;"	kind:class	line:469
+Processor	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^class Processor:$/;"	kind:class	line:469
+RANGES	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^RANGES = {$/;"	kind:variable	line:26
+SymbolTable	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^from booleano.parser import Grammar, EvaluableParseManager, SymbolTable, Bind$/;"	kind:namespace	line:13
+SymbolTable	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^from booleano.parser import Grammar, EvaluableParseManager, SymbolTable, Bind$/;"	kind:namespace	line:13
+VIS_CSTYLE	../vendor/psy/psysh/test/tools/vis.py	/^VIS_CSTYLE = 0x0002$/;"	kind:variable	line:59
+VIS_GLOB	../vendor/psy/psysh/test/tools/vis.py	/^VIS_GLOB = 0x1000$/;"	kind:variable	line:74
+VIS_HTTP1808	../vendor/psy/psysh/test/tools/vis.py	/^VIS_HTTP1808 = 0x0080$/;"	kind:variable	line:69
+VIS_HTTP1866	../vendor/psy/psysh/test/tools/vis.py	/^VIS_HTTP1866 = 0x0200$/;"	kind:variable	line:72
+VIS_HTTPSTYLE	../vendor/psy/psysh/test/tools/vis.py	/^VIS_HTTPSTYLE = 0x0080$/;"	kind:variable	line:70
+VIS_MIMESTYLE	../vendor/psy/psysh/test/tools/vis.py	/^VIS_MIMESTYLE = 0x0100$/;"	kind:variable	line:71
+VIS_NL	../vendor/psy/psysh/test/tools/vis.py	/^VIS_NL = 0x0010$/;"	kind:variable	line:64
+VIS_NOESCAPE	../vendor/psy/psysh/test/tools/vis.py	/^VIS_NOESCAPE = 0x0400$/;"	kind:variable	line:73
+VIS_NOSLASH	../vendor/psy/psysh/test/tools/vis.py	/^VIS_NOSLASH = 0x0040$/;"	kind:variable	line:68
+VIS_OCTAL	../vendor/psy/psysh/test/tools/vis.py	/^VIS_OCTAL = 0x0001$/;"	kind:variable	line:58
+VIS_SAFE	../vendor/psy/psysh/test/tools/vis.py	/^VIS_SAFE = 0x0020$/;"	kind:variable	line:66
+VIS_SP	../vendor/psy/psysh/test/tools/vis.py	/^VIS_SP = 0x0004$/;"	kind:variable	line:62
+VIS_TAB	../vendor/psy/psysh/test/tools/vis.py	/^VIS_TAB = 0x0008$/;"	kind:variable	line:63
+VIS_WHITE	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^from vis import vis, unvis, VIS_WHITE$/;"	kind:namespace	line:8
+VIS_WHITE	../vendor/psy/psysh/test/tools/vis.py	/^VIS_WHITE = VIS_SP | VIS_TAB | VIS_NL$/;"	kind:variable	line:65
+Variable	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^from booleano.operations import Variable$/;"	kind:namespace	line:14
+Variable	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^from booleano.operations import Variable$/;"	kind:namespace	line:14
+__all__	../vendor/psy/psysh/test/tools/vis.py	/^__all__ = [$/;"	kind:variable	line:44
+__dir__	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^__dir__ = dirname(abspath(__file__))$/;"	kind:variable	line:11
+__init__	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^  def __init__(self, config):$/;"	kind:member	line:35
+__init__	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^  def __init__(self, name, language):$/;"	kind:member	line:18
+__init__	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def __init__(self, config):$/;"	kind:member	line:229
+__init__	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def __init__(self, config):$/;"	kind:member	line:35
+__init__	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def __init__(self, config):$/;"	kind:member	line:470
+__init__	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def __init__(self, geometries):$/;"	kind:member	line:347
+__init__	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def __init__(self, geometry, properties):$/;"	kind:member	line:204
+__init__	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def __init__(self, name):$/;"	kind:member	line:212
+__init__	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def __init__(self, name, language):$/;"	kind:member	line:18
+__init__	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^  def __init__(self, config):$/;"	kind:member	line:35
+__init__	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^  def __init__(self, name, language):$/;"	kind:member	line:18
+__init__	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def __init__(self, config):$/;"	kind:member	line:229
+__init__	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def __init__(self, config):$/;"	kind:member	line:35
+__init__	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def __init__(self, config):$/;"	kind:member	line:470
+__init__	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def __init__(self, geometries):$/;"	kind:member	line:347
+__init__	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def __init__(self, geometry, properties):$/;"	kind:member	line:204
+__init__	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def __init__(self, name):$/;"	kind:member	line:212
+__init__	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def __init__(self, name, language):$/;"	kind:member	line:18
+_libbsd	../vendor/psy/psysh/test/tools/vis.py	/^_libbsd = CDLL(find_library('bsd'))$/;"	kind:variable	line:80
+_strunvis	../vendor/psy/psysh/test/tools/vis.py	/^_strunvis = _libbsd.strunvis$/;"	kind:variable	line:86
+_strvis	../vendor/psy/psysh/test/tools/vis.py	/^_strvis = _libbsd.strvis$/;"	kind:variable	line:82
+abspath	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^from os.path import abspath, expanduser, dirname, join$/;"	kind:namespace	line:3
+addPath	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^  def addPath(self, path, code, name):$/;"	kind:member	line:26
+addPath	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def addPath(self, path, code, name):$/;"	kind:member	line:26
+addPath	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^  def addPath(self, path, code, name):$/;"	kind:member	line:26
+addPath	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def addPath(self, path, code, name):$/;"	kind:member	line:26
+affinity	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^import shapely.affinity$/;"	kind:namespace	line:10
+affinity	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^import shapely.affinity$/;"	kind:namespace	line:10
+and	../vendor/mockery/mockery/docs/conf.py	/^if not on_rtd:  # only import and set the theme if we're building docs locally$/;"	kind:namespace	line:255
+anyjson	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^import anyjson$/;"	kind:namespace	line:6
+anyjson	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^import anyjson$/;"	kind:namespace	line:6
+applyFilters	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^  def applyFilters(self, geometry):$/;"	kind:member	line:263
+applyFilters	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^  def applyFilters(self, geometry):$/;"	kind:member	line:263
+argp	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^    argp = argparse.ArgumentParser($/;"	kind:variable	line:48
+argparse	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^import argparse$/;"	kind:namespace	line:1
+argparse	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^import argparse$/;"	kind:namespace	line:1
+argparse	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^import argparse$/;"	kind:namespace	line:6
+args	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^args = {}$/;"	kind:variable	line:291
+args	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^args = {}$/;"	kind:variable	line:565
+args	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^args = {}$/;"	kind:variable	line:291
+args	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^args = {}$/;"	kind:variable	line:565
+args	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^    args = argp.parse_args()$/;"	kind:variable	line:65
+belongs_to	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def belongs_to(self, value, context):$/;"	kind:member	line:218
+belongs_to	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def belongs_to(self, value, context):$/;"	kind:member	line:218
+buffer	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def buffer(self, config, data_source):$/;"	kind:member	line:537
+buffer	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def buffer(self, config, data_source):$/;"	kind:member	line:537
+c_char_p	../vendor/psy/psysh/test/tools/vis.py	/^from ctypes import CDLL, c_char_p, c_int$/;"	kind:namespace	line:40
+c_int	../vendor/psy/psysh/test/tools/vis.py	/^from ctypes import CDLL, c_char_p, c_int$/;"	kind:namespace	line:40
+chain	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^from itertools import chain$/;"	kind:namespace	line:4
+char	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^        char = chr(codepoint)$/;"	kind:variable	line:77
+choices	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^                      choices=list(RANGES.keys()),$/;"	kind:variable	line:60
+codecs	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^import codecs$/;"	kind:namespace	line:14
+codecs	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^import codecs$/;"	kind:namespace	line:7
+codecs	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^import codecs$/;"	kind:namespace	line:9
+codecs	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^import codecs$/;"	kind:namespace	line:14
+codecs	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^import codecs$/;"	kind:namespace	line:7
+codecs	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^import codecs$/;"	kind:namespace	line:9
+conf.py	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	1;"	kind:file	line:1
+conf.py	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	1;"	kind:file	line:1
+conf.py	../vendor/mockery/mockery/docs/conf.py	1;"	kind:file	line:1
+connections	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^connections = {}$/;"	kind:variable	line:60
+connections	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^connections = {}$/;"	kind:variable	line:60
+convert	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^  def convert(self, outputFile):$/;"	kind:member	line:167
+convert	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def convert(self, data_source, output_file):$/;"	kind:member	line:112
+convert	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^  def convert(self, outputFile):$/;"	kind:member	line:167
+convert	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def convert(self, data_source, output_file):$/;"	kind:member	line:112
+converter	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^converter = Converter(paramsJson)$/;"	kind:variable	line:298
+converter	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^converter = Converter(paramsJson)$/;"	kind:variable	line:298
+converter.py	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	1;"	kind:file	line:1
+converter.py	../public/adminlte/bower_components/jvectormap/converter/converter.py	1;"	kind:file	line:1
+copy	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^import copy$/;"	kind:namespace	line:15
+copy	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^import copy$/;"	kind:namespace	line:10
+copy	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^import copy$/;"	kind:namespace	line:15
+copy	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^import copy$/;"	kind:namespace	line:10
+copyright	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	/^copyright = u'2016, eternicode'$/;"	kind:variable	line:57
+copyright	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	/^copyright = u'2016, eternicode'$/;"	kind:variable	line:57
+copyright	../vendor/mockery/mockery/docs/conf.py	/^copyright = u'2014, Pádraic Brady, Dave Marshall, Wouter, Graham Campbell'$/;"	kind:variable	line:49
+counter	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^counter = 0$/;"	kind:variable	line:179
+counter	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^counter = 0$/;"	kind:variable	line:61
+counter	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^counter = 0$/;"	kind:variable	line:179
+counter	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^counter = 0$/;"	kind:variable	line:61
+cp_range	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^    cp_range = RANGES['bmp'] if args.all else RANGES[args.range]$/;"	kind:variable	line:67
+create_grammar	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def create_grammar(self):$/;"	kind:member	line:278
+create_grammar	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def create_grammar(self):$/;"	kind:member	line:278
+csv	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^import csv$/;"	kind:namespace	line:3
+csv	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^import csv$/;"	kind:namespace	line:3
+decoded	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^        decoded = unvis(encoded)$/;"	kind:variable	line:79
+decoded	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^        decoded = unvis(encoded)$/;"	kind:variable	line:86
+default	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^                      default='small')$/;"	kind:variable	line:61
+description	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^        description='Generates test data for Psy\\\\Test\\\\Util\\\\StrTest')$/;"	kind:variable	line:49
+dirname	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^from os.path import abspath, expanduser, dirname, join$/;"	kind:namespace	line:3
+encoded	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^        encoded = vis(char, VIS_WHITE)$/;"	kind:variable	line:78
+encoded	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^        encoded = vis(fixture, VIS_WHITE)$/;"	kind:variable	line:85
+equals	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def equals(self, value, context):$/;"	kind:member	line:215
+equals	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def equals(self, value, context):$/;"	kind:member	line:215
+exclude_patterns	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	/^exclude_patterns = ['_build']$/;"	kind:variable	line:71
+exclude_patterns	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	/^exclude_patterns = ['_build']$/;"	kind:variable	line:71
+exclude_patterns	../vendor/mockery/mockery/docs/conf.py	/^exclude_patterns = ['_build']$/;"	kind:variable	line:72
+expanduser	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^from os.path import abspath, expanduser, dirname, join$/;"	kind:namespace	line:3
+extensions	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	/^extensions = []$/;"	kind:variable	line:41
+extensions	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	/^extensions = []$/;"	kind:variable	line:41
+extensions	../vendor/mockery/mockery/docs/conf.py	/^extensions = [$/;"	kind:variable	line:31
+fd	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^    fd = ogr.FieldDefn( src_fd.GetName(), src_fd.GetType() )$/;"	kind:variable	line:36
+fd	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^    fd = ogr.FieldDefn( src_fd.GetName(), src_fd.GetType() )$/;"	kind:variable	line:36
+filterByMinimalArea	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^  def filterByMinimalArea(self, geometry):$/;"	kind:member	line:282
+filterByMinimalArea	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^  def filterByMinimalArea(self, geometry):$/;"	kind:member	line:282
+filterByViewport	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^  def filterByViewport(self, geometry):$/;"	kind:member	line:275
+filterByViewport	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^  def filterByViewport(self, geometry):$/;"	kind:member	line:275
+find_library	../vendor/psy/psysh/test/tools/vis.py	/^from ctypes.util import find_library$/;"	kind:namespace	line:41
+fixtures	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^    fixtures = []$/;"	kind:variable	line:72
+format	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^format = '%.8f %.8f'$/;"	kind:variable	line:13
+format	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^format = '%.8f %.8f'$/;"	kind:variable	line:13
+gen_unvis_fixtures.py	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	1;"	kind:file	line:1
+geom_type	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^                                geom_type = in_defn.GetGeomType(),$/;"	kind:variable	line:30
+geom_type	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^                                geom_type = in_defn.GetGeomType(),$/;"	kind:variable	line:30
+geometries	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^geometries = []$/;"	kind:variable	line:43
+geometries	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^geometries = []$/;"	kind:variable	line:43
+geometry	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^import shapely.geometry$/;"	kind:namespace	line:8
+geometry	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^import shapely.geometry$/;"	kind:namespace	line:5
+geometry	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^  geometry = feature.GetGeometryRef()$/;"	kind:variable	line:45
+geometry	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^import shapely.geometry$/;"	kind:namespace	line:7
+geometry	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^import shapely.geometry$/;"	kind:namespace	line:8
+geometry	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^import shapely.geometry$/;"	kind:namespace	line:5
+geometry	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^  geometry = feature.GetGeometryRef()$/;"	kind:variable	line:45
+geometry	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^import shapely.geometry$/;"	kind:namespace	line:7
+geometryType	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^  geometryType = geometry.GetGeometryType()$/;"	kind:variable	line:46
+geometryType	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^  geometryType = geometry.GetGeometryType()$/;"	kind:variable	line:46
+getJSCode	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^  def getJSCode(self):$/;"	kind:member	line:29
+getJSCode	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def getJSCode(self):$/;"	kind:member	line:29
+getJSCode	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^  def getJSCode(self):$/;"	kind:member	line:29
+getJSCode	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def getJSCode(self):$/;"	kind:member	line:29
+help	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^                      help='Indent JSON output to ease debugging')$/;"	kind:variable	line:51
+highlight_language	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	/^highlight_language = 'javascript'$/;"	kind:variable	line:90
+highlight_language	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	/^highlight_language = 'javascript'$/;"	kind:variable	line:90
+html_static_path	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	/^html_static_path = ['_static']$/;"	kind:variable	line:130
+html_static_path	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	/^html_static_path = ['_static']$/;"	kind:variable	line:130
+html_static_path	../vendor/mockery/mockery/docs/conf.py	/^html_static_path = ['_static']$/;"	kind:variable	line:121
+html_theme	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	/^html_theme = 'sphinx_rtd_theme'$/;"	kind:variable	line:100
+html_theme	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	/^html_theme = 'sphinx_rtd_theme'$/;"	kind:variable	line:100
+html_theme	../vendor/mockery/mockery/docs/conf.py	/^    html_theme = 'sphinx_rtd_theme'$/;"	kind:variable	line:257
+html_theme	../vendor/mockery/mockery/docs/conf.py	/^html_theme = 'default'$/;"	kind:variable	line:103
+html_theme_path	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	/^html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]$/;"	kind:variable	line:109
+html_theme_path	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	/^html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]$/;"	kind:variable	line:109
+html_theme_path	../vendor/mockery/mockery/docs/conf.py	/^    html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]$/;"	kind:variable	line:258
+htmlhelp_basename	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	/^htmlhelp_basename = 'bootstrap-datepickerdoc'$/;"	kind:variable	line:174
+htmlhelp_basename	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	/^htmlhelp_basename = 'bootstrap-datepickerdoc'$/;"	kind:variable	line:174
+htmlhelp_basename	../vendor/mockery/mockery/docs/conf.py	/^htmlhelp_basename = 'MockeryDocsdoc'$/;"	kind:variable	line:170
+if	../vendor/mockery/mockery/docs/conf.py	/^if not on_rtd:  # only import and set the theme if we're building docs locally$/;"	kind:namespace	line:255
+in_defn	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^in_defn = in_layer.GetLayerDefn()$/;"	kind:variable	line:21
+in_defn	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^in_defn = in_layer.GetLayerDefn()$/;"	kind:variable	line:21
+in_ds	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^in_ds = ogr.Open( infile, update = 0 )$/;"	kind:variable	line:19
+in_ds	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^in_ds = ogr.Open( infile, update = 0 )$/;"	kind:variable	line:19
+in_feat	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^  in_feat = in_layer.GetNextFeature()$/;"	kind:variable	line:197
+in_feat	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^in_feat = in_layer.GetNextFeature()$/;"	kind:variable	line:178
+in_feat	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^  in_feat = in_layer.GetNextFeature()$/;"	kind:variable	line:197
+in_feat	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^in_feat = in_layer.GetNextFeature()$/;"	kind:variable	line:178
+in_field_count	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^in_field_count = in_defn.GetFieldCount()$/;"	kind:variable	line:33
+in_field_count	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^in_field_count = in_defn.GetFieldCount()$/;"	kind:variable	line:33
+in_layer	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^in_layer = in_ds.GetLayer( 0 )$/;"	kind:variable	line:20
+in_layer	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^in_layer = in_ds.GetLayer( 0 )$/;"	kind:variable	line:20
+indent	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^    indent = 2 if args.format_output else None$/;"	kind:variable	line:68
+indexFrom	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^          indexFrom = i$/;"	kind:variable	line:81
+indexFrom	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^          indexFrom = i$/;"	kind:variable	line:81
+indexTo	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^          indexTo = i+1$/;"	kind:variable	line:82
+indexTo	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^          indexTo = i+1$/;"	kind:variable	line:82
+infile	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^infile = '\/Users\/kirilllebedev\/Maps\/50m-admin-0-countries\/ne_50m_admin_0_countries.shp'$/;"	kind:variable	line:15
+infile	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^infile = '\/Users\/kirilllebedev\/Maps\/50m-admin-0-countries\/ne_50m_admin_0_countries.shp'$/;"	kind:variable	line:15
+inspect	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^import inspect$/;"	kind:namespace	line:9
+inspect	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^import inspect$/;"	kind:namespace	line:9
+intersect_rect	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def intersect_rect(self, config, data_source):$/;"	kind:member	line:546
+intersect_rect	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def intersect_rect(self, config, data_source):$/;"	kind:member	line:546
+is_subset	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def is_subset(self, value, context):$/;"	kind:member	line:221
+is_subset	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def is_subset(self, value, context):$/;"	kind:member	line:221
+join	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^from os.path import abspath, expanduser, dirname, join$/;"	kind:namespace	line:3
+join_data	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def join_data(self, config, data_source):$/;"	kind:member	line:510
+join_data	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def join_data(self, config, data_source):$/;"	kind:member	line:510
+json	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^import json$/;"	kind:namespace	line:13
+json	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^import json$/;"	kind:namespace	line:2
+json	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^import json$/;"	kind:namespace	line:13
+json	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^import json$/;"	kind:namespace	line:2
+json	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^import json$/;"	kind:namespace	line:5
+latex_documents	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	/^latex_documents = [$/;"	kind:variable	line:192
+latex_documents	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	/^latex_documents = [$/;"	kind:variable	line:192
+latex_documents	../vendor/mockery/mockery/docs/conf.py	/^latex_documents = [$/;"	kind:variable	line:189
+latex_elements	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	/^latex_elements = {$/;"	kind:variable	line:179
+latex_elements	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	/^latex_elements = {$/;"	kind:variable	line:179
+latex_elements	../vendor/mockery/mockery/docs/conf.py	/^latex_elements = {$/;"	kind:variable	line:175
+lines	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^      lines = []$/;"	kind:variable	line:74
+lines	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^      lines = []$/;"	kind:variable	line:74
+loadData	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^  def loadData(self):$/;"	kind:member	line:105
+loadData	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^  def loadData(self):$/;"	kind:member	line:105
+loadDataSource	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^  def loadDataSource(self, sourceConfig):$/;"	kind:member	line:109
+loadDataSource	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^  def loadDataSource(self, sourceConfig):$/;"	kind:member	line:109
+load_data	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def load_data(self):$/;"	kind:member	line:243
+load_data	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def load_data(self):$/;"	kind:member	line:243
+man_pages	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	/^man_pages = [$/;"	kind:variable	line:222
+man_pages	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	/^man_pages = [$/;"	kind:variable	line:222
+man_pages	../vendor/mockery/mockery/docs/conf.py	/^man_pages = [$/;"	kind:variable	line:219
+master_doc	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	/^master_doc = 'index'$/;"	kind:variable	line:53
+master_doc	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	/^master_doc = 'index'$/;"	kind:variable	line:53
+master_doc	../vendor/mockery/mockery/docs/conf.py	/^master_doc = 'index'$/;"	kind:variable	line:45
+merge	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def merge(self, config, data_source):$/;"	kind:member	line:500
+merge	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def merge(self, config, data_source):$/;"	kind:member	line:500
+ogr	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^from osgeo import ogr$/;"	kind:namespace	line:11
+ogr	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^from osgeo import ogr$/;"	kind:namespace	line:11
+ogr	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^from osgeo import ogr$/;"	kind:namespace	line:4
+ogr	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^from osgeo import ogr$/;"	kind:namespace	line:11
+ogr	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^from osgeo import ogr$/;"	kind:namespace	line:11
+ogr	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^from osgeo import ogr$/;"	kind:namespace	line:4
+on_rtd	../vendor/mockery/mockery/docs/conf.py	/^on_rtd = os.environ.get('READTHEDOCS', None) == 'True'$/;"	kind:variable	line:253
+operations	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  operations = set(["equality", "membership"])$/;"	kind:variable	line:210
+operations	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  operations = set(["equality", "membership"])$/;"	kind:variable	line:210
+ops	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^import shapely.ops$/;"	kind:namespace	line:6
+ops	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^import shapely.ops$/;"	kind:namespace	line:8
+ops	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^import shapely.ops$/;"	kind:namespace	line:6
+ops	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^import shapely.ops$/;"	kind:namespace	line:8
+os	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	/^import sys, os$/;"	kind:namespace	line:14
+os	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^import os$/;"	kind:namespace	line:8
+os	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^import os$/;"	kind:namespace	line:3
+os	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	/^import sys, os$/;"	kind:namespace	line:14
+os	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^import os$/;"	kind:namespace	line:8
+os	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^import os$/;"	kind:namespace	line:3
+os	../vendor/mockery/mockery/docs/conf.py	/^import os$/;"	kind:namespace	line:16
+osr	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^from osgeo import osr$/;"	kind:namespace	line:12
+osr	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^from osgeo import osr$/;"	kind:namespace	line:12
+osr	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^from osgeo import osr$/;"	kind:namespace	line:5
+osr	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^from osgeo import osr$/;"	kind:namespace	line:12
+osr	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^from osgeo import osr$/;"	kind:namespace	line:12
+osr	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^from osgeo import osr$/;"	kind:namespace	line:5
+out_feat	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^    out_feat = ogr.Feature( feature_def = shp_layer.GetLayerDefn() )$/;"	kind:variable	line:182
+out_feat	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^    out_feat = ogr.Feature( feature_def = shp_layer.GetLayerDefn() )$/;"	kind:variable	line:182
+outfile	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^outfile = 'map.shp'$/;"	kind:variable	line:16
+outfile	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^outfile = 'map.shp'$/;"	kind:variable	line:16
+output	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def output(self, output):$/;"	kind:member	line:295
+output	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def output(self, output):$/;"	kind:member	line:295
+output_jvm	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def output_jvm(self, output):$/;"	kind:member	line:337
+output_jvm	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def output_jvm(self, output):$/;"	kind:member	line:337
+output_ogr	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def output_ogr(self, output):$/;"	kind:member	line:301
+output_ogr	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def output_ogr(self, output):$/;"	kind:member	line:301
+paramsJson	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^  paramsJson = open(sys.argv[1], 'r').read()$/;"	kind:variable	line:293
+paramsJson	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^  paramsJson = sys.stdin.read()$/;"	kind:variable	line:295
+paramsJson	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^paramsJson = json.loads(paramsJson)$/;"	kind:variable	line:296
+paramsJson	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  paramsJson = open(sys.argv[1], 'r').read()$/;"	kind:variable	line:567
+paramsJson	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  paramsJson = sys.stdin.read()$/;"	kind:variable	line:569
+paramsJson	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^paramsJson = json.loads(paramsJson)$/;"	kind:variable	line:570
+paramsJson	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^  paramsJson = open(sys.argv[1], 'r').read()$/;"	kind:variable	line:293
+paramsJson	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^  paramsJson = sys.stdin.read()$/;"	kind:variable	line:295
+paramsJson	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^paramsJson = json.loads(paramsJson)$/;"	kind:variable	line:296
+paramsJson	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  paramsJson = open(sys.argv[1], 'r').read()$/;"	kind:variable	line:567
+paramsJson	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  paramsJson = sys.stdin.read()$/;"	kind:variable	line:569
+paramsJson	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^paramsJson = json.loads(paramsJson)$/;"	kind:variable	line:570
+pivotPoints	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^pivotPoints = {}$/;"	kind:variable	line:96
+pivotPoints	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^pivotPoints = {}$/;"	kind:variable	line:96
+pointFrom	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^          pointFrom = format % line.coords[indexFrom]$/;"	kind:variable	line:83
+pointFrom	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^          pointFrom = format % line.coords[indexFrom]$/;"	kind:variable	line:83
+pointTo	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^          pointTo = format % line.coords[indexTo]$/;"	kind:variable	line:84
+pointTo	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^          pointTo = format % line.coords[indexTo]$/;"	kind:variable	line:84
+points	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^points = []$/;"	kind:variable	line:59
+points	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^points = []$/;"	kind:variable	line:59
+polygons	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^  polygons = []$/;"	kind:variable	line:157
+polygons	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^  polygons = []$/;"	kind:variable	line:64
+polygons	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^  polygons = []$/;"	kind:variable	line:157
+polygons	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^  polygons = []$/;"	kind:variable	line:64
+primary_domain	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	/^primary_domain = 'js'$/;"	kind:variable	line:37
+primary_domain	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	/^primary_domain = 'js'$/;"	kind:variable	line:37
+process	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def process(self):$/;"	kind:member	line:473
+process	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def process(self):$/;"	kind:member	line:473
+processor	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^processor = Processor(paramsJson)$/;"	kind:variable	line:572
+processor	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^processor = Processor(paramsJson)$/;"	kind:variable	line:572
+processor.py	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	1;"	kind:file	line:1
+processor.py	../public/adminlte/bower_components/jvectormap/converter/processor.py	1;"	kind:file	line:1
+project	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	/^project = u'bootstrap-datepicker'$/;"	kind:variable	line:56
+project	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	/^project = u'bootstrap-datepicker'$/;"	kind:variable	line:56
+project	../vendor/mockery/mockery/docs/conf.py	/^project = u'Mockery Docs'$/;"	kind:variable	line:48
+pygments_style	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	/^pygments_style = 'sphinx'$/;"	kind:variable	line:88
+pygments_style	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	/^pygments_style = 'sphinx'$/;"	kind:variable	line:88
+pygments_style	../vendor/mockery/mockery/docs/conf.py	/^pygments_style = 'sphinx'$/;"	kind:variable	line:90
+read_data	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def read_data(self, config, data_source):$/;"	kind:member	line:478
+read_data	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def read_data(self, config, data_source):$/;"	kind:member	line:478
+release	../vendor/mockery/mockery/docs/conf.py	/^release = '0.9'$/;"	kind:variable	line:58
+remove	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def remove(self, config, data_source):$/;"	kind:member	line:527
+remove	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def remove(self, config, data_source):$/;"	kind:member	line:527
+remove_fields	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def remove_fields(self, config, data_source):$/;"	kind:member	line:531
+remove_fields	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def remove_fields(self, config, data_source):$/;"	kind:member	line:531
+remove_other_fields	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def remove_other_fields(self, config, data_source):$/;"	kind:member	line:534
+remove_other_fields	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def remove_other_fields(self, config, data_source):$/;"	kind:member	line:534
+remove_small_polygons	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def remove_small_polygons(self, config, data_source):$/;"	kind:member	line:554
+remove_small_polygons	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def remove_small_polygons(self, config, data_source):$/;"	kind:member	line:554
+renderMapInset	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^  def renderMapInset(self, codes, left, top, width):$/;"	kind:member	line:221
+renderMapInset	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def renderMapInset(self, data_source, codes, left, top, width):$/;"	kind:member	line:161
+renderMapInset	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^  def renderMapInset(self, codes, left, top, width):$/;"	kind:member	line:221
+renderMapInset	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def renderMapInset(self, data_source, codes, left, top, width):$/;"	kind:member	line:161
+results	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^results = []$/;"	kind:variable	line:155
+results	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^results = []$/;"	kind:variable	line:155
+set	../vendor/mockery/mockery/docs/conf.py	/^if not on_rtd:  # only import and set the theme if we're building docs locally$/;"	kind:namespace	line:255
+shapely	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^import shapely.affinity$/;"	kind:namespace	line:10
+shapely	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^import shapely.geometry$/;"	kind:namespace	line:8
+shapely	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^import shapely.wkb$/;"	kind:namespace	line:9
+shapely	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^import shapely.geometry$/;"	kind:namespace	line:5
+shapely	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^import shapely.ops$/;"	kind:namespace	line:6
+shapely	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^import shapely.wkb$/;"	kind:namespace	line:4
+shapely	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^import shapely.geometry$/;"	kind:namespace	line:7
+shapely	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^import shapely.ops$/;"	kind:namespace	line:8
+shapely	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^import shapely.affinity$/;"	kind:namespace	line:10
+shapely	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^import shapely.geometry$/;"	kind:namespace	line:8
+shapely	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^import shapely.wkb$/;"	kind:namespace	line:9
+shapely	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^import shapely.geometry$/;"	kind:namespace	line:5
+shapely	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^import shapely.ops$/;"	kind:namespace	line:6
+shapely	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^import shapely.wkb$/;"	kind:namespace	line:4
+shapely	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^import shapely.geometry$/;"	kind:namespace	line:7
+shapely	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^import shapely.ops$/;"	kind:namespace	line:8
+shapelyGeometry	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^    shapelyGeometry = shapely.wkb.loads( geometry.ExportToWkb() )$/;"	kind:variable	line:49
+shapelyGeometry	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^    shapelyGeometry = shapely.wkb.loads( geometry.ExportToWkb() )$/;"	kind:variable	line:49
+shp_driver	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^shp_driver = ogr.GetDriverByName( 'ESRI Shapefile' )$/;"	kind:variable	line:25
+shp_driver	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^shp_driver = ogr.GetDriverByName( 'ESRI Shapefile' )$/;"	kind:variable	line:25
+shp_ds	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^shp_ds = shp_driver.CreateDataSource( outfile )$/;"	kind:variable	line:28
+shp_ds	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^shp_ds = shp_driver.CreateDataSource( outfile )$/;"	kind:variable	line:28
+shp_layer	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^shp_layer = shp_ds.CreateLayer( in_defn.GetName(),$/;"	kind:variable	line:29
+shp_layer	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^shp_layer = shp_ds.CreateLayer( in_defn.GetName(),$/;"	kind:variable	line:29
+simplePolygon	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^    simplePolygon = simplifyPolygon(polygon)$/;"	kind:variable	line:167
+simplePolygon	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^    simplePolygon = simplifyPolygon(polygon)$/;"	kind:variable	line:167
+simplePolygons	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^  simplePolygons = []$/;"	kind:variable	line:158
+simplePolygons	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^  simplePolygons = []$/;"	kind:variable	line:158
+simplifiedLines	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^simplifiedLines = {}$/;"	kind:variable	line:95
+simplifiedLines	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^simplifiedLines = {}$/;"	kind:variable	line:95
+simplifier.py	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	1;"	kind:file	line:1
+simplifier.py	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	1;"	kind:file	line:1
+simplify	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def simplify(self):$/;"	kind:member	line:445
+simplify	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def simplify(self):$/;"	kind:member	line:445
+simplifyPolygon	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def simplifyPolygon(self, polygon):$/;"	kind:member	line:434
+simplifyPolygon	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^def simplifyPolygon(polygon):$/;"	kind:function	line:143
+simplifyPolygon	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def simplifyPolygon(self, polygon):$/;"	kind:member	line:434
+simplifyPolygon	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^def simplifyPolygon(polygon):$/;"	kind:function	line:143
+simplifyRing	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def simplifyRing(self, ring):$/;"	kind:member	line:389
+simplifyRing	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^def simplifyRing(ring):$/;"	kind:function	line:97
+simplifyRing	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def simplifyRing(self, ring):$/;"	kind:member	line:389
+simplifyRing	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^def simplifyRing(ring):$/;"	kind:function	line:97
+simplify_adjancent_polygons	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def simplify_adjancent_polygons(self, config, data_source):$/;"	kind:member	line:541
+simplify_adjancent_polygons	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def simplify_adjancent_polygons(self, config, data_source):$/;"	kind:member	line:541
+source_suffix	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	/^source_suffix = '.rst'$/;"	kind:variable	line:47
+source_suffix	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	/^source_suffix = '.rst'$/;"	kind:variable	line:47
+source_suffix	../vendor/mockery/mockery/docs/conf.py	/^source_suffix = '.rst'$/;"	kind:variable	line:39
+sphinx_rtd_theme	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	/^import sphinx_rtd_theme$/;"	kind:namespace	line:25
+sphinx_rtd_theme	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	/^import sphinx_rtd_theme$/;"	kind:namespace	line:25
+sphinx_rtd_theme	../vendor/mockery/mockery/docs/conf.py	/^    import sphinx_rtd_theme$/;"	kind:namespace	line:256
+src_fd	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^    src_fd = in_defn.GetFieldDefn( fld_index )$/;"	kind:variable	line:35
+src_fd	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^    src_fd = in_defn.GetFieldDefn( fld_index )$/;"	kind:variable	line:35
+srs	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^                                srs = in_layer.GetSpatialRef() )$/;"	kind:variable	line:31
+srs	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^                                srs = in_layer.GetSpatialRef() )$/;"	kind:variable	line:31
+start	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^start = int(round(time.time() * 1000))$/;"	kind:variable	line:57
+start	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^start = int(round(time.time() * 1000))$/;"	kind:variable	line:57
+sys	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	/^import sys, os$/;"	kind:namespace	line:14
+sys	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^import sys$/;"	kind:namespace	line:7
+sys	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^import sys$/;"	kind:namespace	line:1
+sys	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^import sys$/;"	kind:namespace	line:2
+sys	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	/^import sys, os$/;"	kind:namespace	line:14
+sys	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^import sys$/;"	kind:namespace	line:7
+sys	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^import sys$/;"	kind:namespace	line:1
+sys	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^import sys$/;"	kind:namespace	line:2
+sys	../vendor/mockery/mockery/docs/conf.py	/^import sys$/;"	kind:namespace	line:15
+sys	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^import sys$/;"	kind:namespace	line:2
+templates_path	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	/^templates_path = ['_templates']$/;"	kind:variable	line:44
+templates_path	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	/^templates_path = ['_templates']$/;"	kind:variable	line:44
+templates_path	../vendor/mockery/mockery/docs/conf.py	/^templates_path = ['_templates']$/;"	kind:variable	line:36
+texinfo_documents	../public/AdminLTE-2.4.0/bower_components/bootstrap-datepicker/docs/conf.py	/^texinfo_documents = [$/;"	kind:variable	line:236
+texinfo_documents	../public/adminlte/bower_components/bootstrap-datepicker/docs/conf.py	/^texinfo_documents = [$/;"	kind:variable	line:236
+texinfo_documents	../vendor/mockery/mockery/docs/conf.py	/^texinfo_documents = [$/;"	kind:variable	line:233
+the	../vendor/mockery/mockery/docs/conf.py	/^if not on_rtd:  # only import and set the theme if we're building docs locally$/;"	kind:namespace	line:255
+theme	../vendor/mockery/mockery/docs/conf.py	/^if not on_rtd:  # only import and set the theme if we're building docs locally$/;"	kind:namespace	line:255
+time	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^import time$/;"	kind:namespace	line:10
+time	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^import time$/;"	kind:namespace	line:10
+to_python	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def to_python(self, value):$/;"	kind:member	line:224
+to_python	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def to_python(self, value):$/;"	kind:member	line:224
+tolerance	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/simplifier.py	/^tolerance = 0.01$/;"	kind:variable	line:14
+tolerance	../public/adminlte/bower_components/jvectormap/converter/simplifier.py	/^tolerance = 0.01$/;"	kind:variable	line:14
+union	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def union(self, config, data_source):$/;"	kind:member	line:485
+union	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def union(self, config, data_source):$/;"	kind:member	line:485
+unvis	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^from vis import vis, unvis, VIS_WHITE$/;"	kind:namespace	line:8
+unvis	../vendor/psy/psysh/test/tools/vis.py	/^def unvis(src):$/;"	kind:function	line:111
+version	../vendor/mockery/mockery/docs/conf.py	/^version = '0.9'$/;"	kind:variable	line:56
+vis	../vendor/psy/psysh/test/tools/gen_unvis_fixtures.py	/^from vis import vis, unvis, VIS_WHITE$/;"	kind:namespace	line:8
+vis	../vendor/psy/psysh/test/tools/vis.py	/^def vis(src, flags=VIS_WHITE):$/;"	kind:function	line:91
+vis.py	../vendor/psy/psysh/test/tools/vis.py	1;"	kind:file	line:1
+we	../vendor/mockery/mockery/docs/conf.py	/^if not on_rtd:  # only import and set the theme if we're building docs locally$/;"	kind:namespace	line:255
+wkb	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/converter.py	/^import shapely.wkb$/;"	kind:namespace	line:9
+wkb	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^import shapely.wkb$/;"	kind:namespace	line:4
+wkb	../public/adminlte/bower_components/jvectormap/converter/converter.py	/^import shapely.wkb$/;"	kind:namespace	line:9
+wkb	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^import shapely.wkb$/;"	kind:namespace	line:4
+write_data	../public/AdminLTE-2.4.0/bower_components/jvectormap/converter/processor.py	/^  def write_data(self, config, data_source):$/;"	kind:member	line:482
+write_data	../public/adminlte/bower_components/jvectormap/converter/processor.py	/^  def write_data(self, config, data_source):$/;"	kind:member	line:482
