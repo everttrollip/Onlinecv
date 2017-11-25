@@ -3,7 +3,7 @@
         <h1> Welcome to your dashboard, {{name}}!</h1>
         <ol class="breadcrumb">
             <li><a href="/user"><i class="fa fa-dashboard"></i> {{name}}</a></li>
-            <li class="active"><a href="/user/dashboard">My Dashboard</a></li>
+            <li class="active">My Dashboard</li>
         </ol>
     </section>
 </template>

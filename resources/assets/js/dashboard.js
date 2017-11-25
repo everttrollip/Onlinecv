@@ -8,10 +8,16 @@ require('./bootstrap');
 // HEADER
 import DashboardHeader from './components/dashboard/DashboardHeader.vue'
 
+// MAIN CONTENT
+import DashboardGettingStarted from './components/dashboard/DashboardGettingStarted.vue'
+
 new Vue({
     el: '#dashboard',
     components: {
         // HEADER
-        DashboardHeader
+        DashboardHeader,
+
+        // MAIN CONTENT
+        DashboardGettingStarted
     }
 });
