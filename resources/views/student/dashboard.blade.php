@@ -29,6 +29,8 @@
             folder instead of downloading all of them to reduce the load. -->
         <link rel="stylesheet" href="{{ asset('adminlte/dist/css/skins/_all-skins.min.css') }}">
 
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body class="hold-transition skin-blue-light fixed sidebar-mini">
         <div id="dashboard" class="wrapper">
@@ -39,14 +41,7 @@
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-                <section class="content-header">
-                    <h1> Welcome to your dashboard, Evert!</h1>
-                    <ol class="breadcrumb">
-                        <li><a href="/student"><i class="fa fa-dashboard"></i> Student</a></li>
-                        <li><a href="/student/dashboard">Dashboard</a></li>
-                        <li class="active">My Dashboard</li>
-                    </ol>
-                </section>
+                <dashboard-header></dashboard-header>
 
                 <!-- Main content -->
                 <section class="content">
@@ -70,6 +65,9 @@
 
             @include('student.includes.footer')
         </div>
+
+        <!-- Scripts -->
+        <script src="{{ asset('js/dashboard.js') }}"></script>
 
         <!-- jQuery 3 -->
         <script src="{{ asset('adminlte/bower_components/jquery/dist/jquery.min.js') }}"></script>

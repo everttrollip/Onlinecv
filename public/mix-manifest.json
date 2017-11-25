@@ -3,5 +3,6 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/_mixins.css": "/css/_mixins.css",
-    "/css/cv.css": "/css/cv.css"
+    "/css/cv.css": "/css/cv.css",
+    "/js/dashboard.js": "/js/dashboard.js"
 }

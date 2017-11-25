@@ -62,4 +62,6 @@ Route::get('/register/endorser', function(){
 });
 
 // User Routes
+Route::get('/users', 'UserController@index');
+Route::get('/user', 'UserController@get');
 Route::post('/registersubmit', 'UserController@register');

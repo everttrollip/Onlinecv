@@ -4,12 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\Students;
+use App\Student;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
+    public function index() {
+        return User::all();
+    }
+
+    public function get() {
+        $user = Auth::User();
+        if($user->role === 'student'){
+            $user_id = $user->id;
+            $student = Student::where('user_id', '=', Auth::User()->id)->first();
+        }
+        return $student;
+    }
+
     public function show($id){
         $users = User::findOrFail($id);
         return $users;
@@ -48,7 +61,7 @@ class UserController extends Controller
                 ]);
                 $id = $user->id;
 
-                $student = Students::insert([
+                $student = Student::insert([
                         'user_id' => $id,
                         'firstname' => $firstname,
                         'lastname' => $lastname,

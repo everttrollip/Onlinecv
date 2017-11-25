@@ -87,8 +87,6 @@ export default {
       console.log('Register now as' + this.role);
     },
     submit() {
-        alert(this.role);
-        debugger;
         axios.post('/registersubmit', this.$data).then(
             function (response) {
                 if (response.data['name'] != '') {
