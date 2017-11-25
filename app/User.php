@@ -15,12 +15,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id',
-        'name',
+        'firstname',
         'lastname',
         'email',
         'password',
-        'avatar',
         'role'
     ];
 
@@ -34,8 +32,23 @@ class User extends Authenticatable
         'remember_token'
     ];
 
+    public function isAdministrator()
+    {
+        if ($this->role == 'administrator') {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     public function isStudent()
     {
-        return $this->student ? true : false; // this looks for an admin column in your users table
+        if ($this->role == 'student') {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }

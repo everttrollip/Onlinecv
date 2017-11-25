@@ -31,7 +31,7 @@
 
     </head>
     <body class="hold-transition skin-blue-light fixed sidebar-mini">
-        <div class="wrapper">
+        <div id="dashboard" class="wrapper">
 
             @include('student.includes.header')
             @include('student.includes.sidebar-left')

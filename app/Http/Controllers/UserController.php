@@ -22,13 +22,14 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
+        // Initialise some variables
         $name = $surname = $email = $password = $role = $voucher = "";
 
-        $name = $request->name;
-        $surname = $request->surname;
+        // Obtain the user information
+        $firstname = $request->name;
+        $lastname = $request->surname;
         $email = $request->email;
         $password = $request->password;
-
         $role = $request->role;
 
         if ($role === 'student') {
@@ -39,24 +40,20 @@ class UserController extends Controller
             }
             else {
                 $user = User::create([
-                    'name' => $name,
-                    'lastname' => $surname,
+                    'firstname' => $firstname,
+                    'lastname' => $lastname,
                     'email' => $email,
                     'password' => bcrypt($password),
                     'role' => $role
                 ]);
                 $id = $user->id;
 
-                $student = Students::insert(
-                    array(
+                $student = Students::insert([
                         'user_id' => $id,
-                        'firstname' => $name,
-                        'lastname' => $surname,
-                        'voucher'=>$voucher,
-                        'sports'=>0,
-                        'arts'=>0
-                    )
-                );
+                        'firstname' => $firstname,
+                        'lastname' => $lastname,
+                        'email' => $email
+                ]);
                 if ($student) {
                     Log::info('Student successfully created!');
                     return $user;
