@@ -32393,9 +32393,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mounted: function mounted() {
         var _this = this;
 
-        debugger;
-        axios.get('/get-student').then(function (result) {
-            debugger;
+        axios.get('/student').then(function (result) {
             _this.firstname = result.data.firstname;
             _this.lastname = result.data.lastname;
             _this.email = result.data.email;

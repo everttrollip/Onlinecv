@@ -97,9 +97,7 @@
             }
         },
         mounted(){
-            debugger
-            axios.get('/get-student').then((result)=>{
-                debugger
+            axios.get('/student').then((result)=>{
                 this.firstname = result.data.firstname;
                 this.lastname = result.data.lastname;
                 this.email = result.data.email;

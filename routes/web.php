@@ -40,13 +40,13 @@ Route::get('/contact', function(){
 });
 
 // Student Routes
-Route::get('/student', 'StudentsController@index');
-Route::get('/student/dashboard', 'StudentsController@index');
+Route::get('/student', 'StudentController@index');
+Route::get('/student/dashboard', 'DashboardsController@index');
 Route::get('/student/cv', 'CvsController@index');
 
-Route::get('/get-student', 'StudentsController@getStudent');
+// Route::get('/get-student', 'StudentController@getStudent');
 
-Route::post('student/profile/update', 'StudentsController@updateprofile');
+Route::post('student/profile/update', 'StudentController@updateprofile');
 Route::get('/register/student', function() {
     return view('shared.register')->with('role','student');
 });
