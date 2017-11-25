@@ -3,6 +3,8 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
 
+require('./bootstrap');
+
 // HEADER
 import CvHeader from './components/cv/CvHeader.vue'
 

@@ -1,8 +1,9 @@
-require('./bootstrap'); // Has axios
-import vueResource from 'vue-resource';
+import Vue from 'vue';
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI)
 
-window.Vue = require('vue');
-Vue.use(vueResource);
+require('./bootstrap');
 
 // HEADER
 import DashboardHeader from './components/dashboard/DashboardHeader.vue'
