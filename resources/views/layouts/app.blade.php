@@ -94,9 +94,9 @@
                     <h4 class="modal-title">Please select the user type you want to register as:</h4>
                 </div>
                 <div class="modal-body" style="text-align:center;">
-                    <a href="register/student"><button class="btn btn-primary" style="width:150px;">Student</button></a>
-                    <a href="register/endorser"><button class="btn btn-warning" style="width:150px;">Endorser</button></a>
-                    <a href="register/hub"><button class="btn btn-info" style="width:150px;">Hub</button></a>
+                    <a href="/register/student"><button class="btn btn-primary" style="width:150px;">Student</button></a>
+                    <a href="/register/endorser"><button class="btn btn-warning" style="width:150px;">Endorser</button></a>
+                    <a href="/register/hub"><button class="btn btn-info" style="width:150px;">Hub</button></a>
                 </div>
                 </div>
             </div>

@@ -44518,19 +44518,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -44554,19 +44541,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         submit: function submit() {
             alert(this.role);
+            debugger;
             axios.post('/registersubmit', this.$data).then(function (response) {
                 if (response.data['name'] != '') {
                     bootbox.alert({
-                        title: 'Notification', message: 'You are successfully registered. Please verify you e-mail address.',
+                        title: 'Notification',
+                        message: 'You are successfully registered. Please verify you e-mail address.',
                         callback: function callback(result) {
                             window.location.href = "/";
                         }
                     });
                 } else {
-                    bootbox.alert({ title: 'Notification', message: 'Something went wrong. We could not register you. Please try again or contact the administrators at info@onlinecv.co.za if the issue persists.' });
+                    bootbox.alert({
+                        title: 'Notification',
+                        message: 'Something went wrong. We could not register you. Please try again or contact the administrators at info@onlinecv.co.za if the issue persists.'
+                    });
                 }
             }, function (response) {
-                bootbox.alert({ title: 'Notification', message: 'Something went wrong. We could not register you. Please try again or contact the administrators at info@onlinecv.co.za if the issue persists.' });
+                bootbox.alert({
+                    title: 'Notification',
+                    message: 'Something went wrong. We could not register you. Please try again or contact the administrators at info@onlinecv.co.za if the issue persists.'
+                });
             });
         }
     }
@@ -44861,7 +44856,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                     Register\n                                 "
+                            "\n                                    Register\n                                "
                           )
                         ]
                       )

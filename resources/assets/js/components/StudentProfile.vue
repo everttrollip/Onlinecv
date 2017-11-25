@@ -94,7 +94,7 @@
                 tagline: '',
                 town:'',
                 csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                }
+            }
         },
         mounted(){
             debugger

@@ -47,7 +47,6 @@ Route::get('/student/cv', 'CvsController@index');
 Route::get('/get-student', 'StudentsController@getStudent');
 
 Route::post('student/profile/update', 'StudentsController@updateprofile');
-Route::post('/register/student', 'StudentsController@updateprofile');
 Route::get('/register/student', function() {
     return view('shared.register')->with('role','student');
 });

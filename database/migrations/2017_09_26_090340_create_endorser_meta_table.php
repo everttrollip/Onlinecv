@@ -15,11 +15,12 @@ class CreateEndorserMetaTable extends Migration
     {
         Schema::create('endorsers_meta', function (Blueprint $table) {
             $table->increments('id', 11);
-            $table->foreign('user_id',11)
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id', 11)
             ->references('id')->on('users')
             ->onDelete('cascade');
             $table->string('firstname', 45);
-            $table->string('latsname',45);
+            $table->string('lastname', 45);
             $table->string('id_number', 45);
             $table->date('dob');
             $table->string('address', 90);
