@@ -2,8 +2,20 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
+// Mixins
+@import 'mixins';
+
 // Variables
 @import "variables";
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+.flex-container-row {
+    @include flexbox-container(row, wrap, space-between);
+}
+
+.flex-container-column {
+    // border: 2px solid blue;
+    @include flexbox-container(column, wrap, space-around);
+}

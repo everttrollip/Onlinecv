@@ -30,6 +30,7 @@
         <link rel="stylesheet" href="../adminlte/bower_components/select2/dist/css/select2.min.css">
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 <style>
 .control-label{
     font-weight:normal;
@@ -40,7 +41,7 @@
     </head>
 <body class="hold-transition skin-blue-light fixed sidebar-mini">
 <!-- Site wrapper -->
-<div class="wrapper" id="app">
+<div class="wrapper" id="profile">
         @include('student.includes.header')
         @include('student.includes.sidebar-left')
     <!-- Content Wrapper. Contains page content -->
@@ -53,21 +54,14 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active"> CV</li>
+            <li class="active"> Profile</li>
         </ol>
         </section>
 
         <!-- Main content -->
         <section class="content">
-            <div class="callout callout-info">
-                <h4>Tip!</h4>
-                <p>Adding a profile image improves your profile. Tertiary companies are more likely to notice you if your profile stands out from the crowd.</p>
-            </div>
         <!-- Default box -->
             <div class="panel">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Profile Details</h3>
-                </div>
                 <div class="box-body col-md-12">
                     <studentprofile role="student">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -81,7 +75,7 @@
 
 <!-- ./wrapper -->
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/profile.js') }}"></script>
 <!-- jQuery 3 -->
 <script src="../adminlte/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
