@@ -40,37 +40,28 @@
 </style>
     </head>
 <body class="hold-transition skin-blue-light fixed sidebar-mini">
-<!-- Site wrapper -->
-<div class="wrapper" id="profile">
+    <!-- Site wrapper -->
+    <div class="wrapper" id="profile">
         @include('student.includes.header')
         @include('student.includes.sidebar-left')
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-        <h1>
-            Profile
-            <small>Update Your Profile</small>
-        </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active"> Profile</li>
-        </ol>
-        </section>
 
-        <!-- Main content -->
-        <section class="content">
-        <!-- Default box -->
-            <div class="panel">
-                <div class="box-body col-md-12">
-                    <studentprofile role="student">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    </studentprofile>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <profile-header></profile-header>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="panel">
+                    <div class="box-body col-md-12">
+                        <studentprofile role="student">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        </studentprofile>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
-</div>
 
 
 <!-- ./wrapper -->

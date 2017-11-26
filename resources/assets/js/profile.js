@@ -12,7 +12,8 @@ Vue.use(vueResource);
 Vue.use(VueFormWizard)
 Vue.use(ElementUI)
 
-Vue.component('studentprofile', require('./components/StudentProfile.vue'));
+Vue.component('profile-header', require('./components/profile/ProfileHeader.vue'));
+Vue.component('studentprofile', require('./components/profile/StudentProfile.vue'));
 
 const app = new Vue({
     el: '#profile',
