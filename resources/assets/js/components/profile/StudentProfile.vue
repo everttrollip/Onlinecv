@@ -86,10 +86,7 @@
 
                     <div class="form-group">
                         <label class="control-label">Preferred Study Location(s)</label>
-                        <select class="form-control" v-model="studyLocations">
-                            <option>Yes</option>
-                            <option>No</option>
-                        </select>
+                        <v-select multiple :options="studyLocations"></v-select>
                     </div>
                 </div>
 
@@ -220,17 +217,37 @@
     export default {
         data() {
             return {
+                // Personal Details
                 firstname: '',
                 lastname: '',
                 email: '',
-                contact:'',
-                sports: '',
-                interests: [],
-                arts: '',
-                school: '',
-                grade: '',
+                contact: '',
+                town: '',
                 tagline: '',
-                town:'',
+
+                // Education
+                grade: '',
+                subjects: [],
+                varsityExempt: '',
+                studyLocations: [
+                    'Alice', 'Bellville', 'Bhisho', 'Bloemfontein', 'Cape Town', 'Durban', 'East London', 'Ga-Rankuwa',
+                    'Grahamstown', 'Johannesburg', 'Mafikeng', 'Mankwe', 'Pietermaritzburg', 'Pinetown', 'Polokwane',
+                    'Potchefstroom', 'Pretoria', 'QwaQwa', 'Saldanha Bay', 'Stellenbosch', 'Tygerberg', 'Vanderbijlpark',
+                    'Westville'
+                ],
+                preferredStudyLocations: [],
+
+                // Additional Information
+                arts: 0,
+                sports: 0,
+                events: 0,
+                communication: 0,
+                conceptualization: 0,
+                creativity: 0,
+                leadership: 0,
+                careerInterests: [],
+                generalInterests: '',
+
                 csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             }
         },
