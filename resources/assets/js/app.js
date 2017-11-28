@@ -20,7 +20,6 @@ Vue.use(vueResource);
 
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('register', require('./components/Register.vue'));
-Vue.component('studentprofile', require('./components/StudentProfile.vue'));
 
 const app = new Vue({
     el: '#app',
