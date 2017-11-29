@@ -23,6 +23,7 @@ class CreateStudentsTable extends Migration
             $table->string('lastname', 45);
             $table->string('email', 90)->unique();
 
+            $table->string('voucher', 45)->default('');
             $table->string('id_number', 45)->default('');
             $table->date('dob')->nullable();
             $table->string('school', 90)->default('');;

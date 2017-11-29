@@ -7,7 +7,7 @@
 
         <tab-content title="Personal details"
                     icon="fa fa-info">
-            <div class="col-md-12">
+            <div class="col-md-12 flex-container-row">
                 <div class="form-group col-md-2">
                     <label class="control-label">First Name</label>
                     <input v-model="firstname"  class="form-control" placeholder="First Name" name="firstname">
@@ -24,10 +24,28 @@
                     <label class="control-label">Mobile Number</label>
                     <input v-bind:value="contact" v-model="contact" class="form-control" placeholder="Mobile Number" name="contact">
                 </div>
+            </div>
+
+            <div class="col-md-12 flex-container-row">
                 <div class="form-group col-md-2">
-                    <label class="control-label">Town / City </label>
+                    <label class="control-label">ID/Passport Number</label>
+                    <input  v-model="idNumber" class="form-control" placeholder="ID/Passport Number" name="town">
+                </div>
+                <div class="form-group col-md-2">
+                    <label class="control-label">Date of Birth</label>
+
+                </div>
+                <div class="form-group col-md-2">
+                    <label class="control-label">Province</label>
+                    <input  v-model="province" class="form-control" placeholder="Province" name="town">
+                </div>
+                <div class="form-group col-md-2">
+                    <label class="control-label">Town / City</label>
                     <input  v-model="town" class="form-control" placeholder="Town" name="town">
                 </div>
+            </div>
+
+            <div class="col-md-12 flex-container-row">
                 <div class="form-group col-md-4">
                     <label class="control-label">Tagline</label>
                     <textarea v-model="tagline" class="form-control" placeholder="In one or two sentences, briefly describe yourself..." name="tagline"></textarea>
@@ -222,6 +240,9 @@
                 lastname: '',
                 email: '',
                 contact: '',
+                idNumber: '',
+                dob: '',
+                province: '',
                 town: '',
                 tagline: '',
 
@@ -256,6 +277,7 @@
                 this.firstname = result.data.firstname;
                 this.lastname = result.data.lastname;
                 this.email = result.data.email;
+
                 this.grade = result.data.grade;
                 this.town = result.data.town;
                 this.sports = result.data.sports;

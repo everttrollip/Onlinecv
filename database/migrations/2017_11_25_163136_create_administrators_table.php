@@ -21,6 +21,9 @@ class CreateAdministratorsTable extends Migration
             ->onDelete('cascade');
             $table->string('firstname', 45);
             $table->string('lastname', 45);
+            $table->string('email', 90)->unique();
+
+            $table->string('voucher', 45)->default('');
             $table->string('id_number', 45);
             $table->date('dob');
             $table->string('address', 90);

@@ -15,7 +15,8 @@ class Student extends Model
         'user_id',
         'firstname',
         'lastname',
-        'email'
+        'email',
+        'voucher'
     ];
 
     /**

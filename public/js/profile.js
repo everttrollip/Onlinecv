@@ -76095,6 +76095,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -76104,6 +76122,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             lastname: '',
             email: '',
             contact: '',
+            idNumber: '',
+            dob: '',
+            province: '',
             town: '',
             tagline: '',
 
@@ -76135,6 +76156,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             _this.firstname = result.data.firstname;
             _this.lastname = result.data.lastname;
             _this.email = result.data.email;
+
             _this.grade = result.data.grade;
             _this.town = result.data.town;
             _this.sports = result.data.sports;
@@ -76190,7 +76212,7 @@ var render = function() {
         "tab-content",
         { attrs: { title: "Personal details", icon: "fa fa-info" } },
         [
-          _c("div", { staticClass: "col-md-12" }, [
+          _c("div", { staticClass: "col-md-12 flex-container-row" }, [
             _c("div", { staticClass: "form-group col-md-2" }, [
               _c("label", { staticClass: "control-label" }, [
                 _vm._v("First Name")
@@ -76299,11 +76321,75 @@ var render = function() {
                   }
                 }
               })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12 flex-container-row" }, [
+            _c("div", { staticClass: "form-group col-md-2" }, [
+              _c("label", { staticClass: "control-label" }, [
+                _vm._v("ID/Passport Number")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.idNumber,
+                    expression: "idNumber"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { placeholder: "ID/Passport Number", name: "town" },
+                domProps: { value: _vm.idNumber },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.idNumber = $event.target.value
+                  }
+                }
+              })
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group col-md-2" }, [
               _c("label", { staticClass: "control-label" }, [
-                _vm._v("Town / City ")
+                _vm._v("Date of Birth")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group col-md-2" }, [
+              _c("label", { staticClass: "control-label" }, [
+                _vm._v("Province")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.province,
+                    expression: "province"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { placeholder: "Province", name: "town" },
+                domProps: { value: _vm.province },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.province = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group col-md-2" }, [
+              _c("label", { staticClass: "control-label" }, [
+                _vm._v("Town / City")
               ]),
               _vm._v(" "),
               _c("input", {
@@ -76327,8 +76413,10 @@ var render = function() {
                   }
                 }
               })
-            ]),
-            _vm._v(" "),
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12 flex-container-row" }, [
             _c("div", { staticClass: "form-group col-md-4" }, [
               _c("label", { staticClass: "control-label" }, [
                 _vm._v("Tagline")

@@ -12,7 +12,7 @@
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 .flex-container-row {
-    @include flexbox-container(row, wrap, space-between);
+    @include flexbox-container(row, wrap, space-around);
 }
 
 .flex-container-column {
