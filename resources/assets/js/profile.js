@@ -7,6 +7,13 @@ import vSelect from 'vue-select'
 import 'vue-form-wizard/dist/vue-form-wizard.min.css'
 import 'element-ui/lib/theme-chalk/index.css'
 
+// Import css and js files for AdminLTE
+// css files
+import 'va/lib/css'
+
+// js files
+import 'va/lib/script'
+
 window.Vue = require('vue');
 
 Vue.use(vueResource);

@@ -33,7 +33,7 @@
                 </div>
                 <div class="form-group col-md-2">
                     <label class="control-label">Date of Birth</label>
-
+                     <va-calendar></va-calendar>
                 </div>
                 <div class="form-group col-md-2">
                     <label class="control-label">Province</label>
@@ -232,6 +232,7 @@
 </template>
 
 <script>
+    import VACalendar from 'va/widgets/VACalendar.vue'
     export default {
         data() {
             return {
@@ -285,6 +286,9 @@
                 this.tagline = result.data.tagline;
                 this.contact = result.data.contact;
             });
+        },
+        components: {
+            'va-calendar': VACalendar
         },
         methods: {
             submit() {
