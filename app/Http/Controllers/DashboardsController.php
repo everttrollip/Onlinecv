@@ -18,10 +18,9 @@ class DashboardsController extends Controller
         if($user->role === 'student')
         {
             return view('student.dashboard', $user);
-        }
-        else if($user->role === 'endorser') // change to administrator
+        }else if($user->role === 'administrator') // change to administrator
         {
-            return view('endorser.dashboard');
+            return view('administrator.dashboard');
         }
     }
 }

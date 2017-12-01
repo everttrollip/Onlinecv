@@ -97,7 +97,7 @@
                         </div>
                         <div class="modal-body">
                            <a href="/register/student"><button class="btn btn-primary" style="width:150px;">Student</button></a>
-                            <a href="/register/endorser"></a><button class="btn btn-warning" style="width:150px;">Endorser</button></a>
+                            <a href="/register/administrator"></a><button class="btn btn-warning" style="width:150px;">Administrator</button></a>
                            <a href="/register/hub"></a><button class="btn btn-info" style="width:150px;">Hub</button></a>
                         </div>
                         </div>

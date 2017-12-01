@@ -56,12 +56,19 @@ Route::get('/register/hub', function(){
     return view('shared.register')->with('role','hub');
 });
 
-// Endorser Routes
-Route::get('/register/endorser', function(){
-    return view('shared.register')->with('role','endorser');
+// Administrator Routes---------------------------------------------------------------------------ADMIN
+Route::get('/register/administrator', function(){
+    return view('shared.register')->with('role','administrator');
 });
+Route::get('/profile', 'HomeController@viewMyProfile');
+Route::post('/admin-upload-profilepic', 'AdministratorController@uploadProfilePic');
+Route::post('/update-administrator', 'AdministratorController@updateAdministrator');
+Route::get('/vouchers', 'VoucherController@viewVouchers');
 
 // User Routes
 Route::get('/users', 'UserController@index');
 Route::get('/user', 'UserController@get');
 Route::post('/registersubmit', 'UserController@register');
+Route::get('/activate-account/{token}', 'UserController@activateAccount');
+
+

@@ -13,26 +13,26 @@ class CreateStudentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('students', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')
-            ->references('id')->on('users')
-            ->onDelete('cascade');
-            $table->string('firstname', 45);
-            $table->string('lastname', 45);
-            $table->string('email', 90)->unique();
+        // Schema::create('students', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->integer('user_id')->unsigned();
+        //     $table->foreign('user_id')
+        //     ->references('id')->on('users')
+        //     ->onDelete('cascade');
+        //     $table->string('firstname', 45);
+        //     $table->string('lastname', 45);
+        //     $table->string('email', 90)->unique();
 
-            $table->string('voucher', 45)->default('');
-            $table->string('id_number', 45)->default('');
-            $table->date('dob')->nullable();
-            $table->string('school', 90)->default('');;
-            $table->string('address', 90)->default('');;
-            $table->string('town', 90)->default('');;
-            $table->string('province', 90)->default('');;
-            $table->rememberToken();
-            $table->timestamps();
-        });
+        //     $table->string('voucher', 45)->default('');
+        //     $table->string('id_number', 45)->default('');
+        //     $table->date('dob')->nullable();
+        //     $table->string('school', 90)->default('');;
+        //     $table->string('address', 90)->default('');;
+        //     $table->string('town', 90)->default('');;
+        //     $table->string('province', 90)->default('');;
+        //     $table->rememberToken();
+        //     $table->timestamps();
+        // });
     }
 
     /**

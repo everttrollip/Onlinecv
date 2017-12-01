@@ -21,6 +21,10 @@ Vue.use(vueResource);
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('register', require('./components/Register.vue'));
 
+//ADMINISTRATOR COMPONENTS
+Vue.component('admin-profile', require('./components/profile/AdminProfile.vue'));
+Vue.component('view-vouchers', require('./components/vouchers/ViewVouchers.vue'));
+
 const app = new Vue({
     el: '#app',
 });

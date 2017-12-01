@@ -3,8 +3,40 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Administrator;
+use App\User;
+use DB;
 
 class AdministratorController extends Controller
 {
-    //
+
+    //update details
+    public function updateAdministrator(Request $request){
+        $data = $request->data;
+
+        $admin = Administrator::where('user_id', '=', Auth::user()->id)->update([
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname'],
+            'email' =>$data['email'],
+            'contact' => $data['contact'],
+            'address' =>$data['address'],
+            'dob' =>$data['dob'],
+            'town' => $data['town'],
+            'province' => $data['province']
+        ]);
+    }
+
+    //upload profile image
+    public function uploadProfilePic(Request $request){
+        $imageName = time().'.'.request()->img->getClientOriginalExtension();
+        $current_user = Auth::user();
+        $uploaddir = './images/administrator/';
+        request()->img->move(public_path($uploaddir), $imageName);
+        $image = User::where('id', '=', $current_user->id)->update([
+            'avatar' => $imageName
+        ]);
+        $response = array('success' => true);
+        return json_encode($imageName);
+    }
 }

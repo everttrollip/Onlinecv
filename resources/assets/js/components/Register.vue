@@ -54,7 +54,7 @@
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="button" v-on:click="submit()" class="btn btn-primary">
-                                        Register
+                                        <i  v-show="loading" class="fa fa-spinner fa-spin"></i> Register
                                     </button>
                                 </div>
                             </div>
@@ -81,39 +81,44 @@ export default {
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     }
   },
-  props: ['role'],
+  props: ['role', 'loading'],
+  created(){
+      this.loading = false;
+  },
   methods: {
     register() {
       console.log('Register now as' + this.role);
     },
     submit() {
-        axios.post('/registersubmit', this.$data).then(
-            function (response) {
-                if (response.data['name'] != '') {
-                    bootbox.alert({
-                        title:'Notification',
-                        message:'You are successfully registered. Please verify you e-mail address.',
-                        callback: function(result) {
-                            window.location.href="/" ;
-                        }
-                    });
-                }
-                else {
-                    bootbox.alert({
-                        title:'Notification',
-                        message:'Something went wrong. We could not register you. Please try again or contact the administrators at info@onlinecv.co.za if the issue persists.'
-                    });
-                }
-            },
-            function (response) {
+        var vm = this;
+        vm.loading = true;
+        if(this.role === 'student' && this.voucher === ''){
                 bootbox.alert({
-                    title:'Notification',
-                    message:'Something went wrong. We could not register you. Please try again or contact the administrators at info@onlinecv.co.za if the issue persists.'
+                    title:'Warning',
+                    message:'Cannot register without a voucher!'
                 });
-            }
-        );
-    }
-  }
+        }else if((this.role === 'student' && this.voucher != '') || (this.role === 'administrator') || (this.role === 'hub'))
+        {
+            axios.post('/registersubmit', this.$data).then((response)=>{
+                    if (response.data['success']) {
+                        bootbox.alert({
+                            title:'Notification',
+                            message:'You are successfully registered. Please check your email to activate your account.',
+                            callback: function(result) {
+                                window.location.href="/" ;
+                            }
+                        });
+                    }
+                    else {
+                        bootbox.alert({
+                            title:'Notification',
+                            message:'Something went wrong. We could not register you. Please try again or contact the administrators at info@onlinecv.co.za if the issue persists.'
+                        });
+                    }
+                      vm.loading = false;
+                });
+        }
+    },//end submit
 }
-
+}
 </script>

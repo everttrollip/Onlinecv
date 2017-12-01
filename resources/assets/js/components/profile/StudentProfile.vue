@@ -18,11 +18,11 @@
                 </div>
                 <div class="form-group col-md-2">
                     <label class="control-label">Email</label>
-                    <input v-bind:value="email" v-model="email" class="form-control" placeholder="Email" name="email">
+                    <input v-model="email" class="form-control" placeholder="Email" name="email">
                 </div>
                 <div class="form-group col-md-2">
                     <label class="control-label">Mobile Number</label>
-                    <input v-bind:value="contact" v-model="contact" class="form-control" placeholder="Mobile Number" name="contact">
+                    <input v-model="contact" class="form-control" placeholder="Mobile Number" name="contact">
                 </div>
             </div>
 
@@ -229,10 +229,11 @@
         </tab-content>
 
     </form-wizard>
-</template>
 
+</template>
 <script>
-    import VACalendar from 'va/widgets/VACalendar.vue'
+    import VACalendar from 'va/widgets/VACalendar.vue';
+
     export default {
         data() {
             return {
