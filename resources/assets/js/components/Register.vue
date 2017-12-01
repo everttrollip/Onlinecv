@@ -109,7 +109,12 @@ export default {
                             }
                         });
                     }
-                    else {
+                    else if(response.data['voucher_exists'] === false){
+                        bootbox.alert({
+                            title:'Invalid Voucher',
+                            message:'It seems that the voucher you have entered is invalid. Please check your voucher and try again. Contact us if the problem persists.'
+                        });
+                    }else{
                         bootbox.alert({
                             title:'Notification',
                             message:'Something went wrong. We could not register you. Please try again or contact the administrators at info@onlinecv.co.za if the issue persists.'

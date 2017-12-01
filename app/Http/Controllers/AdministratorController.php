@@ -10,6 +10,12 @@ use DB;
 
 class AdministratorController extends Controller
 {
+    //Return administrator
+    public function getAdmin(){
+        $user = Auth::user();
+        $admin = Administrator::where('user_id', '=', $user->id)->first();
+        return $admin;
+    }
 
     //update details
     public function updateAdministrator(Request $request){
@@ -38,5 +44,13 @@ class AdministratorController extends Controller
         ]);
         $response = array('success' => true);
         return json_encode($imageName);
+    }
+
+    //View all students from admin
+    public function viewMyStudents(){
+        $admin = $this->getAdmin();
+        $admin_id = $admin->id;
+        $students = DB::table('admin_students')->where('admin_id', '=' , $admin_id)->get();
+        return view('administrator.students')->with('students', $students);
     }
 }

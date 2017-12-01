@@ -34,19 +34,24 @@
                             + (column.numeric ? ' numeric' : '')" :style="{width: column.width ? column.width : 'auto'}">
                         {{column.label}}
                     </th>
+                    <th>Send via Email</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)">
                     <td v-for="column in columns" :class="column.numeric ? 'numeric' : ''" v-if="!column.html && column.field != 'view'">
-                        {{ collect(row, column.field) }}
+                        <p v-if="column.field === 'active' && row.active === '1'">Yes</p>
+                        <p v-if="column.field === 'active' && row.active === '0'">No</p>
+                        <p v-if="column.field === 'user_using_voucher' && user.id === row.user_using_voucher" v-for="(user, index) in users"  :key="user.id">{{user.firstname}} {{user.lastname}}</p>
+                        <p v-if="column.field !='active' && column.field != 'user_using_voucher'">{{ collect(row, column.field) }}</p>
                     </td>
                     <td v-for="column in columns" :class="column.numeric ? 'numeric' : ''" v-html="collect(row, column.field)" v-if="column.html">
                     </td>
-                        <td v-for="column in columns" v-if="column.field==='view'">
-                            <button class="btn btn-info" v-on:click="viewLine(row.id, column.value)">
-                                View
+                        <td>
+                            <button v-if="row.payment_status === 'Completed' && !inSent(row.id)" class="btn btn-info" v-on:click="sendVoucher(row.id, row.voucher)">
+                                Send To Learner
                             </button>
+                            <p v-if="row.payment_status === 'Completed' && inSent(row.id)" color="green">Successfully Emailed</p>
                         </td>
                 </tr>
             </tbody>
@@ -118,6 +123,7 @@ export default {
         printable: {
             default: true
         },
+        users:[],
     },
 
     data() {
@@ -128,6 +134,8 @@ export default {
             sortType: 'asc',
             searching: false,
             searchInput: '',
+            sendVouchers:[],
+            processing: false
         }
     },
 
@@ -235,12 +243,37 @@ export default {
             else
                 return undefined;
         },
-        viewLine(id, type){
-            if(type="order"){
-                window.location ='/view-order/'+id;
-            }else{
-
+        sendVoucher(id, voucher){
+            var vm = this;
+           var box = bootbox.prompt({
+               title:'Send voucher via Email - Enter recipient email address',
+               inputType:'text',
+               callback: function (result) {
+                   if(result != null){
+                    axios.post('/send-voucher-to-email', {email: result, voucher: voucher}).then((response)=>{
+                        if(response.data['success']){
+                        bootbox.alert({
+                            title: 'Success',
+                            message:'Voucher ' + voucher + ' was successfully sent to' + result
+                        });
+                            vm.sendVouchers.push({id: id, email: result});
+                           box.modal('hide');
+                         }
+                     });
+                   }
+                },
+                backdrop: true,
+                onEscape: true
+           })
+        },
+        inSent(id){
+            var flag = false;
+            for(var i = 0; i < this.sendVouchers.length; i++){
+                if(this.sendVouchers[i].id === id){
+                    flag = true
+                }
             }
+            return flag;
         }
     },
 

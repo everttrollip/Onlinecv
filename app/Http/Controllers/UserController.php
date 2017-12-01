@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Student;
+use App\Voucher;
 use App\Administrator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ActivateAccount;
+use DB;
 
 class UserController extends Controller
 {
@@ -50,6 +52,10 @@ class UserController extends Controller
         $role = $request->role;
         $voucher = $request->voucher;
 
+        $voucher_exists = Voucher::where('voucher', '=' , $voucher)->first();
+        if(!$voucher_exists){
+            return array('success' => false, 'voucher_exists' => false);
+        }else{
         //Generate the activation token
         $token = "";
         $token = bin2hex(openssl_random_pseudo_bytes(16));
@@ -64,16 +70,22 @@ class UserController extends Controller
             'activated' => '0'
 
         ]);
+
         $id = $user->id;
 
         if ($role === 'student' && $id){
-                $student = Student::insert([
+                $student = Student::insertGetId([
                         'user_id' => $id,
                         'firstname' => $firstname,
                         'lastname' => $lastname,
                         'email' => $email
                 ]);
                 if ($student) {
+                    $admin_student = DB::table('admin_students')->insert([
+                        'admin_id' => $voucher_exists->admin_id,
+                        'student_id' => $student,
+                        'voucher_id' => $voucher_exists->id
+                    ]);
                     $email = $user->email;
                     Mail::to($email)->send(new ActivateAccount($user, $token));
                     Log::info('Student successfully created!');
@@ -81,7 +93,7 @@ class UserController extends Controller
                 }
                 else {
                     Log::info('Student could not be created');
-                    return array('success'=> false);
+                    return array('success'=> false, 'voucher_exists' => true);
                 }
         }else if ($role === 'hub' && $id)
         {
@@ -98,12 +110,13 @@ class UserController extends Controller
                 $email = $user->email;
                 Mail::to($email)->send(new ActivateAccount($user, $token));
                 Log::info('Administrator successfully created!');
-                return array('success'=> true ,'user' =>$user) ;
+                return array('success'=> true ,'user' =>$user, 'voucher_exists' => true) ;
             }else {
                 Log::info('Administrator could not be created');
-                return array('success'=> false);
+                return array('success'=> false, 'voucher_exists' => true);
             }
         }
+    }//end voucher exists
     }
 
     //Public function to activate user account

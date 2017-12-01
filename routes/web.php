@@ -63,12 +63,20 @@ Route::get('/register/administrator', function(){
 Route::get('/profile', 'HomeController@viewMyProfile');
 Route::post('/admin-upload-profilepic', 'AdministratorController@uploadProfilePic');
 Route::post('/update-administrator', 'AdministratorController@updateAdministrator');
+
+//Admin vouchers
 Route::get('/vouchers', 'VoucherController@viewVouchers');
+Route::get('/get-voucher-price-for-admin', 'VoucherController@getPriceForAdmin');
+Route::post('/buy-vouchers', 'OrderController@buyVouchers');
+Route::post('/send-voucher-to-email', 'VoucherController@emailVoucher');
 
 // User Routes
 Route::get('/users', 'UserController@index');
 Route::get('/user', 'UserController@get');
 Route::post('/registersubmit', 'UserController@register');
 Route::get('/activate-account/{token}', 'UserController@activateAccount');
+
+//Students
+Route::get('/my-students', 'AdministratorController@viewMyStudents');
 
 

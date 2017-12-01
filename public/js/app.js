@@ -2782,6 +2782,7 @@ Vue.component('register', __webpack_require__(319));
 //ADMINISTRATOR COMPONENTS
 Vue.component('admin-profile', __webpack_require__(322));
 Vue.component('view-vouchers', __webpack_require__(336));
+Vue.component('administrator-students', __webpack_require__(518));
 
 var app = new Vue({
   el: '#app'
@@ -3267,6 +3268,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                             callback: function callback(result) {
                                 window.location.href = "/";
                             }
+                        });
+                    } else if (response.data['voucher_exists'] === false) {
+                        bootbox.alert({
+                            title: 'Invalid Voucher',
+                            message: 'It seems that the voucher you have entered is invalid. Please check your voucher and try again. Contact us if the problem persists.'
                         });
                     } else {
                         bootbox.alert({
@@ -6432,13 +6438,50 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     created: function created() {},
     mounted: function mounted() {
+        var _this = this;
+
         this.voucher_list = JSON.parse(this.vouchers);
+        axios.get('/users').then(function (response) {
+            _this.users = response.data;
+        });
+        axios.get('/get-voucher-price-for-admin').then(function (response) {
+            _this.voucher_price = response.data[0]['price'];
+        });
     },
 
     components: {
@@ -6448,19 +6491,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             voucher_list: [],
+            users: [],
+            buyVoucherModal: false,
+            totalvouchers: 0,
+            voucher_price: '',
+            loading: false,
             columns: [{
                 label: 'Voucher', // Column name
                 field: 'voucher', // Field name from row
                 numeric: true, // Affects sorting
                 html: false // Escapes output if false.
             }, {
-                label: 'Active', // Column name
+                label: 'Used', // Column name
                 field: 'active', // Field name from row
                 numeric: false, // Affects sorting
                 html: false // Escapes output if false.
             }, {
                 label: 'In Use By', // Column name
-                field: 'user', // Field name from row
+                field: 'user_using_voucher', // Field name from row
                 numeric: false, // Affects sorting
                 html: false // Escapes output if false.
             }, {
@@ -6468,11 +6516,45 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 field: 'created_at', // Field name from row
                 numeric: false, // Affects sorting
                 html: false // Escapes output if false.
+            }, {
+                label: 'Payment Status', // Column name
+                field: 'payment_status', // Field name from row
+                numeric: false, // Affects sorting
+                html: false // Escapes output if false.
             }]
         };
     },
 
-    methods: {}
+    methods: {
+        buyVouchers: function buyVouchers() {},
+        increment: function increment() {
+            this.totalvouchers++;
+        },
+        decrement: function decrement() {
+            this.totalvouchers--;
+        },
+        submit: function submit() {
+            var _this2 = this;
+
+            this.loading = true;
+            var total_amount = parseFloat(this.totalvouchers * this.voucher_price);
+            axios.post('/buy-vouchers', { total_vouchers: this.totalvouchers, total_amount: total_amount }).then(function (response) {
+                if (response.data['success']) {
+                    _this2.buyVoucherModal = false;
+                    bootbox.alert({
+                        title: 'Success',
+                        message: 'Your vouchers has been successfully purchased. Please complete the EFT payment to activate them. Check you email for EFT payment details and reference codes or view it under orders.'
+                    });
+                } else {
+                    bootbox.alert({
+                        title: 'Oops!',
+                        message: 'Something went wrong. We could not generate your vouchers at this moment. Please try again or contact us if the issue persists.'
+                    });
+                }
+                _this2.loading = false;
+            });
+        }
+    }
 });
 
 /***/ }),
@@ -6692,6 +6774,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -6726,7 +6813,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         printable: {
             default: true
-        }
+        },
+        users: []
     },
 
     data: function data() {
@@ -6736,7 +6824,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             sortColumn: -1,
             sortType: 'asc',
             searching: false,
-            searchInput: ''
+            searchInput: '',
+            sendVouchers: [],
+            processing: false
         };
     },
 
@@ -6823,10 +6913,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         collect: function collect(obj, field) {
             if (typeof field === 'function') return field(obj);else if (typeof field === 'string') return this.dig(obj, field);else return undefined;
         },
-        viewLine: function viewLine(id, type) {
-            if (type = "order") {
-                window.location = '/view-order/' + id;
-            } else {}
+        sendVoucher: function sendVoucher(id, voucher) {
+            var vm = this;
+            var box = bootbox.prompt({
+                title: 'Send voucher via Email - Enter recipient email address',
+                inputType: 'text',
+                callback: function callback(result) {
+                    if (result != null) {
+                        axios.post('/send-voucher-to-email', { email: result, voucher: voucher }).then(function (response) {
+                            if (response.data['success']) {
+                                bootbox.alert({
+                                    title: 'Success',
+                                    message: 'Voucher ' + voucher + ' was successfully sent to' + result
+                                });
+                                vm.sendVouchers.push({ id: id, email: result });
+                                box.modal('hide');
+                            }
+                        });
+                    }
+                },
+                backdrop: true,
+                onEscape: true
+            });
+        },
+        inSent: function inSent(id) {
+            var flag = false;
+            for (var i = 0; i < this.sendVouchers.length; i++) {
+                if (this.sendVouchers[i].id === id) {
+                    flag = true;
+                }
+            }
+            return flag;
         }
     },
 
@@ -7824,32 +7941,37 @@ var render = function() {
       _c("thead", [
         _c(
           "tr",
-          _vm._l(_vm.columns, function(column, index) {
-            return _c(
-              "th",
-              {
-                class:
-                  (_vm.sortable ? "sorting " : "") +
-                  (_vm.sortColumn === index
-                    ? _vm.sortType === "desc" ? "sorting-desc" : "sorting-asc"
-                    : "") +
-                  (column.numeric ? " numeric" : ""),
-                style: { width: column.width ? column.width : "auto" },
-                on: {
-                  click: function($event) {
-                    _vm.sort(index)
+          [
+            _vm._l(_vm.columns, function(column, index) {
+              return _c(
+                "th",
+                {
+                  class:
+                    (_vm.sortable ? "sorting " : "") +
+                    (_vm.sortColumn === index
+                      ? _vm.sortType === "desc" ? "sorting-desc" : "sorting-asc"
+                      : "") +
+                    (column.numeric ? " numeric" : ""),
+                  style: { width: column.width ? column.width : "auto" },
+                  on: {
+                    click: function($event) {
+                      _vm.sort(index)
+                    }
                   }
-                }
-              },
-              [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(column.label) +
-                    "\n                "
-                )
-              ]
-            )
-          })
+                },
+                [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(column.label) +
+                      "\n                "
+                  )
+                ]
+              )
+            }),
+            _vm._v(" "),
+            _c("th", [_vm._v("Send via Email")])
+          ],
+          2
         )
       ]),
       _vm._v(" "),
@@ -7869,13 +7991,40 @@ var render = function() {
             [
               _vm._l(_vm.columns, function(column) {
                 return !column.html && column.field != "view"
-                  ? _c("td", { class: column.numeric ? "numeric" : "" }, [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(_vm.collect(row, column.field)) +
-                          "\n                "
-                      )
-                    ])
+                  ? _c(
+                      "td",
+                      { class: column.numeric ? "numeric" : "" },
+                      [
+                        column.field === "active" && row.active === "1"
+                          ? _c("p", [_vm._v("Yes")])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        column.field === "active" && row.active === "0"
+                          ? _c("p", [_vm._v("No")])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm._l(_vm.users, function(user, index) {
+                          return column.field === "user_using_voucher" &&
+                            user.id === row.user_using_voucher
+                            ? _c("p", { key: user.id }, [
+                                _vm._v(
+                                  _vm._s(user.firstname) +
+                                    " " +
+                                    _vm._s(user.lastname)
+                                )
+                              ])
+                            : _vm._e()
+                        }),
+                        _vm._v(" "),
+                        column.field != "active" &&
+                        column.field != "user_using_voucher"
+                          ? _c("p", [
+                              _vm._v(_vm._s(_vm.collect(row, column.field)))
+                            ])
+                          : _vm._e()
+                      ],
+                      2
+                    )
                   : _vm._e()
               }),
               _vm._v(" "),
@@ -7890,28 +8039,32 @@ var render = function() {
                   : _vm._e()
               }),
               _vm._v(" "),
-              _vm._l(_vm.columns, function(column) {
-                return column.field === "view"
-                  ? _c("td", [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-info",
-                          on: {
-                            click: function($event) {
-                              _vm.viewLine(row.id, column.value)
-                            }
+              _c("td", [
+                row.payment_status === "Completed" && !_vm.inSent(row.id)
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-info",
+                        on: {
+                          click: function($event) {
+                            _vm.sendVoucher(row.id, row.voucher)
                           }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            View\n                        "
-                          )
-                        ]
-                      )
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            Send To Learner\n                        "
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                row.payment_status === "Completed" && _vm.inSent(row.id)
+                  ? _c("p", { attrs: { color: "green" } }, [
+                      _vm._v("Successfully Emailed")
                     ])
                   : _vm._e()
-              })
+              ])
             ],
             2
           )
@@ -8040,9 +8193,194 @@ var render = function() {
   return _c(
     "div",
     [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-success pull-right",
+            on: {
+              click: function($event) {
+                _vm.buyVoucherModal = true
+              }
+            }
+          },
+          [_vm._v("Buy Vouchers")]
+        )
+      ]),
+      _vm._v(" "),
       _c("datatable", {
-        attrs: { id: "datatable", columns: _vm.columns, rows: _vm.voucher_list }
-      })
+        attrs: {
+          id: "datatable",
+          columns: _vm.columns,
+          rows: _vm.voucher_list,
+          users: _vm.users
+        }
+      }),
+      _vm._v(" "),
+      _vm.buyVoucherModal
+        ? _c(
+            "div",
+            {
+              staticClass: "modal fade in show",
+              attrs: {
+                tabindex: "-1",
+                role: "dialog",
+                "aria-labelledby": "myModalLabel"
+              }
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "modal-dialog", attrs: { role: "document" } },
+                [
+                  _c("div", { staticClass: "modal-content" }, [
+                    _c("div", { staticClass: "modal-header" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "close",
+                          attrs: {
+                            type: "button",
+                            "data-dismiss": "modal",
+                            "aria-label": "Close"
+                          },
+                          on: {
+                            click: function($event) {
+                              _vm.buyVoucherModal = false
+                            }
+                          }
+                        },
+                        [
+                          _c("span", { attrs: { "aria-hidden": "true" } }, [
+                            _vm._v("×")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "h4",
+                        {
+                          staticClass: "modal-title",
+                          attrs: { id: "myModalLabel" }
+                        },
+                        [_vm._v("Buy Vouchers")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-body" }, [
+                      _c("form", { ref: "voucherForm" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { staticClass: "control-label" }, [
+                            _vm._v(
+                              "Please Select Total Vouchers You'd like to Purchase"
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.totalvouchers,
+                                  expression: "totalvouchers"
+                                }
+                              ],
+                              attrs: { type: "text" },
+                              domProps: { value: _vm.totalvouchers },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.totalvouchers = $event.target.value
+                                }
+                              }
+                            }),
+                            _c(
+                              "button",
+                              {
+                                attrs: { type: "button" },
+                                on: { click: _vm.increment }
+                              },
+                              [_c("i", { staticClass: "fa fa-arrow-up" })]
+                            ),
+                            _c(
+                              "button",
+                              {
+                                attrs: { type: "button" },
+                                on: { click: _vm.decrement }
+                              },
+                              [_c("i", { staticClass: "fa fa-arrow-down" })]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("p", [
+                            _vm._v(
+                              "Amount: " +
+                                _vm._s(_vm.voucher_price) +
+                                " x " +
+                                _vm._s(_vm.totalvouchers) +
+                                " "
+                            )
+                          ]),
+                          _c("h4", [
+                            _vm._v(
+                              " Total = R " +
+                                _vm._s(_vm.voucher_price * _vm.totalvouchers)
+                            )
+                          ]),
+                          _c("p")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-footer" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-default",
+                          attrs: { type: "button", "data-dismiss": "modal" },
+                          on: {
+                            click: function($event) {
+                              _vm.buyVoucherModal = false
+                            }
+                          }
+                        },
+                        [_vm._v("Close")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { type: "button" },
+                          on: { click: _vm.submit }
+                        },
+                        [
+                          _c("i", {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.loading,
+                                expression: "loading"
+                              }
+                            ],
+                            staticClass: "fa fa-spinner fa-spin"
+                          }),
+                          _vm._v(" Submit")
+                        ]
+                      )
+                    ])
+                  ])
+                ]
+              )
+            ]
+          )
+        : _vm._e()
     ],
     1
   )
@@ -19067,6 +19405,100 @@ Vue$3.compile = compileToFunctions;
 module.exports = Vue$3;
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(19), __webpack_require__(106).setImmediate))
+
+/***/ }),
+
+/***/ 518:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(9)
+/* script */
+var __vue_script__ = __webpack_require__(519)
+/* template */
+var __vue_template__ = __webpack_require__(520)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/students/AdministratorStudents.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7eb84b05", Component.options)
+  } else {
+    hotAPI.reload("data-v-7eb84b05", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 519:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    created: function created() {},
+    mounted: function mounted() {},
+
+    props: ['students'],
+    data: function data() {
+        return {};
+    },
+    methods: function methods() {}
+});
+
+/***/ }),
+
+/***/ 520:
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div")
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7eb84b05", module.exports)
+  }
+}
 
 /***/ }),
 

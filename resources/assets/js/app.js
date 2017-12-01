@@ -24,6 +24,7 @@ Vue.component('register', require('./components/Register.vue'));
 //ADMINISTRATOR COMPONENTS
 Vue.component('admin-profile', require('./components/profile/AdminProfile.vue'));
 Vue.component('view-vouchers', require('./components/vouchers/ViewVouchers.vue'));
+Vue.component('administrator-students', require('./components/students/AdministratorStudents.vue'));
 
 const app = new Vue({
     el: '#app',

@@ -33,7 +33,7 @@
           </a>
         </li>
         <li>
-          <a href="/students">
+          <a href="/my-students">
             <i class="fa fa-check-square-o"></i> <span> Students</span>
           </a>
         </li>
@@ -43,7 +43,7 @@
           </a>
         </li>
         <li>
-          <a href="contact">
+          <a href="/contact">
             <i class="fa fa-phone-square"></i> <span> Contact Us</span>
           </a>
         </li>
