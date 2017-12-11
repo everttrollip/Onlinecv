@@ -1,9 +1,12 @@
+require('./bootstrap');
 import Vue from 'vue';
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-Vue.use(ElementUI)
 
-require('./bootstrap');
+import 'element-ui/lib/theme-chalk/index.css'
+
+window.Vue = require('vue');
+
+Vue.use(ElementUI)
 
 // HEADER
 import DashboardHeader from './components/dashboard/DashboardHeader.vue'

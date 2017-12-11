@@ -22,7 +22,6 @@
                     this.name = response.data.firstname;
                 },
                 function (response) {
-
                 }
             );
         }

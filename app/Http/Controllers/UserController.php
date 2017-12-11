@@ -51,34 +51,44 @@ class UserController extends Controller
         $password = $request->password;
         $role = $request->role;
         $voucher = $request->voucher;
+        Log::info($request);
 
         $voucher_exists = Voucher::where('voucher', '=' , $voucher)->first();
         if(!$voucher_exists){
             return array('success' => false, 'voucher_exists' => false);
         }else{
-        //Generate the activation token
-        $token = "";
-        $token = bin2hex(openssl_random_pseudo_bytes(16));
+            //Generate the activation token
+            $token = "";
+            $token = bin2hex(openssl_random_pseudo_bytes(16));
 
-        $user = User::create([
-            'firstname' => $firstname,
-            'lastname' => $lastname,
-            'email' => $email,
-            'password' => bcrypt($password),
-            'role' => $role,
-            'activation_token' => $token,
-            'activated' => '0'
+            $user = User::create([
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'email' => $email,
+                'password' => bcrypt($password),
+                'role' => $role,
+                'activation_token' => $token,
+                'activated' => '0'
 
-        ]);
+            ]);
 
-        $id = $user->id;
+            $id = $user->id;
 
-        if ($role === 'student' && $id){
-                $student = Student::insertGetId([
-                        'user_id' => $id,
-                        'firstname' => $firstname,
-                        'lastname' => $lastname,
-                        'email' => $email
+            if ($role === 'student' && $id){
+                // Set some defaults for a student
+                $subjects = 'English, Maths, Life Orientation';
+                $preferredStudyLocations = '';
+                $careerInterests = '';
+                $generalInterests = '';
+                $student = Student::create([
+                    'user_id' => $id,
+                    'firstname' => $firstname,
+                    'lastname' => $lastname,
+                    'email' => $email,
+                    'subjects' => $subjects,
+                    'preferred_study_locations' => $preferredStudyLocations,
+                    'career_interests' => $careerInterests,
+                    'general_interests' => $generalInterests
                 ]);
                 if ($student) {
                     $admin_student = DB::table('admin_students')->insert([
@@ -91,32 +101,33 @@ class UserController extends Controller
                     Log::info('Student successfully created!');
                     return array('success'=> true ,'user' =>$user) ;
                 }
-                else {
+                else
+                {
                     Log::info('Student could not be created');
                     return array('success'=> false, 'voucher_exists' => true);
                 }
-        }else if ($role === 'hub' && $id)
-        {
+            }else if ($role === 'hub' && $id)
+            {
 
-        }else if($role === 'administrator' && $id)
-        {
-            $administrator = Administrator::insert([
-                'user_id' => $id,
-                'firstname' => $firstname,
-                'lastname' => $lastname,
-                'email' => $email
-            ]);
-            if ($administrator) {
-                $email = $user->email;
-                Mail::to($email)->send(new ActivateAccount($user, $token));
-                Log::info('Administrator successfully created!');
-                return array('success'=> true ,'user' =>$user, 'voucher_exists' => true) ;
-            }else {
-                Log::info('Administrator could not be created');
-                return array('success'=> false, 'voucher_exists' => true);
+            }else if($role === 'administrator' && $id)
+            {
+                $administrator = Administrator::insert([
+                    'user_id' => $id,
+                    'firstname' => $firstname,
+                    'lastname' => $lastname,
+                    'email' => $email
+                ]);
+                if ($administrator) {
+                    $email = $user->email;
+                    Mail::to($email)->send(new ActivateAccount($user, $token));
+                    Log::info('Administrator successfully created!');
+                    return array('success'=> true ,'user' =>$user, 'voucher_exists' => true) ;
+                }else {
+                    Log::info('Administrator could not be created');
+                    return array('success'=> false, 'voucher_exists' => true);
+                }
             }
-        }
-    }//end voucher exists
+        }//end voucher exists
     }
 
     //Public function to activate user account

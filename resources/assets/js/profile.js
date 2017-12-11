@@ -3,20 +3,15 @@ import vueResource from 'vue-resource';
 import VueFormWizard from 'vue-form-wizard'
 import ElementUI from 'element-ui'
 import vSelect from 'vue-select'
+import Vuelidate from 'vuelidate'
 
 import 'vue-form-wizard/dist/vue-form-wizard.min.css'
 import 'element-ui/lib/theme-chalk/index.css'
 
-// Import css and js files for AdminLTE
-// css files
-import 'va/lib/css'
-
-// js files
-import 'va/lib/script'
-
 window.Vue = require('vue');
 
-Vue.use(vueResource);
+Vue.use(Vuelidate)
+Vue.use(vueResource)
 Vue.use(VueFormWizard)
 Vue.use(ElementUI)
 

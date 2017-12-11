@@ -79,32 +79,32 @@ class LatestMigration extends Migration
             $table->timestamps();
         });*/
 
-        // Schema::create('orders', function (Blueprint $table) {
-        //     $table->increments('id');
-        //     $table->integer('user_id')->unsigned()->nullable();
-        //     $table->foreign('user_id')
-        //     ->references('id')->on('users');
-        //     $table->double('total_amount', 10,2);
-        //     $table->string('payment_status')->default('');
-        //     $table->timestamps();
-        // });
+        Schema::create('orders', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')
+            ->references('id')->on('users');
+            $table->double('total_amount', 10,2);
+            $table->string('payment_status')->default('');
+            $table->timestamps();
+        });
 
-        // Schema::create('vouchers', function (Blueprint $table) {
-        //     $table->increments('id');
-        //     $table->integer('admin_id')->unsigned();
-        //     $table->foreign('admin_id')
-        //     ->references('id')->on('administrators')
-        //     ->onDelete('cascade');
-        //     $table->integer('user_using_voucher')->unsigned()->nullable();
-        //     $table->foreign('user_using_voucher')
-        //     ->references('id')->on('users');
-        //     $table->integer('order_id');
-        //     $table->foreign('order_id')
-        //     ->references('id')->on('orders');
-        //     $table->string('voucher', 95)->unique();
-        //     $table->string('active', 1)->default('');
-        //     $table->timestamps();
-        // });
+        Schema::create('vouchers', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('admin_id')->unsigned();
+            $table->foreign('admin_id')
+            ->references('id')->on('administrators')
+            ->onDelete('cascade');
+            $table->integer('user_using_voucher')->unsigned()->nullable();
+            $table->foreign('user_using_voucher')
+            ->references('id')->on('users');
+            $table->integer('order_id')->unsigned();
+            $table->foreign('order_id')
+            ->references('id')->on('orders');
+            $table->string('voucher', 95)->unique();
+            $table->string('active', 1)->default('');
+            $table->timestamps();
+        });
 
         Schema::create('admin_students', function (Blueprint $table) {
             $table->increments('id');
@@ -128,6 +128,8 @@ class LatestMigration extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('admin_students');
+        Schema::dropIfExists('vouchers');
+        Schema::dropIfExists('orders');
     }
 }

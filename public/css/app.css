@@ -8379,8 +8379,9 @@ button.close {
   -webkit-box-direction: normal;
           flex-flow: column wrap;
   /*Edge, Firefox 28, Safari 9, Chrome 29, IE 11, Opera 12.1*/
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   /*Edge, Firefox 22, Safari 9, Chrome 29, IE 11, Opera 12.1*/
 }
 

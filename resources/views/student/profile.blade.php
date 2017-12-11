@@ -52,12 +52,10 @@
 
             <!-- Main content -->
             <section class="content">
-                <div class="panel">
-                    <div class="box-body col-md-12">
-                        <studentprofile role="student">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        </studentprofile>
-                    </div>
+                <div class="box-body col-md-12">
+                    <studentprofile role="student">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    </studentprofile>
                 </div>
             </section>
         </div>
