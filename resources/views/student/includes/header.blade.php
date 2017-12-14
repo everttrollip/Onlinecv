@@ -32,7 +32,7 @@
                   <li><!-- start message -->
                     <a href="#">
                       <div class="pull-left">
-                       <img src="/adminlte/dist/img/{{Auth::User()->avatar}}" class="img-circle" alt="User Image">
+                       <img src="/images/student/{{Auth::User()->avatar}}" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Support Team
@@ -103,13 +103,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="/adminlte/dist/img/{{Auth::User()->avatar}}" class="user-image" alt="User Image">
+              <img src="/images/student/{{Auth::User()->avatar}}" class="user-image" alt="User Image">
               <span class="hidden-xs">{{Auth::User()->name}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="/adminlte/dist/img/{{Auth::User()->avatar}}" class="img-circle" alt="User Image">
+                <img src="/images/student/{{Auth::User()->avatar}}" class="img-circle" alt="User Image">
 
                 <p>
                  {{Auth::User()->name}}
@@ -120,13 +120,13 @@
               <li class="user-body">
                 <div class="row">
                   <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
+                    <a href="/student/dashboard">Dashboard</a>
                   </div>
                   <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
+                    <a href="#">Vouchers</a>
                   </div>
                   <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
+                    <a href="/student/cv">CV</a>
                   </div>
                 </div>
                 <!-- /.row -->

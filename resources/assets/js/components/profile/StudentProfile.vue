@@ -1,9 +1,27 @@
 <template>
     <form-wizard @on-complete="submit"
-                        shape="circle"
-                        color="#3498db"
-                        title="Profile Setup Wizard"
-                        subtitle="Give us some more information about yourself so that we can build a cv for you!">
+                :start-index.sync="activeIndex"
+                shape="circle"
+                color="#3498db"
+                title="Profile Setup Wizard"
+                subtitle="Give us some more information about yourself so that we can build a cv for you!">
+        <wizard-step
+            slot-scope="props"
+            slot="step"
+            :tab="props.tab"
+            :transition="props.transition"
+            :index="props.index">
+            <div slot="active-step" style="display: flex; justify-content:center; align-items: center;">
+                <i class="fa fa-info" aria-hidden="true" v-if="props.index == 0"></i>
+                <i class="fa fa-graduation-cap" aria-hidden="true" v-if="props.index == 1"></i>
+                <i class="fa fa-cog" aria-hidden="true" v-if="props.index == 2"></i>
+                <i class="fa fa-user" aria-hidden="true" v-if="props.index == 3"></i>
+                <lottie v-if="props.index == 4"
+                :options="defaultOptions"
+                :height="65"
+                :width="65"/>
+            </div>
+        </wizard-step>
 
         <tab-content title="Personal details"
                     icon="fa fa-info"
@@ -32,10 +50,10 @@
                         <input v-model="dob" class="form-control" type="date">
                     </div>
 
-                    <div class="form-group" v-bind:class="{ 'has-error': $v.idNumber.$error }">
+                    <div class="form-group" v-bind:class="{ 'has-error': $v.id_number.$error }">
                         <label class="control-label">ID/Passport Number</label>
-                        <input v-model.trim="idNumber" class="form-control" placeholder="ID/Passport Number" name="idNumber" @input="$v.idNumber.$touch()">
-                        <span class="help-block" v-if="$v.idNumber.$error && !$v.idNumber.required">ID number is required</span>
+                        <input v-model.trim="id_number" class="form-control" placeholder="ID/Passport Number" name="id_number" @input="$v.id_number.$touch()">
+                        <span class="help-block" v-if="$v.id_number.$error && !$v.id_number.required">ID number is required</span>
 
                         <!-- <label class="control-label">First Name</label>
                         <input v-model.trim="firstname"  class="form-control" placeholder="First Name" name="firstname" @input="$v.firstname.$touch()">
@@ -124,17 +142,7 @@
 
                     <div class="form-group">
                         <label class="control-label">Subjects</label>
-                        <select class="form-control select2" style="width:100%" multiple="multiple" max="8" v-model="subjects">
-                            <option>Afrikaans</option>
-                            <option>English</option>
-                            <option>Accounting</option>
-                            <option>Maths</option>
-                            <option>Geography</option>
-                            <option>Art</option>
-                            <option>Music</option>
-                            <option>Economy</option>
-                            <option>Life Orientation</option>
-                        </select>
+                        <v-select multiple :options="subjectOptions" v-model="subjects"></v-select>
                     </div>
                 </div>
 
@@ -145,7 +153,7 @@
 
                     <div class="form-group">
                         <label class="control-label">Varsity Exemption</label>
-                        <select class="form-control" v-model="varsityExempt">
+                        <select class="form-control" v-model="varsity_exempt">
                             <option>Yes</option>
                             <option>No</option>
                         </select>
@@ -153,7 +161,7 @@
 
                     <div class="form-group">
                         <label class="control-label">Preferred Study Location(s)</label>
-                        <v-select multiple :options="studyLocations" v-model="preferredStudyLocations"></v-select>
+                        <v-select multiple :options="studyLocations" v-model="preferred_study_locations"></v-select>
                     </div>
                 </div>
 
@@ -239,16 +247,10 @@
                     </div>
 
                     <label class="control-label">Career Interests</label>
-                    <select class="form-control select2" style="width:100%" multiple="multiple" v-model="careerInterests">
-                        <option>Arts and Performance</option>
-                        <option>Beauty and Cosmetics</option>
-                        <option>Finanaces and Bussiness</option>
-                        <option>Technoglogy and Science</option>
-                        <option>Agriculture</option>
-                    </select>
+                    <v-select multiple :options="career_interest_options" v-model="career_interests"></v-select>
 
                     <label class="control-label">General Interests</label>
-                    <textarea v-model="generalInterests" class="form-control" placeholder="(Tech, Photography, Video Production, Nature, Astronomy)" name="generalInterests"></textarea>
+                    <textarea v-model="general_interests" class="form-control" placeholder="(Tech, Photography, Video Production, Nature, Astronomy)" name="general_interests"></textarea>
                 </div>
             </div>
         </tab-content>
@@ -263,18 +265,36 @@
             </div>
 
             <div class="form-group">
-                <div align="center">
-                    <img alt="User Picture Placeholder" width="150" class="img-circle img-responsive">
-                    <br>
-                    <input name="avatar" type="file" class="form-control upload-file" data-max-size="2000000">
-                </div>
+                <label for="name" class="col-lg-2 col-sm-2 control-label">Profile Picture</label>
+                <div class="form-group">
+                    <div><button style="margin-top:20px; margin-bottom:15px" class="btn btn-info" type="button" @click="toggleShow">Choose Image</button></div>
+                        <my-upload v-show="show" field="img"
+                            @crop-success="cropSuccess"
+                            @crop-upload-success="cropUploadSuccess"
+                            @crop-upload-fail="cropUploadFail"
+                            v-model="show"
+                            :width="200"
+                            :height="200"
+                            url="/student-upload-profilepic"
+                            :params="params"
+                            :headers="headers"
+                            img-format="png"
+                            lang-type="en"></my-upload>
+                        <img :src="imgDataUrl">
+                    </div>
             </div>
         </tab-content>
 
         <tab-content title="Last step"
                     icon="fa fa-check">
-            <h2>Great! That's it!</h2>
-            <span>Go back to review/change any information. When ready, use the finish button to submit your details.</span>
+            <div class="body-of-tab flex-container-column">
+                <h2>Great! That's it!</h2>
+                <lottie v-if="activeIndex == 4"
+                        :options="defaultOptions"
+                        :height="200"
+                        :width="200" />
+                <h4>Go back to review/change any information. When ready, use the finish button to submit your details.</h4>
+            </div>
         </tab-content>
 
     </form-wizard>
@@ -282,15 +302,26 @@
 </template>
 <script>
     import { required,email } from 'vuelidate/lib/validators'
+    import myUpload from 'vue-image-crop-upload';
+    import Lottie from 'vue-lottie';
+    import animationData from './../../../animation.js'
+
     export default {
         data() {
             return {
+                logo:'',
+                show: false,
+                status: false,
+                activeIndex: 0,
+                defaultOptions: {animationData: animationData, loop:false},
+                animationSpeed: 1,
+
                 // Personal Details
                 firstname: '',
                 lastname: '',
                 email: '',
                 contact: '',
-                idNumber: '',
+                id_number: '',
                 dob: '',
                 province: '',
                 southAfricanProvinces: [
@@ -304,15 +335,19 @@
                 // Education
                 school: '',
                 grade: '',
+                subjectOptions: [
+                    'English', 'Afrikaans', 'Mathematics', 'Life Orientation', 'Accounting', 'Geography', 'Biology', 'Life Sciences',
+                    'Natural Sciences', 'Art', 'Music', 'Technology', 'Economics', 'Other'
+                ],
                 subjects: [],
-                varsityExempt: '',
+                varsity_exempt: '',
                 studyLocations: [
                     'Alice', 'Bellville', 'Bhisho', 'Bloemfontein', 'Cape Town', 'Durban', 'East London', 'Ga-Rankuwa',
                     'Grahamstown', 'Johannesburg', 'Mafikeng', 'Mankwe', 'Pietermaritzburg', 'Pinetown', 'Polokwane',
                     'Potchefstroom', 'Pretoria', 'QwaQwa', 'Saldanha Bay', 'Stellenbosch', 'Tygerberg', 'Vanderbijlpark',
                     'Westville'
                 ],
-                preferredStudyLocations: [],
+                preferred_study_locations: [],
 
                 // Additional Information
                 arts: 0,
@@ -322,10 +357,25 @@
                 conceptualization: 0,
                 creativity: 0,
                 leadership: 0,
-                careerInterests: [],
-                generalInterests: '',
+                career_interest_options: [
+                    "Arts and Performance",
+                    "Beauty and Cosmetics",
+                    "Finanaces and Bussiness",
+                    "Technoglogy and Science",
+                    "Agriculture"
+                ],
+                career_interests: [],
+                general_interests: '',
 
-                csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                params: {
+                    _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    name: 'avatar'
+                },
+                headers: {
+                    smail: '*_~'
+                },
+                imgDataUrl: '',
             }
         },
         mounted(){
@@ -334,7 +384,7 @@
                 this.lastname = result.data.lastname;
                 this.email = result.data.email;
                 this.contact = result.data.contact;
-                this.idNumber = result.data.id_number;
+                this.id_number = result.data.id_number;
                 this.dob = result.data.dob;
                 this.province = result.data.province;
                 this.town = result.data.town;
@@ -350,16 +400,16 @@
                     this.subjects = Array.from(result.data.subjects.split(','));
                 }
                 if (result.data.varsity_exempt) {
-                    this.varsityExempt = 'Yes';
+                    this.varsity_exempt = 'Yes';
                 }
                 else {
-                    this.varsityExempt = 'No';
+                    this.varsity_exempt = 'No';
                 }
                 if (result.data.preferred_study_locations == "") {
-                    this.preferredStudyLocations = [];
+                    this.preferred_study_locations = [];
                 }
                 else {
-                    this.preferredStudyLocations = Array.from(result.data.preferred_study_locations.split(','));
+                    this.preferred_study_locations = Array.from(result.data.preferred_study_locations.split(','));
                 }
 
                 this.arts = result.data.arts;
@@ -370,13 +420,17 @@
                 this.creativity = result.data.creativity;
                 this.leadership = result.data.leadership;
                 if (result.data.career_interests == "") {
-                    this.careerInterests = [];
+                    this.career_interests = [];
                 }
                 else {
-                    this.careerInterests = Array.from(result.data.career_interests.split(','));
+                    this.career_interests = Array.from(result.data.career_interests.split(','));
                 }
-                this.generalInterests = result.data.general_interests;
+                this.general_interests = result.data.general_interests;
             });
+        },
+        components: {
+            'my-upload': myUpload,
+            Lottie
         },
         validations: {
             firstname: {
@@ -385,14 +439,14 @@
             lastname: {
                 required
             },
-            idNumber: {
+            id_number: {
                 required
             },
             email: {
                 required,
                 email
             },
-            form: ['firstname', 'lastname', 'idNumber', 'email']
+            form: ['firstname', 'lastname', 'id_number', 'email']
         },
         methods: {
             validateStep(name) {
@@ -404,19 +458,34 @@
                 this.$emit('on-validate', this.$data, isValid)
                 return isValid
             },
+            toggleShow() {
+                this.show = true;
+            },
+            cropSuccess(imgDataUrl, field){
+                console.log('-------- crop success --------');
+                this.imgDataUrl = imgDataUrl;
+            },
+            cropUploadSuccess(jsonData, field){
+                console.log('-------- upload success --------');
+                console.log(jsonData);
+                console.log('field: ' + field);
+            },
+            cropUploadFail(status, field){
+                console.log('-------- upload fail --------');
+                console.log(status);
+                console.log('field: ' + field);
+            },
             submit() {
                 axios.post('/student/profile/update', this.$data).then(
                     function (response) {
-                        if(response.data['firstname'] != ''){
-                            bootbox.alert({
-                                title:'Notification', message:'You\'re profile was successfully updated.'
-                            });
-                        }
-                        else{
-                            bootbox.alert({
-                                title:'Notification', message:'Something went wrong. We could not update your profile. Please try again or contact the administrators at info@onlinecv.co.za if the issue persists.'
-                            });
-                        }
+                        bootbox.alert({
+                            title:'Notification',
+                            message:'You\'re profile was successfully updated.',
+                            callback: function(){
+                                window.location.href = '/student/dashboard';
+                            }
+                        });
+
                     },
                     function (response) {
                         bootbox.alert({
@@ -428,3 +497,10 @@
         }
     }
 </script>
+
+<style lang="scss" scoped>
+    .body-of-tab {
+        justify-content: center;
+        align-items: center;
+    }
+</style>
