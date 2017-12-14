@@ -41,6 +41,10 @@
   /*Edge, Firefox 22, Safari 9, Chrome 29, IE 11, Opera 12.1*/
 }
 
+.box .box-text {
+  font-size: 24px;
+}
+
 .flex-container-row {
   /*Safari 6.1, Chrome 21, Opera 15*/
   display: -webkit-box;
@@ -53,9 +57,8 @@
   -webkit-box-direction: normal;
           flex-flow: row wrap;
   /*Edge, Firefox 28, Safari 9, Chrome 29, IE 11, Opera 12.1*/
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   /*Edge, Firefox 22, Safari 9, Chrome 29, IE 11, Opera 12.1*/
 }
 
@@ -76,6 +79,12 @@
   /*Edge, Firefox 22, Safari 9, Chrome 29, IE 11, Opera 12.1*/
 }
 
+.space-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .full-width {
   width: 100%;
 }
@@ -88,8 +97,15 @@
   color: #3097D1;
 }
 
-label > i {
+i.fa-pencil-square-o,
+.fa-floppy-o {
   margin-left: 10px;
+  font-size: 18px !important;
+}
+
+i.fa-pencil-square-o:hover,
+.fa-floppy-o:hover {
+  cursor: pointer;
 }
 
 .introduction {

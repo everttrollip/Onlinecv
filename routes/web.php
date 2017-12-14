@@ -39,14 +39,16 @@ Route::get('/contact', function(){
     return view('contact');
 });
 
-// Student Routes
+// Student Routes---------------------------------------------------------------------------STUDENT
 Route::get('/student', 'StudentController@index');
+Route::get('/student/careerinterests', 'StudentController@getCareerInterests');
 Route::get('/student/dashboard', 'DashboardsController@index');
 Route::get('/student/cv', 'CvsController@index');
-
+Route::post('/student-upload-profilepic', 'StudentController@uploadProfilePic');
+Route::post('student/profile/update', 'StudentController@updateprofile');
+Route::get('/student/profile/image', 'StudentController@getProfilePic');
 // Route::get('/get-student', 'StudentController@getStudent');
 
-Route::post('student/profile/update', 'StudentController@updateprofile');
 Route::get('/register/student', function() {
     return view('shared.register')->with('role','student');
 });

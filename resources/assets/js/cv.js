@@ -1,49 +1,51 @@
-import Vue from 'vue';
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-Vue.use(ElementUI)
-
 require('./bootstrap');
 
+import Vue from 'vue';
+import ElementUI from 'element-ui'
+import vSelect from 'vue-select'
+import Vuelidate from 'vuelidate'
+
+import 'element-ui/lib/theme-chalk/index.css'
+
+window.Vue = require('vue');
+
+Vue.use(ElementUI)
+Vue.use(Vuelidate)
+Vue.component('v-select', vSelect)
+
 // HEADER
-import CvHeader from './components/cv/CvHeader.vue'
+Vue.component('cv-header', require('./components/cv/CvHeader.vue'));
 
 // INTRODUCTION
 // Left-hand column components
-import CvBasicDetails from './components/cv/CvBasicDetails.vue'
-import CvLocation from './components/cv/CvLocation.vue'
-import CvEngagement from './components/cv/CvEngagement.vue'
-import CvInterests from './components/cv/CvInterests.vue'
+Vue.component('cv-location', require('./components/cv/CvLocation.vue'));
+Vue.component('cv-engagement', require('./components/cv/CvEngagement.vue'));
+Vue.component('cv-interests', require('./components/cv/CvInterests.vue'));
 
 // Right-hand column components
-import CvSummary from './components/cv/CvSummary.vue'
-import CvExperience from './components/cv/CvExperience.vue'
-import CvVocation from './components/cv/CvVocation.vue'
-import CvPostSchool from './components/cv/CvPostSchool.vue'
-import CvCareerInterests from './components/cv/CvCareerInterests.vue'
+Vue.component('cv-summary', require('./components/cv/CvSummary.vue'));
+Vue.component('cv-experience', require('./components/cv/CvExperience.vue'));
+Vue.component('cv-vocation', require('./components/cv/CvVocation.vue'));
+Vue.component('cv-post-school', require('./components/cv/CvPostSchool.vue'));
+Vue.component('cv-career-interests', require('./components/cv/CvCareerInterests.vue'));
 
 // ACHIEVEMENTS
 
-new Vue({
+const app = new Vue({
     el: '#cv',
-    components: {
-        // HEADER
-        CvHeader,
-
-        // INTRODUCTION
-        // Left-hand column components
-        CvBasicDetails,
-        CvLocation,
-        CvEngagement,
-        CvInterests,
-
-        // Right-hand column components
-        CvSummary,
-        CvExperience,
-        CvVocation,
-        CvPostSchool,
-        CvCareerInterests
-
-        // ACHIEVEMENTS
+    data() {
+        return {
+            student: {},
+        }
+    },
+    methods: {
+        getStudent() {
+            axios.get('/student').then((result)=>{
+                this.student = result.data;
+            });
+        }
+    },
+    mounted() {
+        this.getStudent();
     }
 })

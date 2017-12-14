@@ -11,16 +11,28 @@
             </div>
         </div>
         <div class="box-body">
-            AdminLTE has a ChartJS that they use. Has a donut chart. Use this?
+            <doughnut-chart :chart-data="datacollection"></doughnut-chart>
         </div>
     </div>
 </template>
 
 <script>
+    import DoughnutChart from './../../DoughnutChart.js'
     export default {
-        data() {
+        components: {
+            DoughnutChart
+        },
+        data () {
             return {
-
+                datacollection: {
+                    labels: ['Practical', 'Theoretical'],
+                    datasets: [
+                        {
+                            backgroundColor: ['#3097D1', '#8eb4cb'],
+                            data: [75, 25]
+                        }
+                    ]
+                }
             }
         }
     }

@@ -24,10 +24,14 @@
     "vue": "^2.1.10"
   },
   "dependencies": {
+    "chart.piecelabel.js": "^0.9.0",
     "element-ui": "^2.0.5",
+    "vue-avatar": "^2.1.1",
+    "vue-chartjs": "^3.0.2",
     "vue-form-wizard": "^0.8.0",
     "vue-fuse": "^1.2.1",
     "vue-image-crop-upload": "^2.1.3",
+    "vue-lottie": "^0.1.2",
     "vue-nav-tabs": "^0.5.6",
     "vue-resource": "^1.3.4",
     "vue-select": "^2.3.0",

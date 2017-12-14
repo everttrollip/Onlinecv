@@ -22,15 +22,24 @@
         // border: 2px solid orange;
         @include flexbox-container(row, wrap, space-between);
     }
+
+    .box-text {
+        font: {
+            size: 24px;
+        }
+    }
 }
 
 .flex-container-row {
-    @include flexbox-container(row, wrap, space-between);
+    @include flexbox-container(row, wrap, space-around);
 }
 
 .flex-container-column {
-    // border: 2px solid blue;
     @include flexbox-container(column, wrap, space-around);
+}
+
+.space-between {
+    justify-content: space-between;
 }
 
 .full-width {
@@ -45,8 +54,14 @@
     color: $brand-primary;
 }
 
-label > i {
+i.fa-pencil-square-o, .fa-floppy-o {
+    // border: 2px solid blue;
     margin-left: 10px;
+    font-size: 18px !important;
+    &:hover {
+        // border: 2px solid blue;
+        cursor: pointer;
+    }
 }
 
 .introduction {

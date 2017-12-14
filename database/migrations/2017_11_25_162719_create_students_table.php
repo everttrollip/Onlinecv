@@ -51,6 +51,8 @@ class CreateStudentsTable extends Migration
             $table->text('career_interests');
             $table->text('general_interests');
 
+            $table->boolean('profile_updated')->default(false);
+            $table->boolean('cv_submitted')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
