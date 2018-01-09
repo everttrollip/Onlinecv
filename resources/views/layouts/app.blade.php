@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Online CV</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -85,22 +85,21 @@
                 </div>
             </div>
         </nav>
-        <div id="registermodal" class="modal fade" role="dialog" style="margin-top:20%">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Please select the user type you want to register as:</h4>
-                </div>
-                <div class="modal-body" style="text-align:center;">
-                    <a href="/register/student"><button class="btn btn-primary" style="width:150px;">Student</button></a>
-                    <a href="/register/endorser"><button class="btn btn-warning" style="width:150px;">Endorser</button></a>
-                    <a href="/register/hub"><button class="btn btn-info" style="width:150px;">Hub</button></a>
-                </div>
-                </div>
-            </div>
+        <div id="registermodal" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Register as</h4>
+      </div>
+      <div class="modal-body" style="text-align:center">
+            <a href="/register/student"><button class="btn btn-primary" style="width:150px;">Student</button></a>
+            <a href="/register/administrator"></a><button onclick="registerAdmin()" class="btn btn-warning" style="width:150px;">Administrator</button></a>
+            <a href="/register/hub"></a><button class="btn btn-info" style="width:150px;">Hub</button></a>
         </div>
+      </div>
+    </div>
+   </div>
         @yield('content')
     </div>
 <!--AngularJS-->
@@ -122,6 +121,10 @@
 
 <script>
     window.Laravel = { csrfToken: '{{ csrf_token() }}' };
+
+    function registerAdmin(){
+        window.location = '/register/administrator'
+    }
 </script>
 
 </body>

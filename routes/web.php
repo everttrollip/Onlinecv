@@ -79,4 +79,15 @@ Route::get('/activate-account/{token}', 'UserController@activateAccount');
 //Students
 Route::get('/my-students', 'AdministratorController@viewMyStudents');
 
+//Edits
+Route::get('/get-review-requests', 'AdministratorController@getReviewRequests');
 
+//Messages
+Route::post('/send-message-to-student', 'MessageController@sendToStudent');
+Route::get('/get-my-messages', 'MessageController@getMyMessages');
+Route::get('/my-inbox', 'MessageController@getMyInbox');
+Route::get('/mark-message-as-read/{message_id}', 'MessageController@markAsRead');
+
+//ContactUs
+Route::get('/contact', 'HomeController@contactUs');
+Route::post('/send-contact-us-message', 'HomeController@sendContactUs');

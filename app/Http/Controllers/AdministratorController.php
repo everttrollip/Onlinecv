@@ -50,7 +50,17 @@ class AdministratorController extends Controller
     public function viewMyStudents(){
         $admin = $this->getAdmin();
         $admin_id = $admin->id;
-        $students = DB::table('admin_students')->where('admin_id', '=' , $admin_id)->get();
+        $students = DB::table('admin_students')
+        ->join('students', 'students.id', '=', 'admin_students.student_id')
+        ->where('admin_id', '=' , $admin_id)->get();
         return view('administrator.students')->with('students', $students);
+    }
+
+    //Return all the review requests for current administrato
+    public function getReviewRequests(){
+        $admin = $this->getAdmin();
+        $admin_id = $admin->id;
+        $review_requests = DB::table('review_requests')->where('admin_id', '=', $admin_id)->get();
+        return $review_requests;
     }
 }

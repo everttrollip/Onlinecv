@@ -26,6 +26,13 @@ Vue.component('admin-profile', require('./components/profile/AdminProfile.vue'))
 Vue.component('view-vouchers', require('./components/vouchers/ViewVouchers.vue'));
 Vue.component('administrator-students', require('./components/students/AdministratorStudents.vue'));
 
+//MESSAGES
+Vue.component('nav-messages', require('./components/dashboard/NavbarMessages.vue'));
+Vue.component('inbox', require('./components/messages/Inbox.vue'));
+
+//CONTACT US
+Vue.component('inbox', require('./components/messages/ContactUs.vue'));
+
 const app = new Vue({
     el: '#app',
 });

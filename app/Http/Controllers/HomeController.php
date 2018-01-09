@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Enquiry;
 use App\Student;
 use App\Administrator;
 
@@ -44,5 +46,19 @@ class HomeController extends Controller
         }else if($user->role === 'hub'){
 
         }
+    }
+
+    //Return view with contact form
+    public function contactUs(){
+        return view('shared.contact-us');
+    }
+
+    //Send Contact Us to OnlineCV admin
+    public function sendContactUs(Request $request){
+        $user = Auth::user();
+        $subject = $request->subject;
+        $enquiry = $request->message;
+        Mail::to('it@microhub.co.za')->send(new Enquiry($user, $enquiry, $subject));
+        return array('success' => true);
     }
 }

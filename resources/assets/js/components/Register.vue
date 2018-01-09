@@ -76,12 +76,12 @@ export default {
       email: '',
       password:'',
       passwordconfirm:'',
-      role: this.role,
+      role: this.userrole,
       voucher: '',
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     }
   },
-  props: ['role', 'loading'],
+  props: ['userrole', 'loading'],
   created(){
       this.loading = false;
   },
