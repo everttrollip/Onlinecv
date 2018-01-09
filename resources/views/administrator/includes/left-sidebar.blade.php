@@ -38,7 +38,7 @@
           </a>
         </li>
         <li>
-          <a href="/messages">
+          <a href="/my-inbox">
             <i class="fa fa-envelope"></i> <span> Messages</span>
           </a>
         </li>
