@@ -30,6 +30,9 @@ $navbar-default-bg: #fff;
 // Buttons
 $btn-default-color: $text-color;
 
+// Borders
+$light-border: $brand-info;
+
 // Inputs
 $input-border: lighten($text-color, 40%);
 $input-border-focus: lighten($brand-primary, 25%);

@@ -54,7 +54,7 @@
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="button" v-on:click="submit()" class="btn btn-primary">
-                                        <i  v-show="loading" class="fa fa-spinner fa-spin"></i> Register
+                                        <i v-show="loading" class="fa fa-spinner fa-spin"></i> Register
                                     </button>
                                 </div>
                             </div>

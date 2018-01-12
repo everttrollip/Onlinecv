@@ -10,7 +10,11 @@
                 <i class="fa fa-pencil-square-o"></i>
             </div>
         </div>
-        <div class="box-body">
+        <div class="box-body flex-container-row">
+            <div class="box-text" v-for="(interest, index) in generalInterests">
+                <span v-if="index == generalInterests.length - 1">{{ interest }}</span>
+                <span v-if="index != generalInterests.length - 1">{{ interest }},&nbsp;</span>
+            </div>
         </div>
     </div>
 </template>
@@ -19,8 +23,26 @@
     export default {
         data () {
             return {
-
+                student: {},
+                generalInterests: []
             }
+        },
+        methods: {
+            getStudent() {
+                axios.get('/student').then((result)=>{
+                    this.generalInterests = result.data.general_interests.split(",");
+                });
+            }
+        },
+        mounted() {
+            this.getStudent();
         }
     }
 </script>
+
+<style lang="scss" scoped>
+    .flex-container-row {
+        justify-content: flex-start;
+    }
+</style>
+
