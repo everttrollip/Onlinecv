@@ -33,7 +33,7 @@
       rel="stylesheet">
 
 </head>
-<body class="hold-transition skin-blue-light sidebar-mini">
+<body class="hold-transition skin-blue-light sidebar-mini fixed">
 <div id="app" >
 <div id="administrator">
 <!-- Site wrapper -->

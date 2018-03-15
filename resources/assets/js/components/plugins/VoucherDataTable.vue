@@ -27,7 +27,7 @@
         <table ref="table">
             <thead>
                 <tr>
-                    <th v-for="(column, index) in columns" @click="sort(index)" :class="(sortable ? 'sorting ' : '')
+                    <th v-for="(column, index) in columns" @click="sort(index)" v-if="column.label != 'Loading'" :class="(sortable ? 'sorting ' : '')
                             + (sortColumn === index ?
                                 (sortType === 'desc' ? 'sorting-desc' : 'sorting-asc')
                                 : '')
@@ -39,7 +39,7 @@
             </thead>
             <tbody>
                 <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)">
-                    <td v-for="column in columns" :class="column.numeric ? 'numeric' : ''" v-if="!column.html && column.field != 'view'">
+                    <td v-for="column in columns" :class="column.numeric ? 'numeric' : ''" v-if="!column.html && column.field != 'view' && column.field != 'loading'">
                         <p v-if="column.field === 'active' && row.active === '1'">Yes</p>
                         <p v-if="column.field === 'active' && row.active === '0'">No</p>
                         <p v-if="column.field === 'user_using_voucher' && user.id === row.user_using_voucher" v-for="(user, index) in users"  :key="user.id">{{user.firstname}} {{user.lastname}}</p>
@@ -48,9 +48,10 @@
                     <td v-for="column in columns" :class="column.numeric ? 'numeric' : ''" v-html="collect(row, column.field)" v-if="column.html">
                     </td>
                         <td>
-                            <button v-if="row.payment_status === 'Completed' && !inSent(row.id)" class="btn btn-info" v-on:click="sendVoucher(row.id, row.voucher)">
-                                Send To Learner
+                            <button v-if="row.payment_status === 'Completed' && !inSent(row.id) && row.active== '0'" class="btn btn-info" v-on:click="sendVoucher(row.id, row.voucher, row)">
+                                <i v-if="row.loading" class="fa fa-spin fa-spinner"></i> Send To Learner
                             </button>
+                            <p v-else-if="!inSent(row.id)">Voucher already in use</p>
                             <p v-if="row.payment_status === 'Completed' && inSent(row.id)" color="green">Successfully Emailed</p>
                         </td>
                 </tr>
@@ -135,7 +136,8 @@ export default {
             searching: false,
             searchInput: '',
             sendVouchers:[],
-            processing: false
+            processing: false,
+            sentLoading: false,
         }
     },
 
@@ -243,21 +245,33 @@ export default {
             else
                 return undefined;
         },
-        sendVoucher(id, voucher){
+        sendVoucher(id, voucher, row){
             var vm = this;
            var box = bootbox.prompt({
                title:'Send voucher via Email - Enter recipient email address',
                inputType:'text',
                callback: function (result) {
                    if(result != null){
+                     row.loading = true;
                     axios.post('/send-voucher-to-email', {email: result, voucher: voucher}).then((response)=>{
                         if(response.data['success']){
                         bootbox.alert({
                             title: 'Success',
-                            message:'Voucher ' + voucher + ' was successfully sent to' + result
+                            message:'Voucher ' + voucher + ' was successfully sent to' + result,
+                            callback(result){
+                                row.loading = false;
+                            }
                         });
                             vm.sendVouchers.push({id: id, email: result});
-                           box.modal('hide');
+                            box.modal('hide');
+                         }else{
+                             bootbox.alert({
+                                title: 'Oops!',
+                                message:'Something went wrong. We could not sent the voucher at this time. Please try again',
+                                callback(result){
+                                    row.loading = false;
+                                }
+                            });
                          }
                      });
                    }

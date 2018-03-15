@@ -3,7 +3,6 @@
         <div class="box-header with-border">
             <i class="fa fa-cogs"></i>
             <h1 class="box-title large-font">Vocation</h1>
-
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                 <i class="fa fa-minus"></i></button>
@@ -11,7 +10,7 @@
             </div>
         </div>
         <div class="box-body">
-            <doughnut-chart :chart-data="datacollection"></doughnut-chart>
+            <doughnut-chart id="chart" :chart-data="datacollection"></doughnut-chart>
         </div>
     </div>
 </template>
@@ -37,3 +36,11 @@
         }
     }
 </script>
+<style>
+@media only screen and (max-width: 480px) {
+    #chart{
+        max-width: 240px;
+    }
+}
+</style>
+

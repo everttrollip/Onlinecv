@@ -1,4 +1,5 @@
 <template>
+<div>
     <div class="box">
         <div class="box-header with-border">
             <i class="fa fa-map-signs"></i>
@@ -11,11 +12,12 @@
             </div>
         </div>
         <div class="box-body">
-            <div class="full-width box-title large-font primary-text-color" v-for="item in careerInterests" >
+            <div class="full-width box-title large-font primary-text-color" v-for="item in careerInterests" :key="item" >
                 {{item}}
             </div>
         </div>
     </div>
+</div>
 </template>
 
 <script>

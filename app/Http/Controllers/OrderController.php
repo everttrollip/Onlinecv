@@ -40,6 +40,7 @@ class OrderController extends Controller
             $now = Carbon::now();
             $now = $now ->toDateTimeString();
             for($i = 0; $i < $total_vouchers; $i++){
+                $success = false;
                 while(!$success){
                     $voucher = $this->generateRandomString(10);
                     $voucher_code = $admin->id . '#' . $voucher;

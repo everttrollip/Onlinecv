@@ -12,42 +12,56 @@
                             <div class="form-group">
                                 <label for="name" class="col-md-4 control-label">Name</label>
                                 <div class="col-md-6">
-                                    <input v-model="name" id="name" type="text" class="form-control" name="name"  required autofocus>
+                                    <input v-model="name" id="name" type="text" class="form-control" name="name" v-validate="'required|max:45'" autofocus>
+                                    <span v-show="errors.has('name')" class="help is-danger">{{ errors.first('name') }}</span>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="surname" class="col-md-4 control-label">Surname</label>
                                 <div class="col-md-6">
-                                    <input v-model="surname" id="surname" type="text" class="form-control" name="surname"  required autofocus>
+                                    <input v-model="surname" id="surname" type="text" class="form-control" name="surname" v-validate="'required|max:45'" autofocus>
+                                    <span v-show="errors.has('surname')" class="help is-danger">{{ errors.first('surname') }}</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group" v-if="role === 'hub'">
+                                <label for="password-confirm" class="col-md-4 control-label">Company Name</label>
+                                <div class="col-md-6">
+                                    <input v-model="company" id="company" type="text" class="form-control" name="company" v-validate="role=='hub' ? 'required|max:45' : ''">
+                                    <span v-show="errors.has('company')" class="help is-danger">{{ errors.first('company') }}</span>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="email" class="col-md-4 control-label">E-Mail Address</label>
                                 <div class="col-md-6">
-                                    <input v-model="email" id="email" type="email" class="form-control" name="email" required>
+                                    <input v-model="email" id="email" type="email" class="form-control" name="email" v-validate="'required|email'">
+                                    <span v-show="errors.has('email')" class="help is-danger">{{ errors.first('email') }}</span>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="password" class="col-md-4 control-label">Password</label>
                                 <div class="col-md-6">
-                                    <input v-model="password" id="password" type="password" class="form-control" name="password" required>
+                                    <input v-model="password" id="password" type="password" class="form-control" name="password" v-validate="'required|min:6|max:12'">
+                                    <span v-show="errors.has('password')" class="help is-danger">{{ errors.first('password') }}</span>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
                                 <div class="col-md-6">
-                                    <input v-model="passwordconfirm" id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                    <input v-model="passwordconfirm" id="password-confirm" type="password" class="form-control" name="password confirm"  v-validate="'required|min:6|max:12'">
+                                    <span v-show="errors.has('password confirm')" class="help is-danger">{{ errors.first('password confirm') }}</span>
                                 </div>
                             </div>
 
                             <div class="form-group" v-if="role === 'student'">
                                 <label for="password-confirm" class="col-md-4 control-label">Voucher Code</label>
                                 <div class="col-md-6">
-                                    <input v-model="voucher" id="voucher" type="voucher" class="form-control" name="voucher" required>
+                                    <input v-model="voucher" id="voucher" type="text" class="form-control" name="voucher"  v-validate="role=='student' ? 'required' : ''">
+                                    <span v-show="errors.has('voucher')" class="help is-danger">{{ errors.first('voucher') }}</span>
                                 </div>
                             </div>
 
@@ -77,11 +91,13 @@ export default {
       password:'',
       passwordconfirm:'',
       role: this.userrole,
+      company:'',
+      loading:false,
       voucher: '',
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     }
   },
-  props: ['userrole', 'loading'],
+  props: ['userrole'],
   created(){
       this.loading = false;
   },
@@ -92,37 +108,47 @@ export default {
     submit() {
         var vm = this;
         vm.loading = true;
-        if(this.role === 'student' && this.voucher === ''){
-                bootbox.alert({
-                    title:'Warning',
-                    message:'Cannot register without a voucher!'
-                });
-        }else if((this.role === 'student' && this.voucher != '') || (this.role === 'administrator') || (this.role === 'hub'))
-        {
-            axios.post('/registersubmit', this.$data).then((response)=>{
-                    if (response.data['success']) {
-                        bootbox.alert({
-                            title:'Notification',
-                            message:'You are successfully registered. Please check your email to activate your account.',
-                            callback: function(result) {
-                                window.location.href="/" ;
+        this.$validator.validateAll().then((result) => {
+            if(result){
+                if(this.password == this.passwordconfirm){
+                    axios.post('/registersubmit', this.$data).then((response)=>{
+                            if (response.data['success']) {
+                                bootbox.alert({
+                                    title:'Notification',
+                                    message:'You are successfully registered. Please check your email to activate your account.',
+                                    callback: function(result) {
+                                        window.location.href="/" ;
+                                    }
+                                });
                             }
+                            else if(response.data['voucher_exists'] === false && this.role != 'administrator'){
+                                bootbox.alert({
+                                    title:'Invalid Voucher',
+                                    message:'It seems that the voucher you have entered is invalid. Please check your voucher and try again. Contact us if the problem persists.'
+                                });
+                            }else{
+                                bootbox.alert({
+                                    title:'Notification',
+                                    message:'Something went wrong. We could not register you. Please try again or contact the administrators at info@onlinecv.co.za if the issue persists.'
+                                });
+                            }
+                            vm.loading = false;
                         });
-                    }
-                    else if(response.data['voucher_exists'] === false){
-                        bootbox.alert({
-                            title:'Invalid Voucher',
-                            message:'It seems that the voucher you have entered is invalid. Please check your voucher and try again. Contact us if the problem persists.'
-                        });
-                    }else{
-                        bootbox.alert({
-                            title:'Notification',
-                            message:'Something went wrong. We could not register you. Please try again or contact the administrators at info@onlinecv.co.za if the issue persists.'
-                        });
-                    }
-                      vm.loading = false;
+                }else{
+                    vm.loading = false;
+                    bootbox.alert({
+                        title:'Passwords doesn\'t match',
+                        message:'Passwords entered are not the same. Please ensure both password fields contains the same password.'
+                    });
+                }
+            }else{
+                vm.loading = false;
+                bootbox.alert({
+                    title:'Some fields are required',
+                    message:'Please make sure all required fields are completed before registering.'
                 });
-        }
+            }
+        });
     },//end submit
 }
 }

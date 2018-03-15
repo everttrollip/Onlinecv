@@ -38,8 +38,8 @@ class VoucherController extends Controller
     //Return buy proce for admin - get price for admin
     public function getPriceForAdmin(){
         $user = Auth::user();
-        if($user->role === 'administrator'){
-            $admin = User::where('id', '=', $user->id)->first();
+        if($user->role == 'administrator'){
+            $admin = Administrator::where('user_id', '=', $user->id)->first();
             $voucher_price = DB::table('voucher_prices')->where('admin_id','=',$admin->id)->get();
             return $voucher_price;
         }

@@ -7,7 +7,11 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="/images/{{Auth::User()->role}}/{{Auth::User()->avatar}}" height="160px" class="img-circle" alt="User Image">
+            @if(Auth::user()->avatar)
+                <img src="/storage/images/{{Auth::User()->role}}/{{Auth::User()->avatar}}" height="160px" class="img-circle" alt="User Image">
+            @else
+                <img src="http://www.microhub.co.za/wp-content/uploads/2018/02/no-image.jpeg" height="160px" class="img-circle" alt="User Image">
+            @endif
         </div>
         <div class="pull-left info">
           <p>{{ Auth::user()->name }}</p>

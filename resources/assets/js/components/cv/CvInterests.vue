@@ -10,8 +10,8 @@
                 <i class="fa fa-pencil-square-o"></i>
             </div>
         </div>
-        <div class="box-body flex-container-row">
-            <div class="box-text" v-for="(interest, index) in generalInterests">
+        <div class="box-body">
+            <div class="box-text" v-for="(interest, index) in generalInterests" :key="index">
                 <span v-if="index == generalInterests.length - 1">{{ interest }}</span>
                 <span v-if="index != generalInterests.length - 1">{{ interest }},&nbsp;</span>
             </div>
@@ -41,8 +41,8 @@
 </script>
 
 <style lang="scss" scoped>
-    .flex-container-row {
-        justify-content: flex-start;
+    .box-body {
+        text-align:lef;
     }
 </style>
 

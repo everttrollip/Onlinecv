@@ -35,19 +35,40 @@
                         {{column.label}}
                     </th>
                     <th>Message</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)">
                     <td v-for="column in columns" :class="column.numeric ? 'numeric' : ''">
-                        <p v-if="column.field == 'reviewed' && requireReview(row.student_id)"><button class="btn btn-warning" v-on:click="review(tow.student_id)"> Review Now</button></p>
+                        <p v-if="column.field == 'reviewed' && requireReview(row.student_id)"><button class="btn btn-warning" v-on:click="review(row.student_id)"> Review Now</button></p>
                         <p v-if="column.field == 'reviewed' && !requireReview(row.student_id)">No</p>
                         <p v-if="column.field != 'reviewed' && column.field != 'user_using_voucher'">{{ collect(row, column.field) }}</p>
                     </td>
                         <td>
-                            <button  class="btn btn-info" v-on:click="message(row.student_id)">
+                            <button  class="btn btn-info" v-on:click="message(row)">
                               Message
                             </button>
+                        </td>
+                        <td>
+                            <button id="actionButton" class="btn btn-default" v-on:click="popUpQuickView(row)">Quick View</button>
+                            <el-dialog
+                                :title="'Quick View - ' + quickViewStudent.firstname + ' ' + quickViewStudent.lastname "
+                                :visible.sync="dialogVisible"
+                                width="25%"
+                                :before-close="handleClose">
+                                <div style="width:100%; text-align:center;">
+                                    <img style="padding:auto; margin:auto;" :src="quickViewStudent.avatar">
+                                </div>
+                                <div style="width:100%; text-align:center;">
+                                    <h4>Student Details</h4>
+                                    <p><strong>School:</strong> {{quickViewStudent.school}}</p>
+                                    <p><strong>Town:</strong> {{quickViewStudent.town}}</p>
+                                    <p><strong>Subjects:</strong> {{quickViewStudent.subjects}}</p>
+                                    <p><strong>Career Interests:</strong> {{quickViewStudent.career_interests}}</p>
+                                </div>
+                                </el-dialog>
+                            <button id="actionButton" class="btn btn-info" v-on:click="viewStudent(row)">View</button>
                         </td>
                 </tr>
             </tbody>
@@ -89,7 +110,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <button type="button" class="close" @click="showMessageModal = false" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="myModalLabel">Message</h4>
         </div>
         <div class="modal-body">
@@ -97,7 +118,12 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                           <textarea class="form-control" v-model="message_to_send"></textarea>
+                            <label class="control-label">Subject</label>
+                            <input class="form-control" v-model="subj" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Message</label>
+                           <textarea class="form-control" v-model="message_body"></textarea>
                         </div>
                     </div>
                 </div>
@@ -158,8 +184,19 @@ export default {
             searchInput: '',
             processing: false,
             showMessageModal:false,
-            message_to_send:'',
-            message_student_id:'',
+            message_body:'',
+            subj:'',
+            student:'',
+            dialogVisible: false,
+            quickViewStudent:{
+                firstname:'',
+                lastname:'',
+                avatar:'',
+                school:'',
+                town:'',
+                subjects:'',
+                career_interests:'',
+             }
         }
     },
 
@@ -267,13 +304,13 @@ export default {
             else
                 return undefined;
         },
-        message(student_id){
+        message(student){
             this.showMessageModal = true;
-            this.message_student_id = student_id
+            this.student = student
         },
         send(){
             var vm = this;
-            axios.post('/send-message-to-student', {message: this.message_to_send, student_id: this.message_student_id}).then((response)=>{
+            axios.post('/send-message-to-student', {message: this.message_body, title: this.subj, student: this.student}).then((response)=>{
                 vm.showMessageModal = false;
                 if(response.data['success']){
                     bootbox.alert({
@@ -285,7 +322,8 @@ export default {
             vm.message_to_send = '';
         },
         review(student_id){
-
+            var url = '/review/' + student_id;
+            window.location = url;
         },
         requireReview(id){
             var flag = false;
@@ -295,6 +333,22 @@ export default {
                 }
             }
             return flag;
+        },
+        viewStudent(student){
+            var url = '/view-student-cv/' + student['student_id'];
+            window.location = url;
+        },
+        popUpQuickView(row){
+           this.dialogVisible = true;
+           this.quickViewStudent = {
+               firstname : row.firstname,
+               lastname : row.lastname,
+               avatar : '/images/student/' + row.avatar,
+               school: row.school,
+               town: row.town,
+               subjects:row.subjects,
+               career_interests: row.career_interests,
+           }
         }
     },
 
@@ -341,6 +395,11 @@ export default {
 }
 </script>
 <style scoped>
+#actionButton{
+    min-width: 100px;
+    margin-bottom:4px;
+}
+
 div.material-table {
     padding: 0;
 }

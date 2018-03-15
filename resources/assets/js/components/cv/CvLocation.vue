@@ -1,4 +1,5 @@
 <template>
+<div>
     <div class="box">
         <div class="box-header with-border">
             <i class="fa fa-map-marker"></i>
@@ -15,6 +16,7 @@
             </div>
         </div>
     </div>
+</div>
 </template>
 
 <script>

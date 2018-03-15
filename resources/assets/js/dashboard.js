@@ -13,6 +13,7 @@ Vue.use(VueFormWizard)
 
 Vue.component('dashboard-header', require('./components/dashboard/DashboardHeader.vue'));
 Vue.component('dashboard-getting-started', require('./components/dashboard/DashboardGettingStarted.vue'));
+Vue.component('student-messages-header', require('./components/students/HeaderMessages.vue'));
 
 new Vue({
     el: '#dashboard',

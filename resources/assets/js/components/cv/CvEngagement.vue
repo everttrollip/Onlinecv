@@ -1,4 +1,5 @@
 <template>
+<div>
     <div class="box">
         <div class="box-header with-border">
             <i class="fa fa-link"></i>
@@ -29,9 +30,10 @@
                 <label class="primary" v-show="!editable">Events</label>
                 <input class="form-control" v-show="editable" v-model="events" type="number" min="0" max="10">
             </div>
-            <horizontal-bar-chart :data="data"></horizontal-bar-chart>
+            <horizontal-bar-chart id="chart" :data="data"></horizontal-bar-chart>
         </div>
     </div>
+</div>
 </template>
 
 <script>
@@ -122,6 +124,13 @@
         // border: 2px solid blue;
         font-size: 24px;
     }
+
+@media only screen and (max-width: 480px) {
+    #chart{
+        max-width: 240px;
+    }
+}
+
 </style>
 
 

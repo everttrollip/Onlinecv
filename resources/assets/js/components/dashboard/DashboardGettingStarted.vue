@@ -1,4 +1,5 @@
 <template>
+<div class="col-md-12 col-xs-12">
     <form-wizard @on-complete="submit"
                 :start-index.sync="activeIndex"
                 shape="circle"
@@ -24,17 +25,19 @@
         <tab-content title="Profile"
                     icon="fa fa-user">
 
-            <div class="body-of-tab flex-container-column profile-step">
+            <div class="body-of-tab profile-step col-md-12 col-xs-12">
                 <h2>Update your Profile!</h2>
                 <div class="thumbnail-image" v-on:mouseover="profileStepMouseOver" v-on:mouseleave="profileStepMouseLeave">
                     <img class="thumbnail blur" v-bind:class="{'blur-heavy': profileUpdated}" :src="profileImage">
-                    <a type="button" :href="profilehref" v-show="!profileUpdated" class="btn btn-primary navigate">
-                        Update now!
-                    </a>
-                    <a type="button" :href="profilehref" v-show="profileUpdated" class="btn btn-primary navigate">
-                        Update
-                    </a>
-                    <i class="fa fa-check-circle" aria-hidden="true" v-show="profileUpdated"></i>
+                        <div class="submit">
+                            <a type="button" :href="profilehref" v-show="!profileUpdated" class="btn btn-primary navigate">
+                                Update now!
+                            </a>
+                            <a type="button" :href="profilehref" v-show="profileUpdated" class="btn btn-primary navigate">
+                                Update
+                            </a>
+                        </div>
+                    <i id="check" class="fa fa-check-circle" aria-hidden="true" v-show="profileUpdated"></i>
                 </div>
                 <h3 v-show="profileUpdated">Great stuff!</h3>
                 <h4 v-show="profileUpdated">Your profile was successfully updated. Feel free to update it again at any stage by clicking the update button!</h4>
@@ -42,30 +45,36 @@
 
         </tab-content>
 
-        <tab-content title="CV"
+        <tab-content class="col-md-12 col-xs-12" title="CV"
                     icon="fa fa-cogs">
 
-            <div class="body-of-tab flex-container-column cv-step">
+            <div class="body-of-tab cv-step col-md-12 col-xs-12">
                 <h2>View and Edit your CV!</h2>
-                <div class="thumbnail-image" v-on:mouseover="cvStepMouseOver" v-on:mouseleave="cvStepMouseLeave">
+                <div class="thumbnail-image col-md-12 col-xs-12" v-on:mouseover="cvStepMouseOver" v-on:mouseleave="cvStepMouseLeave">
                     <img class="thumbnail blur" v-bind:class="{'blur-heavy': cvSubmitted}" :src="cvImage">
-                    <a type="button" :href="cvhref" v-show="!cvSubmitted" class="btn btn-primary navigate">
-                        View/Edit now!
-                    </a>
-                    <button type="button" v-on:click="submit()" v-show="!cvSubmitted" class="btn btn-primary submit">
-                        <i v-show="loading" class="fa fa-spinner fa-spin"></i> Submit
-                    </button>
-                    <i class="fa fa-lock" aria-hidden="true" v-show="cvSubmitted"></i>
+                    <div class="edit-submit">
+                        <a type="button" :href="cvhref" v-show="!cvSubmitted" class="btn btn-primary ">
+                            View/Edit now!
+                        </a>
+                        <button type="button" v-on:click="submitCV()" v-show="!cvSubmitted" class="btn btn-primary">
+                            <i v-show="loading" class="fa fa-spinner fa-spin"></i> Submit
+                        </button>
+                    </div>
+                    <i id="lock" class="fa fa-lock" aria-hidden="true" v-show="cvSubmitted"></i>
                 </div>
                 <h3 v-show="cvSubmitted">Nice one!</h3>
-                <h4 v-show="cvSubmitted">Your CV has been successfully submitted to the administrators.</h4>
+                <div v-show="cvSubmitted">
+                    <h4>Your CV has been successfully submitted to the administrators.</h4>
+                    <h4 v-if="cvSubmissionActioned">Status: <span style="color:green">Actioned</span></h4>
+                    <h4 v-else>Status: <span style="color:red">Pending</span></h4>
+                </div>
             </div>
 
         </tab-content>
 
         <tab-content title="That's it!"
                     icon="fa fa-check">
-            <div class="body-of-tab flex-container-column">
+            <div class="body-of-tab col-md-12">
                 <h2>That's it! Well done</h2>
                 <lottie v-if="activeIndex == 2"
                     :options="defaultOptions"
@@ -76,7 +85,7 @@
         </tab-content>
 
     </form-wizard>
-
+</div>
 </template>
 
 <script>
@@ -109,7 +118,8 @@
                 cvhref: '/student/cv',
                 profilehref: '/profile/',
                 userId: -1,
-                loading: false
+                loading: false,
+                cvSubmissionActioned:false,
             }
         },
         mounted() {
@@ -121,6 +131,12 @@
                     this.profileStepBlur = true;
                 }
                 this.cvSubmitted = result.data.cv_submitted;
+                if(this.cvSubmitted){
+                    var vm = this;
+                    axios.get('/student/get-my-cv-submission').then((response)=>{
+                        vm.cvSubmissionActioned = response.data['actioned'];
+                    });
+                }
             });
         },
         components: {
@@ -152,9 +168,28 @@
                     this.cvStepBlur = false;
                 }
             },
-            submit() {
+            submitCV() {
                 this.loading = true;
-                this.cvSubmitted = true;
+                var vm = this;
+                axios.get('/student/submit-cv').then((response)=>{
+                    if(response.data['success']){
+                        vm.cvSubmitted = true;
+                    }else{
+                        bootbox.alert({
+                            title:'Oops!',
+                            message:'Something went wrong. We could not submit your CV at this time. Please try again'
+                        });
+                    }
+                }).catch((error)=>{
+                    bootbox.alert({
+                            title:'Oops!',
+                            message:'Something went wrong. We could not submit your CV at this time. Please try again'
+                        });
+                })
+            },
+            submit(){
+                var url = '/student/cv';
+                window.location = url;
             }
         }
     }
@@ -177,13 +212,14 @@
         // border: 2px solid blue;
         justify-content: center;
         align-items: center;
+        text-align:center;
     }
 
     .profile-step, .cv-step {
         i.fa {
             font-size: 80px;
             position: absolute;
-            bottom: 40px;
+            bottom: 100px;
             right: 45%;
         }
     }
@@ -197,6 +233,8 @@
             border: 3px solid $light-border;
             max-width: 800px;
             overflow: hidden;
+            padding:auto;
+            margin:auto;
         }
     }
 
@@ -210,14 +248,21 @@
         // border: 2px solid green;
         position: absolute;
         bottom: 40px;
-        right: 40px;
+        right: 45%;
+        margin-left:15px;
     }
 
     .submit {
         // border: 2px solid green;
         position: absolute;
+        bottom: 10px;
+        right: 45%;
+    }
+
+    .edit-submit{
+        position: absolute;
         bottom: 40px;
-        right: 180px;
+        right: 45%;
     }
 
     .blur {
@@ -227,6 +272,83 @@
     .blur-heavy {
         filter: blur(5px);
     }
+
+@media only screen and (max-width: 768px) {
+
+    .tab-content {
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 100%;
+    }
+
+    .tab-container {
+        height: 100%;
+    }
+
+    .body-of-tab {
+        justify-content: center;
+        align-items: center;
+        text-align:center;
+    }
+
+   #lock{
+            font-size: 80px;
+            position: absolute;
+            bottom: 40px;
+            right: 35%;
+        }
+
+    #check{
+                font-size: 80px;
+                position: absolute;
+                bottom: 120px;
+                right: 35%;
+            }
+
+    .thumbnail-image {
+        // border: 2px solid red;
+        padding-top: 10px;
+        position: relative;
+        text-align: center;
+
+        img {
+            border: 3px solid $light-border;
+            max-width: 450px;
+            overflow: hidden;
+            padding:auto;
+            margin:auto;
+        }
+    }
+
+    .thumbnail-image:hover {
+        img {
+            border: 3px solid $light-border;
+        }
+    }
+
+    .submit {
+        // border: 2px solid green;
+        position: absolute;
+        bottom: 20px;
+        right: 35%;
+    }
+
+    .edit-submit{
+        position: absolute;
+        bottom: 40px;
+        right: 10%;
+        padding:10px;
+    }
+
+    .blur {
+        filter: blur(2px);
+    }
+
+    .blur-heavy {
+        filter: blur(5px);
+    }
+
+}
 </style>
 
 

@@ -68,14 +68,14 @@
 
                     <div class="form-group" v-bind:class="{ 'has-error': $v.email.$error }">
                         <label class="control-label">Email</label>
-                        <input v-bind:value="email" v-model="email" class="form-control" placeholder="Email" name="email" @input="$v.email.$touch()">
+                        <input  v-model="email" class="form-control" placeholder="Email" name="email" @input="$v.email.$touch()">
                         <span class="help-block" v-if="$v.email.$error && !$v.email.required">Email is required</span>
                         <span class="help-block" v-if="$v.email.$error && !$v.email.email">This is not a valid email!</span>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label">Mobile Number</label>
-                        <input v-bind:value="contact" v-model="contact" class="form-control" placeholder="Mobile Number" name="contact">
+                        <input v-model="contact" class="form-control" placeholder="Mobile Number" name="contact">
                     </div>
                 </div>
 
@@ -301,7 +301,7 @@
 
 </template>
 <script>
-    import { required,email } from 'vuelidate/lib/validators'
+    import { required, email } from 'vuelidate/lib/validators'
     import myUpload from 'vue-image-crop-upload';
     import Lottie from 'vue-lottie';
     import animationData from './../../../animation.js'
@@ -480,7 +480,7 @@
                     function (response) {
                         bootbox.alert({
                             title:'Notification',
-                            message:'You\'re profile was successfully updated.',
+                            message:'Your profile was successfully updated.',
                             callback: function(){
                                 window.location.href = '/student/dashboard';
                             }

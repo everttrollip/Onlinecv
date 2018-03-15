@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\Enquiry;
 use App\Student;
 use App\Administrator;
+use App\Hub;
 
 
 class HomeController extends Controller
@@ -44,7 +45,8 @@ class HomeController extends Controller
             $user_row = Student::where('user_id', '=', $user->id)->first();
             return view('student.profile')->with('user', $user_row);
         }else if($user->role === 'hub'){
-
+            $user_row = Hub::where('user_id', '=', $user->id)->first();
+            return view('hub.profile')->with('user', $user_row);
         }
     }
 
@@ -61,4 +63,5 @@ class HomeController extends Controller
         Mail::to('it@microhub.co.za')->send(new Enquiry($user, $enquiry, $subject));
         return array('success' => true);
     }
+
 }

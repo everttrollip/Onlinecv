@@ -8385,3 +8385,7 @@ button.close {
   /*Edge, Firefox 22, Safari 9, Chrome 29, IE 11, Opera 12.1*/
 }
 
+.content-header {
+  color: #636b6f;
+}
+

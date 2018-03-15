@@ -51,12 +51,14 @@
             <profile-header></profile-header>
 
             <!-- Main content -->
-            <section class="content">
+            <section class="content container-fluid">
+            <div class="row">
                 <div class="box-body col-md-12">
                     <studentprofile role="student">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     </studentprofile>
                 </div>
+            </div>
             </section>
         </div>
     </div>
