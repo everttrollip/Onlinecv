@@ -1,12 +1,4 @@
-@if(Auth::user()->role ==='administrator')
-  @extends('administrator.master')
-@endif
-{{--  @if(Auth::user()->role ==='hub')
-  @extends('hub.master')
-@endif  --}}
-{{--  @if(Auth::user()->role ==='student')
-  @extends('student.master')
-@endif  --}}
+@extends(((Auth::user()->role == 'hub'))? 'hub.master': ((Auth::user()->role == 'administrator') ? 'administrator.master' : 'student.master'));
 
 @section('content')
 <section class="content-header">

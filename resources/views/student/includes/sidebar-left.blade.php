@@ -7,7 +7,11 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="/images/student/{{Auth::User()->avatar}}" height="160px" class="img-circle" alt="User Image">
+            @if(Auth::user()->avatar)
+                <img src="/storage/images/{{Auth::User()->role}}/{{Auth::User()->avatar}}" height="160px" class="img-circle" alt="User Image">
+            @else
+                <img src="http://www.microhub.co.za/wp-content/uploads/2018/02/no-image.jpeg" height="160px" class="img-circle" alt="User Image">
+            @endif
         </div>
         <div class="pull-left info">
           <p>{{ Auth::user()->name }}</p>
@@ -34,16 +38,16 @@
         </li>
          <li>
           <a href="/student/cv">
-            <i class="fa fa-user"></i> <span> Visual CV</span>
+            <i class="fa fa-file-o"></i> <span> Visual CV</span>
           </a>
         </li>
         <li>
-          <a href="/endorsements">
-            <i class="fa fa-check-square-o"></i> <span> Endorsements</span>
+          <a href="/student/credits">
+            <i class="fa fa-ticket"></i> <span> Credits</span>
           </a>
         </li>
         <li>
-          <a href="/messages">
+          <a href="/my-inbox">
             <i class="fa fa-envelope"></i> <span> Messages</span>
           </a>
         </li>
@@ -56,10 +60,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../"><i class=""></i> Reference Letters</a></li>
-            <li><a href="../charts/morris.html"><i class=""></i> Morris</a></li>
-            <li><a href="../charts/flot.html"><i class=""></i> Flot</a></li>
-            <li><a href="../charts/inline.html"><i class=""></i> Inline charts</a></li>
+            <li><a href="../student/uploads"><i class=""></i> My Uploads</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -77,7 +78,12 @@
           </ul>
         </li>
         <li>
-          <a href="contact">
+          <a href="/student/my-administrator">
+            <i class="fa fa-user"></i> <span> My Administrator</span>
+          </a>
+        </li>
+        <li>
+          <a href="/contact">
             <i class="fa fa-phone-square"></i> <span> Contact Us</span>
           </a>
         </li>

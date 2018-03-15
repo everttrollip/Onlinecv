@@ -19,3 +19,7 @@
     // border: 2px solid blue;
     @include flexbox-container(column, wrap, space-between);
 }
+
+.content-header{
+    color: $text-color;
+}

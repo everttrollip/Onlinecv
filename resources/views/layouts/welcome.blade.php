@@ -87,41 +87,24 @@
                     {{--  <a id="register" href="/register">Register</a>  --}}
                 </div>
                 <!-- Modal -->
-<div id="registermodal" class="modal fade in show"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Register as</h4>
-      </div>
-      <div class="modal-body">
-            <a href="/register/student"><button class="btn btn-primary" style="width:150px;">Student</button></a>
-            <a href="/register/administrator"></a><button class="btn btn-warning" style="width:150px;">Administrator</button></a>
-            <a href="/register/hub"></a><button class="btn btn-info" style="width:150px;">Hub</button></a>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default"  data-dismiss="modal">Close</button>
-      </div>
-    </div>
-   </div>
-               {{-- <div id="registermodal" class="modal fade" role="dialog" style="margin-top:20%">
-                    <div class="modal-dialog">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Please select the user type you want to register as:</h4>
-                        </div>
-                        <div class="modal-body">
-                           <a href="/register/student"><button class="btn btn-primary" style="width:150px;">Student</button></a>
+                <div id="registermodal" class="modal fade in show"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Register as</h4>
+                    </div>
+                    <div class="modal-body">
+                            <a href="/register/student"><button class="btn btn-primary" style="width:150px;">Student</button></a>
                             <a href="/register/administrator"></a><button class="btn btn-warning" style="width:150px;">Administrator</button></a>
-                           <a href="/register/hub"></a><button class="btn btn-info" style="width:150px;">Hub</button></a>
-                        </div>
+                            <a href="/register/hub"></a><button class="btn btn-info" style="width:150px;">Hub</button></a>
                         </div>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"  data-dismiss="modal">Close</button>
+                    </div>
+                    </div>
                 </div>
-            </div>  --}}
         </div>
 <!-- Scripts -->
 <script src="adminlte/bower_components/jquery/dist/jquery.min.js"></script>

@@ -27,7 +27,7 @@
                 <th class="small-12 large-12 columns first last"><table><tr><th>
 
                 <p class="lead">Hi there {{$user->firstname}}!</p>
-                <p style="color: #484848; line-height: 1.5;">We've received your voucher order from <a href="http://onlinecv.link">OnlineCV!</a>
+                <p style="color: #484848; line-height: 1.5;">We have received your voucher order from <a href="http://onlinecv.link">OnlineCV!</a>
                 To activate your vouchers please pay the outstanding amount via EFT</p>
                 <table class="spacer"><tbody><tr><td height="24px" style="font-size:24px;line-height:24px;">&#xA0;</td></tr></tbody></table>
 

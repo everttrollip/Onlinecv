@@ -30,6 +30,18 @@ Vue.component('cv-post-school', require('./components/cv/CvPostSchool.vue'));
 Vue.component('cv-career-interests', require('./components/cv/CvCareerInterests.vue'));
 
 // ACHIEVEMENTS
+Vue.component('cv-achievements', require('./components/cv/CvAchievements.vue'));
+Vue.component('cv-edit-achievements', require('./components/cv/CvEditAchievements.vue'));
+
+//ADMIN
+Vue.component('admin-tasks-header', require('./components/administrators/HeaderTasks.vue'));
+Vue.component('admin-notifications-header', require('./components/administrators/HeaderNotifications.vue'));
+
+//UPLOADS
+Vue.component('uploads', require('./components/students/Uploads.vue'));
+
+//CV PUBLIC
+Vue.component('view-student-cv', require('./components/cv/cvViewStudentCV.vue'));
 
 const app = new Vue({
     el: '#cv',

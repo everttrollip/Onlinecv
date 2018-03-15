@@ -42,8 +42,10 @@
                 <dashboard-header></dashboard-header>
 
                 <!-- Main content -->
-                <section class="content">
-                    <dashboard-getting-started></dashboard-getting-started>
+                <section class="content container-fluid">
+                    <div class="row">
+                        <dashboard-getting-started></dashboard-getting-started>
+                    </div>
                 </section>
             </div>
 

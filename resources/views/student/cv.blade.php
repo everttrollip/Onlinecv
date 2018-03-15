@@ -7,7 +7,7 @@
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-        <title>Laravel</title>
+        <title>Online CV</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -45,30 +45,26 @@
                     </ol>
                 </section>
 
-                <section class="content">
-                    <cv-header v-bind:student="student"></cv-header>
-
-                    <div class="introduction">
-                        <div class="cv-left-column">
+                <section class="container-fluid">
+                        <cv-header v-bind:student="student"></cv-header>
+                        <div class="col-md-6 col-xs-12">
                             <cv-location v-bind:student="student"></cv-location>
                             <cv-engagement></cv-engagement>
                             <cv-interests></cv-interests>
                         </div>
-                        <div class="cv-right-column">
+                        <div class="col-md-6 col-xs-12">
                             <cv-summary v-bind:student="student"></cv-summary>
                             <cv-experience v-bind:student="student"></cv-experience>
                             <cv-vocation></cv-vocation>
                             <cv-post-school></cv-post-school>
                             <cv-career-interests></cv-career-interests>
                         </div>
-                    </div>
-
-                    <div class="achievements">
-                        <h1>Achievements</h1>
-                        <p>Coming soon!</p>
+                    <div class="achievements col-md-12 col-xs-12">
+                        <cv-achievements></cv-achievements>
                     </div>
                 </section>
             </div>
+        </div>
 
             @include('student.includes.footer')
         </div>

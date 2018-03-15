@@ -4,11 +4,11 @@
     }
 </style>
 <template>
-    <div>
-        <div class="row">
+    <div style="margin-top:25px">
+        <div class="col-md-12" id="btnBuy">
             <button class="btn btn-success pull-right" v-on:click="buyVoucherModal=true">Buy Vouchers</button>
-        </div>
-        <datatable id="datatable" :columns="columns" :rows="voucher_list" :users="users"></datatable>
+         </div>
+    <datatable id="datatable" :columns="columns" :rows="voucher_list" :users="users"></datatable>
 <!-- Modal Start-->
     <div v-if="buyVoucherModal" class="modal fade in show"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -20,8 +20,12 @@
             <div class="modal-body">
                 <form ref="voucherForm">
                     <div class="form-group">
-                        <label class="control-label">Please Select Total Vouchers You'd like to Purchase</label>
-                        <span><input type="text" v-model="totalvouchers"><button type="button" v-on:click="increment"><i class="fa fa-arrow-up"></i></button><button type="button" v-on:click="decrement"><i class="fa fa-arrow-down"></i></button></span>
+                        <label class="control-label">Please select the total vouchers you'd like to purchase</label>
+                        <span>
+                            <input type="text" v-model="totalvouchers">
+                            <button type="button" v-on:click="increment"><i class="fa fa-arrow-up"></i>
+                            </button><button type="button" v-on:click="decrement"><i class="fa fa-arrow-down"></i></button>
+                        </span>
                     </div>
                     <div class="form-group">
                         <p>Amount: {{voucher_price}} x {{totalvouchers}} <h4> Total = R {{voucher_price*totalvouchers}}</h4></p>
@@ -43,13 +47,32 @@ import DataTable from '../plugins/VoucherDataTable.vue';
 export default {
  created(){},
  mounted(){
-     this.voucher_list = JSON.parse(this.vouchers);
+     var voucherdata = JSON.parse(this.vouchers);
+
      axios.get('/users').then((response)=>{
-         this.users = response.data;
+         this.users = response.data();
      });
+
+        voucherdata.forEach(element => {
+             var voucher = {
+                active: element.active,
+                admin_id: element.admin_id,
+                created_at:element.created_at,
+                id: element.id,
+                order_id:element.order_id,
+                payment_status: element.payment_status,
+                updated_at: element.updated_at,
+                user_using_voucher: element.user_using_voucher,
+                voucher: element.voucher,
+                loading: false,
+             }
+             this.voucher_list.push(voucher);
+         });
+
      axios.get('/get-voucher-price-for-admin').then((response)=>{
          this.voucher_price = response.data[0]['price'];
      });
+
  },
  components:{
      datatable : DataTable
@@ -77,12 +100,6 @@ export default {
                      html: false,    // Escapes output if false.
                 },
                 {
-                    label: 'In Use By',  // Column name
-                    field: 'user_using_voucher',  // Field name from row
-                    numeric: false, // Affects sorting
-                    html: false,    // Escapes output if false.
-                },
-                {
                     label: 'Date Generated',  // Column name
                     field: 'created_at',  // Field name from row
                     numeric: false, // Affects sorting
@@ -92,7 +109,13 @@ export default {
                     label: 'Payment Status',  // Column name
                     field: 'payment_status',  // Field name from row
                     numeric: false, // Affects sorting
-                     html: false,    // Escapes output if false.
+                    html: false,    // Escapes output if false.
+                },
+                {
+                    label: 'Loading',  // Column name
+                    field: 'loading',  // Field name from row
+                    numeric: false, // Affects sorting
+                    html: false,    // Escapes output if false.
                 },
          ]
      }
@@ -129,4 +152,3 @@ export default {
  }
 }
 </script>
-

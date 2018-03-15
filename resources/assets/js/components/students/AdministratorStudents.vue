@@ -61,7 +61,7 @@ export default {
                 {
                     label: 'Name',  // Column name
                     field: 'firstname',  // Field name from row
-                    numeric: true, // Affects sorting
+                    numeric: false, // Affects sorting
                     html: false,    // Escapes output if false.
                 },
                 {
@@ -69,6 +69,18 @@ export default {
                     field: 'lastname',  // Field name from row
                     numeric: false, // Affects sorting
                     html: false,    // Escapes output if false.
+                },
+                {
+                    label: 'School',  // Column name
+                    field: 'school',  // Field name from row
+                    numeric: false, // Affects sorting
+                    html: false,    // Escapes output if false.
+                },
+                {
+                    label:'Town/City',
+                    field:'town',
+                    numeric:false,
+                    html:false
                 },
                 {
                     label: 'Require Review',  // Column name
